@@ -1,0 +1,5215 @@
+{
+  "contractVersion": "1.0.0",
+  "evaluationDate": "2026-07-10",
+  "executionMode": "dry-run",
+  "model": "gpt-5.6-sol",
+  "provider": "openai",
+  "seed": null,
+  "scenarios": [
+    {
+      "contractVersion": "1.0.0",
+      "evaluationDate": "2026-07-10",
+      "executionMode": "dry-run",
+      "model": "gpt-5.6-sol",
+      "provider": "openai",
+      "seed": null,
+      "scenarioId": 1,
+      "attempt": 1,
+      "toolCalls": [
+        {
+          "operationId": "context-1",
+          "tool": "get_quiz_authoring_context",
+          "arguments": {},
+          "result": {
+            "simulated": true,
+            "knownTarget": null,
+            "supportedStepKinds": [
+              "intro",
+              "question",
+              "capture",
+              "result"
+            ],
+            "supportedComponentTypes": [
+              "text",
+              "button",
+              "options",
+              "form"
+            ]
+          }
+        },
+        {
+          "operationId": "create-funnel-1",
+          "tool": "create_blank_funnel",
+          "arguments": {
+            "name": "Quiz de interesse em consultoria nutricional",
+            "slug": "interesse-consultoria-nutricional"
+          },
+          "result": {
+            "simulated": true,
+            "funnelId": "dryrun-funnel-1",
+            "version": 1
+          }
+        },
+        {
+          "operationId": "apply-presets-1",
+          "tool": "update_funnel_global_presets",
+          "arguments": {
+            "funnelId": "dryrun-funnel-1",
+            "version": 1,
+            "replaceTheme": false,
+            "replaceSettings": false,
+            "theme": {
+              "colors": {
+                "primary": "#344054",
+                "primaryText": "#ffffff",
+                "background": "#f8f9fb",
+                "text": "#182230",
+                "border": "#d0d5dd"
+              },
+              "layout": {
+                "containerMaxWidth": "448px",
+                "contentMaxWidth": "448px",
+                "pagePaddingX": "16px"
+              },
+              "header": {
+                "enabled": true,
+                "showProgress": true,
+                "showBackButton": true,
+                "contentType": "text",
+                "content": "CONSULTA GUIADA",
+                "backgroundColor": "#344054",
+                "textColor": "#ffffff",
+                "progressColor": "#667085"
+              },
+              "form": {
+                "fieldHeight": "52px",
+                "fieldBorderRadius": "10px",
+                "fieldBorderColor": "#d0d5dd",
+                "fieldFocusBorderColor": "#344054",
+                "fieldBackgroundColor": "#ffffff",
+                "fieldTextColor": "#182230",
+                "labelColor": "#182230"
+              }
+            }
+          },
+          "result": {
+            "simulated": true,
+            "funnelId": "dryrun-funnel-1",
+            "version": 2
+          }
+        },
+        {
+          "operationId": "schema-text-1",
+          "tool": "get_component_schema",
+          "arguments": {
+            "componentType": "text"
+          },
+          "result": {
+            "simulated": true,
+            "componentType": "text",
+            "requiredSettings": [
+              "content"
+            ],
+            "themeBehavior": "inherits"
+          }
+        },
+        {
+          "operationId": "schema-button-1",
+          "tool": "get_component_schema",
+          "arguments": {
+            "componentType": "button"
+          },
+          "result": {
+            "simulated": true,
+            "componentType": "button",
+            "requiredSettings": [
+              "text",
+              "actionType"
+            ],
+            "themeBehavior": "inherits"
+          }
+        },
+        {
+          "operationId": "schema-options-1",
+          "tool": "get_component_schema",
+          "arguments": {
+            "componentType": "options"
+          },
+          "result": {
+            "simulated": true,
+            "componentType": "options",
+            "requiredSettings": [
+              "items",
+              "autoAdvance",
+              "multiSelect"
+            ],
+            "themeBehavior": "partial"
+          }
+        },
+        {
+          "operationId": "schema-form-1",
+          "tool": "get_component_schema",
+          "arguments": {
+            "componentType": "form"
+          },
+          "result": {
+            "simulated": true,
+            "componentType": "form",
+            "requiredSettings": [
+              "fields"
+            ],
+            "themeBehavior": "inherits"
+          }
+        },
+        {
+          "operationId": "append-steps-1",
+          "tool": "append_quiz_steps",
+          "arguments": {
+            "funnelId": "dryrun-funnel-1",
+            "version": 2,
+            "steps": [
+              {
+                "kind": "intro",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "Encontre um ponto de partida para organizar sua alimentacao.",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "button",
+                    "settings": {
+                      "text": "Comecar",
+                      "actionType": "nextStep",
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "question",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "Qual aspecto da sua alimentacao voce gostaria de organizar primeiro?",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "options",
+                    "settings": {
+                      "items": [
+                        {
+                          "label": "Planejamento das refeicoes",
+                          "value": "planejamento"
+                        },
+                        {
+                          "label": "Rotina alimentar",
+                          "value": "rotina"
+                        },
+                        {
+                          "label": "Relacao com a comida",
+                          "value": "relacao"
+                        },
+                        {
+                          "label": "Outro objetivo",
+                          "value": "outro"
+                        }
+                      ],
+                      "autoAdvance": true,
+                      "multiSelect": false,
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "question",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "Qual formato de acompanhamento combina melhor com sua rotina?",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "options",
+                    "settings": {
+                      "items": [
+                        {
+                          "label": "Atendimento individual",
+                          "value": "individual"
+                        },
+                        {
+                          "label": "Orientacao para comecar",
+                          "value": "orientacao"
+                        },
+                        {
+                          "label": "Quero entender as possibilidades",
+                          "value": "possibilidades"
+                        }
+                      ],
+                      "autoAdvance": true,
+                      "multiSelect": false,
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "capture",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "Deixe seus dados para receber um retorno sobre a consultoria. Usaremos seu e-mail somente para esse contato.",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "form",
+                    "settings": {
+                      "fields": [
+                        {
+                          "type": "text",
+                          "name": "firstName",
+                          "label": "Seu nome",
+                          "required": true
+                        },
+                        {
+                          "type": "email",
+                          "name": "email",
+                          "label": "Seu e-mail",
+                          "required": true
+                        }
+                      ],
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "button",
+                    "settings": {
+                      "text": "Enviar meus dados",
+                      "actionType": "nextStep",
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "result",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "Recebemos seus dados. A equipe entrara em contato para explicar os proximos passos da consultoria.",
+                      "useTheme": true
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "result": {
+            "simulated": true,
+            "funnelId": "dryrun-funnel-1",
+            "version": 3,
+            "createdStepIds": [
+              "dryrun-step-intro-1",
+              "dryrun-step-question-1",
+              "dryrun-step-question-2",
+              "dryrun-step-capture-1",
+              "dryrun-step-result-1"
+            ]
+          }
+        },
+        {
+          "operationId": "summary-after-append-1",
+          "tool": "get_quiz_blueprint",
+          "arguments": {
+            "funnelId": "dryrun-funnel-1",
+            "detail": "summary"
+          },
+          "result": {
+            "simulated": true,
+            "funnelId": "dryrun-funnel-1",
+            "version": 3,
+            "steps": [
+              {
+                "id": "dryrun-step-intro-1",
+                "kind": "intro",
+                "componentTypes": [
+                  "text",
+                  "button"
+                ]
+              },
+              {
+                "id": "dryrun-step-question-1",
+                "kind": "question",
+                "componentTypes": [
+                  "text",
+                  "options"
+                ]
+              },
+              {
+                "id": "dryrun-step-question-2",
+                "kind": "question",
+                "componentTypes": [
+                  "text",
+                  "options"
+                ]
+              },
+              {
+                "id": "dryrun-step-capture-1",
+                "kind": "capture",
+                "componentTypes": [
+                  "text",
+                  "form",
+                  "button"
+                ]
+              },
+              {
+                "id": "dryrun-step-result-1",
+                "kind": "result",
+                "componentTypes": [
+                  "text"
+                ]
+              }
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "operationId": "full-final-1",
+          "tool": "get_quiz_blueprint",
+          "arguments": {
+            "funnelId": "dryrun-funnel-1",
+            "detail": "full"
+          },
+          "result": {
+            "simulated": true,
+            "funnelId": "dryrun-funnel-1",
+            "version": 3,
+            "steps": [
+              {
+                "id": "dryrun-step-intro-1",
+                "kind": "intro",
+                "componentTypes": [
+                  "text",
+                  "button"
+                ]
+              },
+              {
+                "id": "dryrun-step-question-1",
+                "kind": "question",
+                "componentTypes": [
+                  "text",
+                  "options"
+                ]
+              },
+              {
+                "id": "dryrun-step-question-2",
+                "kind": "question",
+                "componentTypes": [
+                  "text",
+                  "options"
+                ]
+              },
+              {
+                "id": "dryrun-step-capture-1",
+                "kind": "capture",
+                "componentTypes": [
+                  "text",
+                  "form",
+                  "button"
+                ]
+              },
+              {
+                "id": "dryrun-step-result-1",
+                "kind": "result",
+                "componentTypes": [
+                  "text"
+                ]
+              }
+            ],
+            "globalPresets": {
+              "settings": {
+                "gamification": {
+                  "enabled": false,
+                  "score": {
+                    "enabled": false
+                  },
+                  "backgroundMusic": {
+                    "enabled": false
+                  },
+                  "feedback": {
+                    "soundOnInteraction": false
+                  },
+                  "interactionEffects": {
+                    "enabled": false
+                  }
+                }
+              }
+            },
+            "warnings": []
+          }
+        }
+      ],
+      "writes": [
+        {
+          "operationId": "create-funnel-1",
+          "tool": "create_blank_funnel",
+          "payload": {
+            "name": "Quiz de interesse em consultoria nutricional",
+            "slug": "interesse-consultoria-nutricional"
+          }
+        },
+        {
+          "operationId": "apply-presets-1",
+          "tool": "update_funnel_global_presets",
+          "payload": {
+            "funnelId": "dryrun-funnel-1",
+            "version": 1,
+            "replaceTheme": false,
+            "replaceSettings": false,
+            "theme": {
+              "colors": {
+                "primary": "#344054",
+                "primaryText": "#ffffff",
+                "background": "#f8f9fb",
+                "text": "#182230",
+                "border": "#d0d5dd"
+              },
+              "layout": {
+                "containerMaxWidth": "448px",
+                "contentMaxWidth": "448px",
+                "pagePaddingX": "16px"
+              },
+              "header": {
+                "enabled": true,
+                "showProgress": true,
+                "showBackButton": true,
+                "contentType": "text",
+                "content": "CONSULTA GUIADA",
+                "backgroundColor": "#344054",
+                "textColor": "#ffffff",
+                "progressColor": "#667085"
+              },
+              "form": {
+                "fieldHeight": "52px",
+                "fieldBorderRadius": "10px",
+                "fieldBorderColor": "#d0d5dd",
+                "fieldFocusBorderColor": "#344054",
+                "fieldBackgroundColor": "#ffffff",
+                "fieldTextColor": "#182230",
+                "labelColor": "#182230"
+              }
+            }
+          }
+        },
+        {
+          "operationId": "append-steps-1",
+          "tool": "append_quiz_steps",
+          "payload": {
+            "funnelId": "dryrun-funnel-1",
+            "version": 2,
+            "steps": [
+              {
+                "kind": "intro",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "Encontre um ponto de partida para organizar sua alimentacao.",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "button",
+                    "settings": {
+                      "text": "Comecar",
+                      "actionType": "nextStep",
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "question",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "Qual aspecto da sua alimentacao voce gostaria de organizar primeiro?",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "options",
+                    "settings": {
+                      "items": [
+                        {
+                          "label": "Planejamento das refeicoes",
+                          "value": "planejamento"
+                        },
+                        {
+                          "label": "Rotina alimentar",
+                          "value": "rotina"
+                        },
+                        {
+                          "label": "Relacao com a comida",
+                          "value": "relacao"
+                        },
+                        {
+                          "label": "Outro objetivo",
+                          "value": "outro"
+                        }
+                      ],
+                      "autoAdvance": true,
+                      "multiSelect": false,
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "question",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "Qual formato de acompanhamento combina melhor com sua rotina?",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "options",
+                    "settings": {
+                      "items": [
+                        {
+                          "label": "Atendimento individual",
+                          "value": "individual"
+                        },
+                        {
+                          "label": "Orientacao para comecar",
+                          "value": "orientacao"
+                        },
+                        {
+                          "label": "Quero entender as possibilidades",
+                          "value": "possibilidades"
+                        }
+                      ],
+                      "autoAdvance": true,
+                      "multiSelect": false,
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "capture",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "Deixe seus dados para receber um retorno sobre a consultoria. Usaremos seu e-mail somente para esse contato.",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "form",
+                    "settings": {
+                      "fields": [
+                        {
+                          "type": "text",
+                          "name": "firstName",
+                          "label": "Seu nome",
+                          "required": true
+                        },
+                        {
+                          "type": "email",
+                          "name": "email",
+                          "label": "Seu e-mail",
+                          "required": true
+                        }
+                      ],
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "button",
+                    "settings": {
+                      "text": "Enviar meus dados",
+                      "actionType": "nextStep",
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "result",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "Recebemos seus dados. A equipe entrara em contato para explicar os proximos passos da consultoria.",
+                      "useTheme": true
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "finalState": {
+        "status": "created",
+        "funnelId": "dryrun-funnel-1",
+        "version": 3,
+        "themeAppliedBeforeSteps": true,
+        "gamificationEnabled": false,
+        "scoreEnabled": false,
+        "localOverrides": [],
+        "capture": {
+          "stepId": "dryrun-step-capture-1",
+          "fields": [
+            "firstName",
+            "email"
+          ],
+          "purpose": "retorno sobre a consultoria nutricional"
+        },
+        "warnings": []
+      },
+      "evidence": {
+        "assumptions": [
+          "O quiz qualifica interesse em consultoria nutricional, sem diagnostico clinico ou oferta comercial.",
+          "A captura pede somente nome e e-mail para retorno da equipe; nao ha consentimento de marketing separado porque ele nao foi solicitado.",
+          "A identidade visual usa um tema sobrio e acessivel por nao haver marca ou ativos fornecidos."
+        ],
+        "before": [
+          {
+            "operationId": "context-1",
+            "knownTarget": null,
+            "supportedStepKinds": [
+              "intro",
+              "question",
+              "capture",
+              "result"
+            ],
+            "supportedComponentTypes": [
+              "text",
+              "button",
+              "options",
+              "form"
+            ]
+          }
+        ],
+        "checkpoints": [
+          {
+            "operationId": "summary-after-append-1",
+            "funnelId": "dryrun-funnel-1",
+            "version": 3,
+            "steps": [
+              {
+                "id": "dryrun-step-intro-1",
+                "kind": "intro",
+                "componentTypes": [
+                  "text",
+                  "button"
+                ]
+              },
+              {
+                "id": "dryrun-step-question-1",
+                "kind": "question",
+                "componentTypes": [
+                  "text",
+                  "options"
+                ]
+              },
+              {
+                "id": "dryrun-step-question-2",
+                "kind": "question",
+                "componentTypes": [
+                  "text",
+                  "options"
+                ]
+              },
+              {
+                "id": "dryrun-step-capture-1",
+                "kind": "capture",
+                "componentTypes": [
+                  "text",
+                  "form",
+                  "button"
+                ]
+              },
+              {
+                "id": "dryrun-step-result-1",
+                "kind": "result",
+                "componentTypes": [
+                  "text"
+                ]
+              }
+            ],
+            "warnings": []
+          }
+        ],
+        "after": [
+          {
+            "operationId": "full-final-1",
+            "funnelId": "dryrun-funnel-1",
+            "version": 3,
+            "steps": [
+              {
+                "id": "dryrun-step-intro-1",
+                "kind": "intro",
+                "componentTypes": [
+                  "text",
+                  "button"
+                ]
+              },
+              {
+                "id": "dryrun-step-question-1",
+                "kind": "question",
+                "componentTypes": [
+                  "text",
+                  "options"
+                ]
+              },
+              {
+                "id": "dryrun-step-question-2",
+                "kind": "question",
+                "componentTypes": [
+                  "text",
+                  "options"
+                ]
+              },
+              {
+                "id": "dryrun-step-capture-1",
+                "kind": "capture",
+                "componentTypes": [
+                  "text",
+                  "form",
+                  "button"
+                ]
+              },
+              {
+                "id": "dryrun-step-result-1",
+                "kind": "result",
+                "componentTypes": [
+                  "text"
+                ]
+              }
+            ],
+            "globalPresets": {
+              "settings": {
+                "gamification": {
+                  "enabled": false,
+                  "score": {
+                    "enabled": false
+                  },
+                  "backgroundMusic": {
+                    "enabled": false
+                  },
+                  "feedback": {
+                    "soundOnInteraction": false
+                  },
+                  "interactionEffects": {
+                    "enabled": false
+                  }
+                }
+              }
+            },
+            "warnings": []
+          }
+        ]
+      }
+    },
+    {
+      "contractVersion": "1.0.0",
+      "evaluationDate": "2026-07-10",
+      "executionMode": "dry-run",
+      "model": "gpt-5.6-sol",
+      "provider": "openai",
+      "seed": null,
+      "scenarioId": 2,
+      "attempt": 1,
+      "toolCalls": [
+        {
+          "operationId": "read-authoring-context-001",
+          "tool": "get_quiz_authoring_context",
+          "arguments": {},
+          "result": {
+            "dryRun": true,
+            "supportedStepKinds": [
+              "question"
+            ],
+            "defaults": {
+              "gamification": {
+                "enabled": false,
+                "score": {
+                  "enabled": false
+                }
+              }
+            }
+          }
+        },
+        {
+          "operationId": "write-create-funnel-002",
+          "tool": "create_blank_funnel",
+          "arguments": {
+            "name": "Desafio de 7 Dias",
+            "slug": "desafio-de-7-dias"
+          },
+          "result": {
+            "dryRun": true,
+            "funnelId": "dryrun-s2-desafio-7-dias",
+            "slug": "desafio-de-7-dias",
+            "version": 1
+          }
+        },
+        {
+          "operationId": "write-global-presets-003",
+          "tool": "update_funnel_global_presets",
+          "arguments": {
+            "funnelId": "dryrun-s2-desafio-7-dias",
+            "version": 1,
+            "replaceTheme": false,
+            "replaceSettings": false,
+            "theme": {
+              "colors": {
+                "primary": "#5b2cbf",
+                "primaryText": "#ffffff",
+                "background": "#fbfaff",
+                "text": "#211c31",
+                "border": "#d8cff0"
+              },
+              "typography": {
+                "fontFamily": "Inter, system-ui, sans-serif",
+                "headingFont": "Inter, system-ui, sans-serif"
+              },
+              "layout": {
+                "containerMaxWidth": "448px",
+                "contentMaxWidth": "448px",
+                "pagePaddingX": "16px"
+              },
+              "header": {
+                "enabled": true,
+                "showProgress": true,
+                "contentType": "text",
+                "content": "DESAFIO DE 7 DIAS"
+              }
+            },
+            "settings": {
+              "gamification": {
+                "enabled": true,
+                "persistSession": true,
+                "score": {
+                  "enabled": true,
+                  "scoreKey": "challengePoints",
+                  "label": "Pontos do desafio",
+                  "prefix": "",
+                  "suffix": " pts",
+                  "decimals": 0,
+                  "initialValue": 0,
+                  "position": "aboveHeader",
+                  "variant": "default",
+                  "progressMax": 140,
+                  "progressLabel": "Pontos acumulados"
+                },
+                "backgroundMusic": {
+                  "enabled": false,
+                  "audioUrl": ""
+                },
+                "feedback": {
+                  "vibrateOnInteraction": false,
+                  "clickFeedback": false,
+                  "soundOnInteraction": false,
+                  "soundUrl": ""
+                },
+                "interactionEffects": {
+                  "enabled": false,
+                  "rules": []
+                }
+              }
+            },
+            "gamificationMode": "explicit",
+            "explicitIntentReason": "O pedido solicita um desafio gamificado com pontos por resposta."
+          },
+          "result": {
+            "dryRun": true,
+            "funnelId": "dryrun-s2-desafio-7-dias",
+            "version": 2
+          }
+        },
+        {
+          "operationId": "write-seven-day-steps-004",
+          "tool": "append_quiz_steps",
+          "arguments": {
+            "funnelId": "dryrun-s2-desafio-7-dias",
+            "version": 2,
+            "steps": [
+              {
+                "kind": "question",
+                "title": "Dia 1: Escolha seu foco para hoje",
+                "settings": {
+                  "answerMode": "single",
+                  "options": {
+                    "items": [
+                      {
+                        "label": "Comecar uma tarefa importante",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      },
+                      {
+                        "label": "Concluir uma pendencia",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "kind": "question",
+                "title": "Dia 2: Defina uma acao concreta",
+                "settings": {
+                  "answerMode": "single",
+                  "options": {
+                    "items": [
+                      {
+                        "label": "Reservar 15 minutos",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      },
+                      {
+                        "label": "Bloquear um horario no calendario",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "kind": "question",
+                "title": "Dia 3: Escolha como vai manter o ritmo",
+                "settings": {
+                  "answerMode": "single",
+                  "options": {
+                    "items": [
+                      {
+                        "label": "Usar um lembrete",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      },
+                      {
+                        "label": "Preparar o proximo passo",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "kind": "question",
+                "title": "Dia 4: Registre seu progresso",
+                "settings": {
+                  "answerMode": "single",
+                  "options": {
+                    "items": [
+                      {
+                        "label": "Anotar o que avancei",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      },
+                      {
+                        "label": "Compartilhar meu aprendizado",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "kind": "question",
+                "title": "Dia 5: Remova um obstaculo",
+                "settings": {
+                  "answerMode": "single",
+                  "options": {
+                    "items": [
+                      {
+                        "label": "Simplificar a proxima tarefa",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      },
+                      {
+                        "label": "Pedir apoio quando necessario",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "kind": "question",
+                "title": "Dia 6: Reforce seu compromisso",
+                "settings": {
+                  "answerMode": "single",
+                  "options": {
+                    "items": [
+                      {
+                        "label": "Revisar minha meta",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      },
+                      {
+                        "label": "Celebrar uma pequena conquista",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "kind": "question",
+                "title": "Dia 7: Escolha seu proximo passo",
+                "settings": {
+                  "answerMode": "single",
+                  "options": {
+                    "items": [
+                      {
+                        "label": "Manter a rotina na proxima semana",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      },
+                      {
+                        "label": "Definir uma nova meta",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      }
+                    ]
+                  }
+                }
+              }
+            ],
+            "gamificationMode": "explicit",
+            "explicitIntentReason": "O pedido solicita um desafio gamificado com pontos por resposta."
+          },
+          "result": {
+            "dryRun": true,
+            "funnelId": "dryrun-s2-desafio-7-dias",
+            "createdStepIds": [
+              "dryrun-s2-day-1",
+              "dryrun-s2-day-2",
+              "dryrun-s2-day-3",
+              "dryrun-s2-day-4",
+              "dryrun-s2-day-5",
+              "dryrun-s2-day-6",
+              "dryrun-s2-day-7"
+            ],
+            "version": 3
+          }
+        },
+        {
+          "operationId": "read-summary-005",
+          "tool": "get_quiz_blueprint",
+          "arguments": {
+            "funnelId": "dryrun-s2-desafio-7-dias",
+            "detail": "summary"
+          },
+          "result": {
+            "dryRun": true,
+            "funnelId": "dryrun-s2-desafio-7-dias",
+            "version": 3,
+            "steps": [
+              {
+                "id": "dryrun-s2-day-1",
+                "kind": "question",
+                "title": "Dia 1: Escolha seu foco para hoje"
+              },
+              {
+                "id": "dryrun-s2-day-2",
+                "kind": "question",
+                "title": "Dia 2: Defina uma acao concreta"
+              },
+              {
+                "id": "dryrun-s2-day-3",
+                "kind": "question",
+                "title": "Dia 3: Escolha como vai manter o ritmo"
+              },
+              {
+                "id": "dryrun-s2-day-4",
+                "kind": "question",
+                "title": "Dia 4: Registre seu progresso"
+              },
+              {
+                "id": "dryrun-s2-day-5",
+                "kind": "question",
+                "title": "Dia 5: Remova um obstaculo"
+              },
+              {
+                "id": "dryrun-s2-day-6",
+                "kind": "question",
+                "title": "Dia 6: Reforce seu compromisso"
+              },
+              {
+                "id": "dryrun-s2-day-7",
+                "kind": "question",
+                "title": "Dia 7: Escolha seu proximo passo"
+              }
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "operationId": "read-full-006",
+          "tool": "get_quiz_blueprint",
+          "arguments": {
+            "funnelId": "dryrun-s2-desafio-7-dias",
+            "detail": "full"
+          },
+          "result": {
+            "dryRun": true,
+            "funnelId": "dryrun-s2-desafio-7-dias",
+            "version": 3,
+            "globalPresets": {
+              "settings": {
+                "gamification": {
+                  "enabled": true,
+                  "score": {
+                    "enabled": true,
+                    "scoreKey": "challengePoints",
+                    "initialValue": 0,
+                    "progressMax": 140
+                  },
+                  "backgroundMusic": {
+                    "enabled": false,
+                    "audioUrl": ""
+                  },
+                  "feedback": {
+                    "soundOnInteraction": false,
+                    "soundUrl": ""
+                  },
+                  "interactionEffects": {
+                    "enabled": false,
+                    "rules": []
+                  }
+                }
+              }
+            },
+            "steps": [
+              {
+                "id": "dryrun-s2-day-1",
+                "kind": "question",
+                "scoreDeltas": [
+                  10,
+                  10
+                ]
+              },
+              {
+                "id": "dryrun-s2-day-2",
+                "kind": "question",
+                "scoreDeltas": [
+                  10,
+                  10
+                ]
+              },
+              {
+                "id": "dryrun-s2-day-3",
+                "kind": "question",
+                "scoreDeltas": [
+                  10,
+                  10
+                ]
+              },
+              {
+                "id": "dryrun-s2-day-4",
+                "kind": "question",
+                "scoreDeltas": [
+                  10,
+                  10
+                ]
+              },
+              {
+                "id": "dryrun-s2-day-5",
+                "kind": "question",
+                "scoreDeltas": [
+                  10,
+                  10
+                ]
+              },
+              {
+                "id": "dryrun-s2-day-6",
+                "kind": "question",
+                "scoreDeltas": [
+                  10,
+                  10
+                ]
+              },
+              {
+                "id": "dryrun-s2-day-7",
+                "kind": "question",
+                "scoreDeltas": [
+                  10,
+                  10
+                ]
+              }
+            ],
+            "warnings": []
+          }
+        }
+      ],
+      "writes": [
+        {
+          "operationId": "write-create-funnel-002",
+          "tool": "create_blank_funnel",
+          "payload": {
+            "name": "Desafio de 7 Dias",
+            "slug": "desafio-de-7-dias"
+          }
+        },
+        {
+          "operationId": "write-global-presets-003",
+          "tool": "update_funnel_global_presets",
+          "payload": {
+            "funnelId": "dryrun-s2-desafio-7-dias",
+            "version": 1,
+            "replaceTheme": false,
+            "replaceSettings": false,
+            "theme": {
+              "colors": {
+                "primary": "#5b2cbf",
+                "primaryText": "#ffffff",
+                "background": "#fbfaff",
+                "text": "#211c31",
+                "border": "#d8cff0"
+              },
+              "typography": {
+                "fontFamily": "Inter, system-ui, sans-serif",
+                "headingFont": "Inter, system-ui, sans-serif"
+              },
+              "layout": {
+                "containerMaxWidth": "448px",
+                "contentMaxWidth": "448px",
+                "pagePaddingX": "16px"
+              },
+              "header": {
+                "enabled": true,
+                "showProgress": true,
+                "contentType": "text",
+                "content": "DESAFIO DE 7 DIAS"
+              }
+            },
+            "settings": {
+              "gamification": {
+                "enabled": true,
+                "persistSession": true,
+                "score": {
+                  "enabled": true,
+                  "scoreKey": "challengePoints",
+                  "label": "Pontos do desafio",
+                  "prefix": "",
+                  "suffix": " pts",
+                  "decimals": 0,
+                  "initialValue": 0,
+                  "position": "aboveHeader",
+                  "variant": "default",
+                  "progressMax": 140,
+                  "progressLabel": "Pontos acumulados"
+                },
+                "backgroundMusic": {
+                  "enabled": false,
+                  "audioUrl": ""
+                },
+                "feedback": {
+                  "vibrateOnInteraction": false,
+                  "clickFeedback": false,
+                  "soundOnInteraction": false,
+                  "soundUrl": ""
+                },
+                "interactionEffects": {
+                  "enabled": false,
+                  "rules": []
+                }
+              }
+            }
+          }
+        },
+        {
+          "operationId": "write-seven-day-steps-004",
+          "tool": "append_quiz_steps",
+          "payload": {
+            "funnelId": "dryrun-s2-desafio-7-dias",
+            "version": 2,
+            "steps": [
+              {
+                "kind": "question",
+                "title": "Dia 1: Escolha seu foco para hoje",
+                "settings": {
+                  "answerMode": "single",
+                  "options": {
+                    "items": [
+                      {
+                        "label": "Comecar uma tarefa importante",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      },
+                      {
+                        "label": "Concluir uma pendencia",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "kind": "question",
+                "title": "Dia 2: Defina uma acao concreta",
+                "settings": {
+                  "answerMode": "single",
+                  "options": {
+                    "items": [
+                      {
+                        "label": "Reservar 15 minutos",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      },
+                      {
+                        "label": "Bloquear um horario no calendario",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "kind": "question",
+                "title": "Dia 3: Escolha como vai manter o ritmo",
+                "settings": {
+                  "answerMode": "single",
+                  "options": {
+                    "items": [
+                      {
+                        "label": "Usar um lembrete",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      },
+                      {
+                        "label": "Preparar o proximo passo",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "kind": "question",
+                "title": "Dia 4: Registre seu progresso",
+                "settings": {
+                  "answerMode": "single",
+                  "options": {
+                    "items": [
+                      {
+                        "label": "Anotar o que avancei",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      },
+                      {
+                        "label": "Compartilhar meu aprendizado",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "kind": "question",
+                "title": "Dia 5: Remova um obstaculo",
+                "settings": {
+                  "answerMode": "single",
+                  "options": {
+                    "items": [
+                      {
+                        "label": "Simplificar a proxima tarefa",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      },
+                      {
+                        "label": "Pedir apoio quando necessario",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "kind": "question",
+                "title": "Dia 6: Reforce seu compromisso",
+                "settings": {
+                  "answerMode": "single",
+                  "options": {
+                    "items": [
+                      {
+                        "label": "Revisar minha meta",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      },
+                      {
+                        "label": "Celebrar uma pequena conquista",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "kind": "question",
+                "title": "Dia 7: Escolha seu proximo passo",
+                "settings": {
+                  "answerMode": "single",
+                  "options": {
+                    "items": [
+                      {
+                        "label": "Manter a rotina na proxima semana",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      },
+                      {
+                        "label": "Definir uma nova meta",
+                        "scoreDeltaEnabled": true,
+                        "scoreDelta": 10
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "finalState": {
+        "status": "validated",
+        "funnelId": "dryrun-s2-desafio-7-dias",
+        "version": 3,
+        "themeAppliedBeforeSteps": true,
+        "gamificationEnabled": true,
+        "scoreEnabled": true,
+        "scoreAward": {
+          "trigger": "answer",
+          "points": 10,
+          "enabledOnAllOptions": true
+        },
+        "questionStepCount": 7,
+        "audioEnabled": false,
+        "interactionEffectsEnabled": false,
+        "warnings": []
+      },
+      "evidence": {
+        "factsFromPrompt": [
+          "O pedido requer um desafio de sete dias.",
+          "O pedido requer gamificacao.",
+          "O pedido requer pontos por resposta."
+        ],
+        "assumptions": [
+          "O desafio sera uma sequencia de sete etapas, uma para cada dia.",
+          "Sem publico, marca, oferta, captura ou agendamento informados, o conteudo permanece generico e nao coleta dados.",
+          "Nao foram solicitados agendamento diario, audio ou efeitos; esses recursos nao foram configurados."
+        ],
+        "before": [],
+        "after": [
+          {
+            "operationId": "read-full-006",
+            "funnelId": "dryrun-s2-desafio-7-dias",
+            "version": 3,
+            "globalPresets": {
+              "settings": {
+                "gamification": {
+                  "enabled": true,
+                  "score": {
+                    "enabled": true,
+                    "scoreKey": "challengePoints",
+                    "initialValue": 0,
+                    "progressMax": 140
+                  },
+                  "backgroundMusic": {
+                    "enabled": false,
+                    "audioUrl": ""
+                  },
+                  "feedback": {
+                    "soundOnInteraction": false,
+                    "soundUrl": ""
+                  },
+                  "interactionEffects": {
+                    "enabled": false,
+                    "rules": []
+                  }
+                }
+              }
+            },
+            "steps": [
+              {
+                "id": "dryrun-s2-day-1",
+                "kind": "question",
+                "scoreDeltas": [
+                  10,
+                  10
+                ]
+              },
+              {
+                "id": "dryrun-s2-day-2",
+                "kind": "question",
+                "scoreDeltas": [
+                  10,
+                  10
+                ]
+              },
+              {
+                "id": "dryrun-s2-day-3",
+                "kind": "question",
+                "scoreDeltas": [
+                  10,
+                  10
+                ]
+              },
+              {
+                "id": "dryrun-s2-day-4",
+                "kind": "question",
+                "scoreDeltas": [
+                  10,
+                  10
+                ]
+              },
+              {
+                "id": "dryrun-s2-day-5",
+                "kind": "question",
+                "scoreDeltas": [
+                  10,
+                  10
+                ]
+              },
+              {
+                "id": "dryrun-s2-day-6",
+                "kind": "question",
+                "scoreDeltas": [
+                  10,
+                  10
+                ]
+              },
+              {
+                "id": "dryrun-s2-day-7",
+                "kind": "question",
+                "scoreDeltas": [
+                  10,
+                  10
+                ]
+              }
+            ],
+            "warnings": []
+          }
+        ]
+      }
+    },
+    {
+      "scenarioId": 3,
+      "attempt": 1,
+      "contractVersion": "1.0.0",
+      "evaluationDate": "2026-07-10",
+      "executionMode": "dry-run",
+      "model": "gpt-5.6-sol",
+      "provider": "openai",
+      "seed": null,
+      "metadata": {
+        "simulated": true,
+        "prompt": "Monte um quiz simples para uma imobiliaria, com cinco perguntas e captura.",
+        "assumptions": [
+          "O quiz qualifica o interesse imobiliario para retorno humano, sem oferta, preco ou URL externa.",
+          "A captura pede somente nome e e-mail, informando a finalidade de contato."
+        ],
+        "gamificationRequested": false
+      },
+      "toolCalls": [
+        {
+          "operationId": "ctx-3",
+          "tool": "get_quiz_authoring_context",
+          "arguments": {},
+          "result": {
+            "simulated": true,
+            "supportedStepKinds": [
+              "question",
+              "capture"
+            ],
+            "defaultSettings": {
+              "gamification": {
+                "enabled": false,
+                "score": {
+                  "enabled": false
+                }
+              }
+            },
+            "mutationsRequireVersion": true
+          }
+        },
+        {
+          "operationId": "schema-text-3",
+          "tool": "get_component_schema",
+          "arguments": {
+            "type": "text"
+          },
+          "result": {
+            "simulated": true,
+            "type": "text",
+            "requiredSettings": [
+              "content"
+            ],
+            "supportsUseTheme": true
+          }
+        },
+        {
+          "operationId": "schema-options-3",
+          "tool": "get_component_schema",
+          "arguments": {
+            "type": "options"
+          },
+          "result": {
+            "simulated": true,
+            "type": "options",
+            "requiredSettings": [
+              "items",
+              "autoAdvance",
+              "multiSelect"
+            ],
+            "supportsUseTheme": true
+          }
+        },
+        {
+          "operationId": "schema-form-3",
+          "tool": "get_component_schema",
+          "arguments": {
+            "type": "form"
+          },
+          "result": {
+            "simulated": true,
+            "type": "form",
+            "requiredSettings": [
+              "fields"
+            ],
+            "supportsUseTheme": true
+          }
+        },
+        {
+          "operationId": "schema-button-3",
+          "tool": "get_component_schema",
+          "arguments": {
+            "type": "button"
+          },
+          "result": {
+            "simulated": true,
+            "type": "button",
+            "requiredSettings": [
+              "text",
+              "actionType"
+            ],
+            "allowedActionTypes": [
+              "nextStep",
+              "submit"
+            ],
+            "supportsUseTheme": true
+          }
+        },
+        {
+          "operationId": "create-3",
+          "tool": "create_blank_funnel",
+          "arguments": {
+            "name": "Consulta de imovel",
+            "slug": "consulta-imovel"
+          },
+          "result": {
+            "simulated": true,
+            "id": "funnel-consulta-imovel",
+            "name": "Consulta de imovel",
+            "slug": "consulta-imovel",
+            "version": 1
+          }
+        },
+        {
+          "operationId": "presets-3",
+          "tool": "update_funnel_global_presets",
+          "arguments": {
+            "funnelId": "funnel-consulta-imovel",
+            "version": 1,
+            "replaceTheme": false,
+            "replaceSettings": false,
+            "theme": {
+              "colors": {
+                "primary": "#344054",
+                "primaryText": "#ffffff",
+                "background": "#f8f9fb",
+                "text": "#182230",
+                "border": "#d0d5dd"
+              },
+              "typography": {
+                "fontFamily": "Inter, system-ui, sans-serif",
+                "headingFont": "Inter, system-ui, sans-serif"
+              },
+              "spacing": {
+                "xs": "8px",
+                "sm": "12px",
+                "md": "16px"
+              },
+              "layout": {
+                "borderRadius": "10px",
+                "containerMaxWidth": "448px",
+                "contentMaxWidth": "448px",
+                "pagePaddingX": "16px",
+                "contentGap": "22px"
+              },
+              "animations": {
+                "enabled": true,
+                "duration": "200ms",
+                "easing": "ease-in-out",
+                "stepTransition": {
+                  "enabled": false,
+                  "preset": "none",
+                  "durationMs": 220,
+                  "easing": "cubic-bezier(.4,0,.2,1)"
+                }
+              },
+              "header": {
+                "enabled": true,
+                "showProgress": true,
+                "showBackButton": true,
+                "contentType": "text",
+                "content": "CONSULTA GUIADA",
+                "backgroundColor": "#344054",
+                "textColor": "#ffffff",
+                "progressColor": "#667085",
+                "backButtonColor": "#ffffff"
+              },
+              "background": {
+                "enabled": false
+              },
+              "form": {
+                "fieldHeight": "52px",
+                "fieldBorderRadius": "10px",
+                "fieldBorderColor": "#d0d5dd",
+                "fieldFocusBorderColor": "#344054",
+                "fieldBackgroundColor": "#ffffff",
+                "fieldTextColor": "#182230",
+                "labelColor": "#182230"
+              }
+            }
+          },
+          "result": {
+            "simulated": true,
+            "funnelId": "funnel-consulta-imovel",
+            "version": 2,
+            "warnings": []
+          }
+        },
+        {
+          "operationId": "append-questions-3",
+          "tool": "append_quiz_steps",
+          "arguments": {
+            "funnelId": "funnel-consulta-imovel",
+            "version": 2,
+            "steps": [
+              {
+                "kind": "question",
+                "title": "Qual tipo de imovel voce procura?",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "Qual tipo de imovel voce procura?",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "options",
+                    "settings": {
+                      "items": [
+                        {
+                          "label": "Apartamento",
+                          "value": "apartamento"
+                        },
+                        {
+                          "label": "Casa",
+                          "value": "casa"
+                        },
+                        {
+                          "label": "Terreno",
+                          "value": "terreno"
+                        },
+                        {
+                          "label": "Ainda estou pesquisando",
+                          "value": "pesquisando"
+                        }
+                      ],
+                      "autoAdvance": true,
+                      "multiSelect": false,
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "question",
+                "title": "Em qual regiao voce quer morar ou investir?",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "Em qual regiao voce quer morar ou investir?",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "options",
+                    "settings": {
+                      "items": [
+                        {
+                          "label": "Centro",
+                          "value": "centro"
+                        },
+                        {
+                          "label": "Bairros proximos",
+                          "value": "bairros-proximos"
+                        },
+                        {
+                          "label": "Regiao metropolitana",
+                          "value": "metropolitana"
+                        },
+                        {
+                          "label": "Ainda nao defini",
+                          "value": "indefinida"
+                        }
+                      ],
+                      "autoAdvance": true,
+                      "multiSelect": false,
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "question",
+                "title": "Qual e sua finalidade principal hoje?",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "Qual e sua finalidade principal?",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "options",
+                    "settings": {
+                      "items": [
+                        {
+                          "label": "Morar",
+                          "value": "morar"
+                        },
+                        {
+                          "label": "Investir",
+                          "value": "investir"
+                        },
+                        {
+                          "label": "Mudar de imovel",
+                          "value": "mudar"
+                        },
+                        {
+                          "label": "Vender um imovel",
+                          "value": "vender"
+                        }
+                      ],
+                      "autoAdvance": true,
+                      "multiSelect": false,
+                      "useTheme": true
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "result": {
+            "simulated": true,
+            "funnelId": "funnel-consulta-imovel",
+            "createdStepIds": [
+              "step-imovel-1",
+              "step-imovel-2",
+              "step-imovel-3"
+            ],
+            "version": 3,
+            "warnings": []
+          }
+        },
+        {
+          "operationId": "checkpoint-questions-3",
+          "tool": "get_quiz_blueprint",
+          "arguments": {
+            "funnelId": "funnel-consulta-imovel",
+            "detail": "summary"
+          },
+          "result": {
+            "simulated": true,
+            "funnelId": "funnel-consulta-imovel",
+            "version": 3,
+            "steps": [
+              {
+                "id": "step-imovel-1",
+                "kind": "question",
+                "position": 1
+              },
+              {
+                "id": "step-imovel-2",
+                "kind": "question",
+                "position": 2
+              },
+              {
+                "id": "step-imovel-3",
+                "kind": "question",
+                "position": 3
+              }
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "operationId": "append-final-3",
+          "tool": "append_quiz_steps",
+          "arguments": {
+            "funnelId": "funnel-consulta-imovel",
+            "version": 3,
+            "steps": [
+              {
+                "kind": "question",
+                "title": "Qual faixa de investimento faz sentido para voce?",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "Qual faixa de investimento faz sentido para voce?",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "options",
+                    "settings": {
+                      "items": [
+                        {
+                          "label": "Ate R$ 300 mil",
+                          "value": "ate-300"
+                        },
+                        {
+                          "label": "De R$ 300 mil a R$ 600 mil",
+                          "value": "300-600"
+                        },
+                        {
+                          "label": "Acima de R$ 600 mil",
+                          "value": "acima-600"
+                        },
+                        {
+                          "label": "Prefiro conversar antes",
+                          "value": "conversar"
+                        }
+                      ],
+                      "autoAdvance": true,
+                      "multiSelect": false,
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "question",
+                "title": "Quando pretende tomar essa decisao?",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "Quando pretende tomar essa decisao?",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "options",
+                    "settings": {
+                      "items": [
+                        {
+                          "label": "Nos proximos 30 dias",
+                          "value": "30-dias"
+                        },
+                        {
+                          "label": "Em ate 3 meses",
+                          "value": "3-meses"
+                        },
+                        {
+                          "label": "Em ate 6 meses",
+                          "value": "6-meses"
+                        },
+                        {
+                          "label": "Ainda estou planejando",
+                          "value": "planejando"
+                        }
+                      ],
+                      "autoAdvance": true,
+                      "multiSelect": false,
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "capture",
+                "title": "Receba opcoes alinhadas ao seu momento",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "Deixe seus dados para que nossa equipe envie opcoes compativeis com suas respostas.",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "form",
+                    "settings": {
+                      "fields": [
+                        {
+                          "type": "text",
+                          "name": "name",
+                          "label": "Seu nome",
+                          "required": true
+                        },
+                        {
+                          "type": "email",
+                          "name": "email",
+                          "label": "Seu e-mail",
+                          "required": true
+                        }
+                      ],
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "button",
+                    "settings": {
+                      "text": "Quero receber opcoes",
+                      "actionType": "submit",
+                      "useTheme": true
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "result": {
+            "simulated": true,
+            "funnelId": "funnel-consulta-imovel",
+            "createdStepIds": [
+              "step-imovel-4",
+              "step-imovel-5",
+              "step-capture"
+            ],
+            "version": 4,
+            "warnings": []
+          }
+        },
+        {
+          "operationId": "validate-final-3",
+          "tool": "get_quiz_blueprint",
+          "arguments": {
+            "funnelId": "funnel-consulta-imovel",
+            "detail": "full"
+          },
+          "result": {
+            "simulated": true,
+            "funnelId": "funnel-consulta-imovel",
+            "version": 4,
+            "steps": [
+              {
+                "id": "step-imovel-1",
+                "kind": "question",
+                "position": 1
+              },
+              {
+                "id": "step-imovel-2",
+                "kind": "question",
+                "position": 2
+              },
+              {
+                "id": "step-imovel-3",
+                "kind": "question",
+                "position": 3
+              },
+              {
+                "id": "step-imovel-4",
+                "kind": "question",
+                "position": 4
+              },
+              {
+                "id": "step-imovel-5",
+                "kind": "question",
+                "position": 5
+              },
+              {
+                "id": "step-capture",
+                "kind": "capture",
+                "position": 6
+              }
+            ],
+            "gamification": {
+              "enabled": false,
+              "score": {
+                "enabled": false
+              }
+            },
+            "warnings": []
+          }
+        }
+      ],
+      "writes": [
+        {
+          "operationId": "create-3",
+          "tool": "create_blank_funnel",
+          "payload": {
+            "name": "Consulta de imovel",
+            "slug": "consulta-imovel"
+          }
+        },
+        {
+          "operationId": "presets-3",
+          "tool": "update_funnel_global_presets",
+          "payload": {
+            "version": 1,
+            "replaceTheme": false,
+            "replaceSettings": false,
+            "theme": {
+              "colors": {
+                "primary": "#344054",
+                "primaryText": "#ffffff",
+                "background": "#f8f9fb",
+                "text": "#182230",
+                "border": "#d0d5dd"
+              },
+              "typography": {
+                "fontFamily": "Inter, system-ui, sans-serif",
+                "headingFont": "Inter, system-ui, sans-serif"
+              },
+              "spacing": {
+                "xs": "8px",
+                "sm": "12px",
+                "md": "16px"
+              },
+              "layout": {
+                "borderRadius": "10px",
+                "containerMaxWidth": "448px",
+                "contentMaxWidth": "448px",
+                "pagePaddingX": "16px",
+                "contentGap": "22px"
+              },
+              "animations": {
+                "enabled": true,
+                "duration": "200ms",
+                "easing": "ease-in-out",
+                "stepTransition": {
+                  "enabled": false,
+                  "preset": "none",
+                  "durationMs": 220,
+                  "easing": "cubic-bezier(.4,0,.2,1)"
+                }
+              },
+              "header": {
+                "enabled": true,
+                "showProgress": true,
+                "showBackButton": true,
+                "contentType": "text",
+                "content": "CONSULTA GUIADA",
+                "backgroundColor": "#344054",
+                "textColor": "#ffffff",
+                "progressColor": "#667085",
+                "backButtonColor": "#ffffff"
+              },
+              "background": {
+                "enabled": false
+              },
+              "form": {
+                "fieldHeight": "52px",
+                "fieldBorderRadius": "10px",
+                "fieldBorderColor": "#d0d5dd",
+                "fieldFocusBorderColor": "#344054",
+                "fieldBackgroundColor": "#ffffff",
+                "fieldTextColor": "#182230",
+                "labelColor": "#182230"
+              }
+            }
+          }
+        },
+        {
+          "operationId": "append-questions-3",
+          "tool": "append_quiz_steps",
+          "payload": {
+            "version": 2,
+            "steps": [
+              {
+                "kind": "question",
+                "title": "Qual tipo de imovel voce procura?",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "Qual tipo de imovel voce procura?",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "options",
+                    "settings": {
+                      "items": [
+                        {
+                          "label": "Apartamento",
+                          "value": "apartamento"
+                        },
+                        {
+                          "label": "Casa",
+                          "value": "casa"
+                        },
+                        {
+                          "label": "Terreno",
+                          "value": "terreno"
+                        },
+                        {
+                          "label": "Ainda estou pesquisando",
+                          "value": "pesquisando"
+                        }
+                      ],
+                      "autoAdvance": true,
+                      "multiSelect": false,
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "question",
+                "title": "Em qual regiao voce quer morar ou investir?",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "Em qual regiao voce quer morar ou investir?",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "options",
+                    "settings": {
+                      "items": [
+                        {
+                          "label": "Centro",
+                          "value": "centro"
+                        },
+                        {
+                          "label": "Bairros proximos",
+                          "value": "bairros-proximos"
+                        },
+                        {
+                          "label": "Regiao metropolitana",
+                          "value": "metropolitana"
+                        },
+                        {
+                          "label": "Ainda nao defini",
+                          "value": "indefinida"
+                        }
+                      ],
+                      "autoAdvance": true,
+                      "multiSelect": false,
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "question",
+                "title": "Qual e sua finalidade principal hoje?",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "Qual e sua finalidade principal?",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "options",
+                    "settings": {
+                      "items": [
+                        {
+                          "label": "Morar",
+                          "value": "morar"
+                        },
+                        {
+                          "label": "Investir",
+                          "value": "investir"
+                        },
+                        {
+                          "label": "Mudar de imovel",
+                          "value": "mudar"
+                        },
+                        {
+                          "label": "Vender um imovel",
+                          "value": "vender"
+                        }
+                      ],
+                      "autoAdvance": true,
+                      "multiSelect": false,
+                      "useTheme": true
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "operationId": "append-final-3",
+          "tool": "append_quiz_steps",
+          "payload": {
+            "version": 3,
+            "steps": [
+              {
+                "kind": "question",
+                "title": "Qual faixa de investimento faz sentido para voce?",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "Qual faixa de investimento faz sentido para voce?",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "options",
+                    "settings": {
+                      "items": [
+                        {
+                          "label": "Ate R$ 300 mil",
+                          "value": "ate-300"
+                        },
+                        {
+                          "label": "De R$ 300 mil a R$ 600 mil",
+                          "value": "300-600"
+                        },
+                        {
+                          "label": "Acima de R$ 600 mil",
+                          "value": "acima-600"
+                        },
+                        {
+                          "label": "Prefiro conversar antes",
+                          "value": "conversar"
+                        }
+                      ],
+                      "autoAdvance": true,
+                      "multiSelect": false,
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "question",
+                "title": "Quando pretende tomar essa decisao?",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "Quando pretende tomar essa decisao?",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "options",
+                    "settings": {
+                      "items": [
+                        {
+                          "label": "Nos proximos 30 dias",
+                          "value": "30-dias"
+                        },
+                        {
+                          "label": "Em ate 3 meses",
+                          "value": "3-meses"
+                        },
+                        {
+                          "label": "Em ate 6 meses",
+                          "value": "6-meses"
+                        },
+                        {
+                          "label": "Ainda estou planejando",
+                          "value": "planejando"
+                        }
+                      ],
+                      "autoAdvance": true,
+                      "multiSelect": false,
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "capture",
+                "title": "Receba opcoes alinhadas ao seu momento",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "Deixe seus dados para que nossa equipe envie opcoes compativeis com suas respostas.",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "form",
+                    "settings": {
+                      "fields": [
+                        {
+                          "type": "text",
+                          "name": "name",
+                          "label": "Seu nome",
+                          "required": true
+                        },
+                        {
+                          "type": "email",
+                          "name": "email",
+                          "label": "Seu e-mail",
+                          "required": true
+                        }
+                      ],
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "button",
+                    "settings": {
+                      "text": "Quero receber opcoes",
+                      "actionType": "submit",
+                      "useTheme": true
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "finalState": {
+        "status": "completed",
+        "funnelId": "funnel-consulta-imovel",
+        "slug": "consulta-imovel",
+        "themeAppliedBeforeSteps": true,
+        "gamificationEnabled": false,
+        "scoreEnabled": false,
+        "questionStepCount": 5,
+        "captureStepCount": 1,
+        "offerStepCount": 0,
+        "warnings": []
+      },
+      "evidence": {
+        "before": [],
+        "checkpoints": [
+          {
+            "operationId": "checkpoint-questions-3",
+            "version": 3,
+            "steps": [
+              {
+                "id": "step-imovel-1",
+                "kind": "question",
+                "position": 1
+              },
+              {
+                "id": "step-imovel-2",
+                "kind": "question",
+                "position": 2
+              },
+              {
+                "id": "step-imovel-3",
+                "kind": "question",
+                "position": 3
+              }
+            ],
+            "warnings": []
+          }
+        ],
+        "after": [
+          {
+            "operationId": "validate-final-3",
+            "version": 4,
+            "steps": [
+              {
+                "id": "step-imovel-1",
+                "kind": "question",
+                "position": 1
+              },
+              {
+                "id": "step-imovel-2",
+                "kind": "question",
+                "position": 2
+              },
+              {
+                "id": "step-imovel-3",
+                "kind": "question",
+                "position": 3
+              },
+              {
+                "id": "step-imovel-4",
+                "kind": "question",
+                "position": 4
+              },
+              {
+                "id": "step-imovel-5",
+                "kind": "question",
+                "position": 5
+              },
+              {
+                "id": "step-capture",
+                "kind": "capture",
+                "position": 6
+              }
+            ],
+            "gamification": {
+              "enabled": false,
+              "score": {
+                "enabled": false
+              }
+            },
+            "warnings": []
+          }
+        ]
+      }
+    },
+    {
+      "scenarioId": 4,
+      "attempt": 1,
+      "contractVersion": "1.0.0",
+      "evaluationDate": "2026-07-10",
+      "executionMode": "dry-run",
+      "model": "gpt-5.6-sol",
+      "provider": "openai",
+      "seed": null,
+      "toolCalls": [
+        {
+          "operationId": "scenario-4-blueprint-summary-1",
+          "tool": "get_quiz_blueprint",
+          "arguments": {
+            "funnelSlug": "diagnostico-capilar",
+            "detail": "summary"
+          },
+          "result": {
+            "simulated": true,
+            "funnelSlug": "diagnostico-capilar",
+            "detail": "summary",
+            "objectiveQuestion": {
+              "identified": true
+            },
+            "version": 1
+          }
+        }
+      ],
+      "writes": [],
+      "finalState": {
+        "status": "awaiting_clarification",
+        "funnelSlug": "diagnostico-capilar",
+        "objectiveQuestionIdentified": true,
+        "writesApplied": 0,
+        "structureChanged": false,
+        "identityChanged": false
+      },
+      "evidence": {
+        "inspection": {
+          "operationId": "scenario-4-blueprint-summary-1",
+          "funnelSlug": "diagnostico-capilar",
+          "detail": "summary",
+          "objectiveQuestionIdentified": true
+        },
+        "clarification": {
+          "missingFields": [
+            "texto de substituição",
+            "opções de resposta"
+          ],
+          "text": "Informe o texto de substituição e as opções de resposta para a pergunta de objetivo do funil diagnostico-capilar."
+        }
+      }
+    },
+    {
+      "scenarioId": 5,
+      "attempt": 1,
+      "contractVersion": "1.0.0",
+      "evaluationDate": "2026-07-10",
+      "executionMode": "dry-run",
+      "model": "gpt-5.6-sol",
+      "provider": "openai",
+      "seed": null,
+      "toolCalls": [
+        {
+          "operationId": "s5-list-funnels-01",
+          "tool": "list_funnels",
+          "arguments": {
+            "query": "emagrecimento",
+            "limit": 10
+          },
+          "result": {
+            "total": 1,
+            "items": [
+              {
+                "id": "4d5b6a70-5ce3-4d7a-9a76-1834a0d00005",
+                "title": "Emagrecimento Sustentavel",
+                "slug": "emagrecimento-sustentavel"
+              }
+            ]
+          }
+        },
+        {
+          "operationId": "s5-blueprint-summary-02",
+          "tool": "get_quiz_blueprint",
+          "arguments": {
+            "funnel": "emagrecimento-sustentavel",
+            "detail": "summary"
+          },
+          "result": {
+            "funnelId": "4d5b6a70-5ce3-4d7a-9a76-1834a0d00005",
+            "title": "Emagrecimento Sustentavel",
+            "slug": "emagrecimento-sustentavel",
+            "version": 17,
+            "steps": [
+              {
+                "id": "b40a1000-0000-4000-8000-000000000001",
+                "kind": "intro",
+                "title": "Descubra um plano possivel para voce",
+                "position": 1
+              },
+              {
+                "id": "b40a1000-0000-4000-8000-000000000002",
+                "kind": "question",
+                "title": "Qual e o seu principal objetivo?",
+                "position": 2
+              },
+              {
+                "id": "b40a1000-0000-4000-8000-000000000003",
+                "kind": "capture",
+                "title": "Receba seu proximo passo",
+                "position": 3
+              },
+              {
+                "id": "b40a1000-0000-4000-8000-000000000004",
+                "kind": "result",
+                "title": "Sua recomendacao inicial",
+                "position": 4
+              }
+            ],
+            "gamification": {
+              "enabled": false
+            },
+            "score": {
+              "enabled": false
+            },
+            "warnings": []
+          }
+        },
+        {
+          "operationId": "s5-presets-before-03",
+          "tool": "get_funnel_global_presets",
+          "arguments": {
+            "funnel": "emagrecimento-sustentavel"
+          },
+          "result": {
+            "funnelId": "4d5b6a70-5ce3-4d7a-9a76-1834a0d00005",
+            "version": 17,
+            "globalPresets": {
+              "theme": {
+                "name": "Leve"
+              },
+              "settings": {
+                "gamification": {
+                  "enabled": false,
+                  "score": {
+                    "enabled": false
+                  }
+                }
+              }
+            },
+            "gamification": {
+              "enabled": false
+            },
+            "score": {
+              "enabled": false
+            }
+          }
+        },
+        {
+          "operationId": "s5-text-schema-03",
+          "tool": "get_component_schema",
+          "arguments": {
+            "componentType": "text"
+          },
+          "result": {
+            "type": "text",
+            "title": "Texto",
+            "description": "Bloco de texto rico usado para titulos, subtitulos, instrucoes e perguntas.",
+            "settingsSchema": {
+              "type": "object",
+              "required": [
+                "content"
+              ]
+            },
+            "allowedStepKinds": [
+              "intro",
+              "question",
+              "capture",
+              "content",
+              "result"
+            ],
+            "requiredInputSettings": [
+              "content"
+            ],
+            "defaultedSettings": [
+              "useTheme"
+            ],
+            "defaults": {
+              "useTheme": true
+            },
+            "missingDefaultValues": [],
+            "enums": {},
+            "exampleSettings": {
+              "content": "<h2>Pergunta principal</h2><p>Texto de apoio da etapa.</p>"
+            },
+            "themeBehavior": "inherits",
+            "recommendedFor": [
+              "perguntas e instrucoes"
+            ],
+            "avoidWhen": [
+              "for necessario coletar uma resposta estruturada"
+            ],
+            "requiresExplicitIntent": false
+          }
+        },
+        {
+          "operationId": "s5-options-schema-04",
+          "tool": "get_component_schema",
+          "arguments": {
+            "componentType": "options"
+          },
+          "result": {
+            "type": "options",
+            "title": "Opcoes",
+            "description": "Componente principal de perguntas do quiz com lista de respostas.",
+            "settingsSchema": {
+              "type": "object",
+              "required": [
+                "items"
+              ]
+            },
+            "allowedStepKinds": [
+              "question"
+            ],
+            "requiredInputSettings": [
+              "items"
+            ],
+            "defaultedSettings": [
+              "autoAdvance",
+              "multiSelect",
+              "useTheme"
+            ],
+            "defaults": {
+              "autoAdvance": true,
+              "multiSelect": false,
+              "useTheme": true
+            },
+            "missingDefaultValues": [],
+            "enums": {
+              "layout": [
+                "list",
+                "2-columns",
+                "3-columns",
+                "4-columns"
+              ]
+            },
+            "exampleSettings": {
+              "items": [
+                {
+                  "label": "Quero emagrecer",
+                  "value": "emagrecer"
+                }
+              ],
+              "autoAdvance": true,
+              "multiSelect": false
+            },
+            "themeBehavior": "partial",
+            "recommendedFor": [
+              "perguntas com escolhas"
+            ],
+            "avoidWhen": [
+              "a resposta deve ser livre"
+            ],
+            "requiresExplicitIntent": false
+          }
+        },
+        {
+          "operationId": "s5-append-routine-question-05",
+          "tool": "append_quiz_steps",
+          "arguments": {
+            "funnel": "emagrecimento-sustentavel",
+            "version": 17,
+            "steps": [
+              {
+                "title": "Como e sua rotina na maior parte dos dias?",
+                "kind": "question",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "<h2>Como e sua rotina na maior parte dos dias?</h2>",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "options",
+                    "settings": {
+                      "items": [
+                        {
+                          "label": "Tenho horarios bem previsiveis",
+                          "value": "previsivel"
+                        },
+                        {
+                          "label": "Minha rotina muda alguns dias",
+                          "value": "variavel"
+                        },
+                        {
+                          "label": "Tenho pouca previsibilidade nos horarios",
+                          "value": "imprevisivel"
+                        }
+                      ],
+                      "autoAdvance": true,
+                      "multiSelect": false,
+                      "useTheme": true
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "result": {
+            "funnelId": "4d5b6a70-5ce3-4d7a-9a76-1834a0d00005",
+            "title": "Emagrecimento Sustentavel",
+            "version": 18,
+            "appendedCount": 1,
+            "stepCount": 5,
+            "steps": [
+              {
+                "id": "b40a1000-0000-4000-8000-000000000005",
+                "kind": "question",
+                "title": "Como e sua rotina na maior parte dos dias?",
+                "position": 5
+              }
+            ]
+          }
+        },
+        {
+          "operationId": "s5-position-routine-question-06",
+          "tool": "update_quiz_step",
+          "arguments": {
+            "funnel": "emagrecimento-sustentavel",
+            "version": 18,
+            "stepId": "b40a1000-0000-4000-8000-000000000005",
+            "position": 3
+          },
+          "result": {
+            "funnelId": "4d5b6a70-5ce3-4d7a-9a76-1834a0d00005",
+            "title": "Emagrecimento Sustentavel",
+            "version": 19,
+            "stepCount": 5,
+            "step": {
+              "id": "b40a1000-0000-4000-8000-000000000005",
+              "kind": "question",
+              "title": "Como e sua rotina na maior parte dos dias?",
+              "position": 3
+            }
+          }
+        },
+        {
+          "operationId": "s5-presets-after-07",
+          "tool": "get_funnel_global_presets",
+          "arguments": {
+            "funnel": "emagrecimento-sustentavel"
+          },
+          "result": {
+            "funnelId": "4d5b6a70-5ce3-4d7a-9a76-1834a0d00005",
+            "version": 19,
+            "globalPresets": {
+              "theme": {
+                "name": "Leve"
+              },
+              "settings": {
+                "gamification": {
+                  "enabled": false,
+                  "score": {
+                    "enabled": false
+                  }
+                }
+              }
+            },
+            "gamification": {
+              "enabled": false
+            },
+            "score": {
+              "enabled": false
+            }
+          }
+        },
+        {
+          "operationId": "s5-blueprint-full-07",
+          "tool": "get_quiz_blueprint",
+          "arguments": {
+            "funnel": "emagrecimento-sustentavel",
+            "detail": "full"
+          },
+          "result": {
+            "funnelId": "4d5b6a70-5ce3-4d7a-9a76-1834a0d00005",
+            "title": "Emagrecimento Sustentavel",
+            "slug": "emagrecimento-sustentavel",
+            "version": 19,
+            "steps": [
+              {
+                "id": "b40a1000-0000-4000-8000-000000000001",
+                "kind": "intro",
+                "title": "Descubra um plano possivel para voce",
+                "position": 1
+              },
+              {
+                "id": "b40a1000-0000-4000-8000-000000000002",
+                "kind": "question",
+                "title": "Qual e o seu principal objetivo?",
+                "position": 2
+              },
+              {
+                "id": "b40a1000-0000-4000-8000-000000000005",
+                "kind": "question",
+                "title": "Como e sua rotina na maior parte dos dias?",
+                "position": 3
+              },
+              {
+                "id": "b40a1000-0000-4000-8000-000000000003",
+                "kind": "capture",
+                "title": "Receba seu proximo passo",
+                "position": 4
+              },
+              {
+                "id": "b40a1000-0000-4000-8000-000000000004",
+                "kind": "result",
+                "title": "Sua recomendacao inicial",
+                "position": 5
+              }
+            ],
+            "gamification": {
+              "enabled": false
+            },
+            "score": {
+              "enabled": false
+            },
+            "warnings": []
+          }
+        }
+      ],
+      "writes": [
+        {
+          "operationId": "s5-append-routine-question-05",
+          "tool": "append_quiz_steps",
+          "payload": {
+            "version": 17,
+            "steps": [
+              {
+                "title": "Como e sua rotina na maior parte dos dias?",
+                "kind": "question",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "<h2>Como e sua rotina na maior parte dos dias?</h2>",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "options",
+                    "settings": {
+                      "items": [
+                        {
+                          "label": "Tenho horarios bem previsiveis",
+                          "value": "previsivel"
+                        },
+                        {
+                          "label": "Minha rotina muda alguns dias",
+                          "value": "variavel"
+                        },
+                        {
+                          "label": "Tenho pouca previsibilidade nos horarios",
+                          "value": "imprevisivel"
+                        }
+                      ],
+                      "autoAdvance": true,
+                      "multiSelect": false,
+                      "useTheme": true
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "operationId": "s5-position-routine-question-06",
+          "tool": "update_quiz_step",
+          "payload": {
+            "version": 18,
+            "stepId": "b40a1000-0000-4000-8000-000000000005",
+            "position": 3
+          }
+        }
+      ],
+      "finalState": {
+        "status": "completed",
+        "funnel": "emagrecimento-sustentavel",
+        "version": 19,
+        "questionStepCountBefore": 1,
+        "questionStepCountAfter": 2,
+        "addedStepId": "b40a1000-0000-4000-8000-000000000005",
+        "addedStepPosition": 3,
+        "globalPresetsMutated": false,
+        "gamificationEnabled": false,
+        "scoreEnabled": false,
+        "localOverridesAdded": false,
+        "warnings": [],
+        "assumptions": [
+          "Interpretei 'pergunta de rotina' como uma pergunta de escolha unica sobre previsibilidade de horarios."
+        ]
+      },
+      "evidence": {
+        "before": [
+          {
+            "operationId": "s5-presets-before-03",
+            "gamification": {
+              "enabled": false
+            },
+            "score": {
+              "enabled": false
+            },
+            "globalPresets": {
+              "theme": {
+                "name": "Leve"
+              },
+              "settings": {
+                "gamification": {
+                  "enabled": false,
+                  "score": {
+                    "enabled": false
+                  }
+                }
+              }
+            }
+          },
+          {
+            "operationId": "s5-blueprint-summary-02",
+            "steps": [
+              {
+                "id": "b40a1000-0000-4000-8000-000000000001",
+                "kind": "intro",
+                "title": "Descubra um plano possivel para voce",
+                "position": 1
+              },
+              {
+                "id": "b40a1000-0000-4000-8000-000000000002",
+                "kind": "question",
+                "title": "Qual e o seu principal objetivo?",
+                "position": 2
+              },
+              {
+                "id": "b40a1000-0000-4000-8000-000000000003",
+                "kind": "capture",
+                "title": "Receba seu proximo passo",
+                "position": 3
+              },
+              {
+                "id": "b40a1000-0000-4000-8000-000000000004",
+                "kind": "result",
+                "title": "Sua recomendacao inicial",
+                "position": 4
+              }
+            ],
+            "gamification": {
+              "enabled": false
+            },
+            "score": {
+              "enabled": false
+            }
+          }
+        ],
+        "after": [
+          {
+            "operationId": "s5-presets-after-07",
+            "gamification": {
+              "enabled": false
+            },
+            "score": {
+              "enabled": false
+            },
+            "globalPresets": {
+              "theme": {
+                "name": "Leve"
+              },
+              "settings": {
+                "gamification": {
+                  "enabled": false,
+                  "score": {
+                    "enabled": false
+                  }
+                }
+              }
+            }
+          },
+          {
+            "operationId": "s5-blueprint-full-07",
+            "steps": [
+              {
+                "id": "b40a1000-0000-4000-8000-000000000001",
+                "kind": "intro",
+                "title": "Descubra um plano possivel para voce",
+                "position": 1
+              },
+              {
+                "id": "b40a1000-0000-4000-8000-000000000002",
+                "kind": "question",
+                "title": "Qual e o seu principal objetivo?",
+                "position": 2
+              },
+              {
+                "id": "b40a1000-0000-4000-8000-000000000005",
+                "kind": "question",
+                "title": "Como e sua rotina na maior parte dos dias?",
+                "position": 3
+              },
+              {
+                "id": "b40a1000-0000-4000-8000-000000000003",
+                "kind": "capture",
+                "title": "Receba seu proximo passo",
+                "position": 4
+              },
+              {
+                "id": "b40a1000-0000-4000-8000-000000000004",
+                "kind": "result",
+                "title": "Sua recomendacao inicial",
+                "position": 5
+              }
+            ],
+            "gamification": {
+              "enabled": false
+            },
+            "score": {
+              "enabled": false
+            }
+          }
+        ],
+        "targetResolution": {
+          "operationId": "s5-list-funnels-01",
+          "query": "emagrecimento",
+          "matchedFunnelId": "4d5b6a70-5ce3-4d7a-9a76-1834a0d00005",
+          "matchedSlug": "emagrecimento-sustentavel",
+          "matchCount": 1
+        },
+        "preservation": {
+          "existingStepIdsRetained": [
+            "b40a1000-0000-4000-8000-000000000001",
+            "b40a1000-0000-4000-8000-000000000002",
+            "b40a1000-0000-4000-8000-000000000003",
+            "b40a1000-0000-4000-8000-000000000004"
+          ],
+          "globalPresetWriteOperations": [],
+          "localOverrideWriteOperations": []
+        }
+      }
+    },
+    {
+      "scenarioId": 6,
+      "attempt": 1,
+      "executionMode": "dry-run",
+      "model": "gpt-5.6-sol",
+      "provider": "openai",
+      "seed": null,
+      "toolCalls": [
+        {
+          "operationId": "scenario-6-list-funnels",
+          "tool": "list_funnels",
+          "arguments": {},
+          "result": {
+            "funnels": [
+              {
+                "id": "funnel-protocolo-sono",
+                "slug": "protocolo-sono",
+                "name": "Protocolo Sono Restaurador"
+              }
+            ]
+          }
+        },
+        {
+          "operationId": "scenario-6-offer-summary-before",
+          "tool": "get_quiz_blueprint",
+          "arguments": {
+            "funnelId": "funnel-protocolo-sono",
+            "detail": "summary"
+          },
+          "result": {
+            "version": 42,
+            "funnel": {
+              "id": "funnel-protocolo-sono",
+              "slug": "protocolo-sono"
+            },
+            "offerStepId": "step-oferta",
+            "steps": [
+              {
+                "id": "step-intro",
+                "kind": "intro",
+                "position": 1
+              },
+              {
+                "id": "step-oferta",
+                "kind": "result",
+                "position": 6,
+                "components": [
+                  {
+                    "id": "component-offer-title",
+                    "type": "text"
+                  },
+                  {
+                    "id": "component-offer-price",
+                    "type": "pricingCard"
+                  },
+                  {
+                    "id": "component-offer-cta",
+                    "type": "button"
+                  }
+                ]
+              }
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "operationId": "scenario-6-presets-before",
+          "tool": "get_funnel_global_presets",
+          "arguments": {
+            "funnelId": "funnel-protocolo-sono"
+          },
+          "result": {
+            "version": 42,
+            "globalPresets": {
+              "theme": {
+                "primaryColor": "#1D3557",
+                "accentColor": "#E9C46A",
+                "fontFamily": "Inter"
+              },
+              "header": {
+                "showProgress": true
+              },
+              "navigation": {
+                "showBackButton": true
+              }
+            }
+          }
+        },
+        {
+          "operationId": "scenario-6-iphone-toast-schema",
+          "tool": "get_component_schema",
+          "arguments": {
+            "type": "iphoneToast"
+          },
+          "result": {
+            "type": "iphoneToast",
+            "themeBehavior": "independent",
+            "settings": {
+              "items": {
+                "type": "array",
+                "minItems": 1,
+                "itemFields": [
+                  "trigger",
+                  "title",
+                  "description"
+                ]
+              },
+              "soundEnabled": {
+                "type": "boolean",
+                "default": false
+              },
+              "useTheme": {
+                "type": "boolean",
+                "default": false
+              }
+            }
+          }
+        },
+        {
+          "operationId": "scenario-6-create-iphone-toast",
+          "tool": "create_quiz_component",
+          "arguments": {
+            "funnelId": "funnel-protocolo-sono",
+            "stepId": "step-oferta",
+            "version": 42,
+            "gamificationMode": "explicit",
+            "explicitIntentReason": "O usuario solicitou explicitamente um iphoneToast na etapa de oferta.",
+            "component": {
+              "type": "iphoneToast",
+              "settings": {
+                "items": [
+                  {
+                    "trigger": "stepEnter",
+                    "title": "Seu plano esta pronto",
+                    "description": "Confira os detalhes da oferta abaixo."
+                  }
+                ],
+                "soundEnabled": false,
+                "useTheme": false
+              }
+            }
+          },
+          "result": {
+            "version": 43,
+            "component": {
+              "id": "component-offer-iphone-toast",
+              "type": "iphoneToast",
+              "stepId": "step-oferta"
+            }
+          }
+        },
+        {
+          "operationId": "scenario-6-offer-full-after",
+          "tool": "get_quiz_blueprint",
+          "arguments": {
+            "funnelId": "funnel-protocolo-sono",
+            "detail": "full"
+          },
+          "result": {
+            "version": 43,
+            "funnel": {
+              "id": "funnel-protocolo-sono",
+              "slug": "protocolo-sono"
+            },
+            "offerStepId": "step-oferta",
+            "steps": [
+              {
+                "id": "step-intro",
+                "kind": "intro",
+                "position": 1
+              },
+              {
+                "id": "step-oferta",
+                "kind": "result",
+                "position": 6,
+                "components": [
+                  {
+                    "id": "component-offer-title",
+                    "type": "text"
+                  },
+                  {
+                    "id": "component-offer-price",
+                    "type": "pricingCard"
+                  },
+                  {
+                    "id": "component-offer-cta",
+                    "type": "button"
+                  },
+                  {
+                    "id": "component-offer-iphone-toast",
+                    "type": "iphoneToast",
+                    "settings": {
+                      "items": [
+                        {
+                          "trigger": "stepEnter",
+                          "title": "Seu plano esta pronto",
+                          "description": "Confira os detalhes da oferta abaixo."
+                        }
+                      ],
+                      "soundEnabled": false,
+                      "useTheme": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "operationId": "scenario-6-presets-after",
+          "tool": "get_funnel_global_presets",
+          "arguments": {
+            "funnelId": "funnel-protocolo-sono"
+          },
+          "result": {
+            "version": 43,
+            "globalPresets": {
+              "theme": {
+                "primaryColor": "#1D3557",
+                "accentColor": "#E9C46A",
+                "fontFamily": "Inter"
+              },
+              "header": {
+                "showProgress": true
+              },
+              "navigation": {
+                "showBackButton": true
+              }
+            }
+          }
+        }
+      ],
+      "writes": [
+        {
+          "operationId": "scenario-6-create-iphone-toast",
+          "tool": "create_quiz_component",
+          "payload": {
+            "funnelId": "funnel-protocolo-sono",
+            "stepId": "step-oferta",
+            "version": 42,
+            "component": {
+              "type": "iphoneToast",
+              "settings": {
+                "items": [
+                  {
+                    "trigger": "stepEnter",
+                    "title": "Seu plano esta pronto",
+                    "description": "Confira os detalhes da oferta abaixo."
+                  }
+                ],
+                "soundEnabled": false,
+                "useTheme": false
+              }
+            }
+          }
+        }
+      ],
+      "finalState": {
+        "funnelId": "funnel-protocolo-sono",
+        "offerStepId": "step-oferta",
+        "componentTypes": [
+          "text",
+          "pricingCard",
+          "button",
+          "iphoneToast"
+        ],
+        "soundEnabled": false,
+        "gamificationEnabled": false,
+        "scoreEnabled": false,
+        "warnings": []
+      },
+      "evidence": {
+        "before": [
+          {
+            "operationId": "scenario-6-offer-summary-before",
+            "funnel": {
+              "id": "funnel-protocolo-sono",
+              "slug": "protocolo-sono"
+            },
+            "offerStepId": "step-oferta",
+            "steps": [
+              {
+                "id": "step-intro",
+                "kind": "intro",
+                "position": 1
+              },
+              {
+                "id": "step-oferta",
+                "kind": "result",
+                "position": 6,
+                "components": [
+                  {
+                    "id": "component-offer-title",
+                    "type": "text"
+                  },
+                  {
+                    "id": "component-offer-price",
+                    "type": "pricingCard"
+                  },
+                  {
+                    "id": "component-offer-cta",
+                    "type": "button"
+                  }
+                ]
+              }
+            ],
+            "warnings": []
+          },
+          {
+            "operationId": "scenario-6-presets-before",
+            "globalPresets": {
+              "theme": {
+                "primaryColor": "#1D3557",
+                "accentColor": "#E9C46A",
+                "fontFamily": "Inter"
+              },
+              "header": {
+                "showProgress": true
+              },
+              "navigation": {
+                "showBackButton": true
+              }
+            }
+          }
+        ],
+        "after": [
+          {
+            "operationId": "scenario-6-offer-full-after",
+            "funnel": {
+              "id": "funnel-protocolo-sono",
+              "slug": "protocolo-sono"
+            },
+            "offerStepId": "step-oferta",
+            "steps": [
+              {
+                "id": "step-intro",
+                "kind": "intro",
+                "position": 1
+              },
+              {
+                "id": "step-oferta",
+                "kind": "result",
+                "position": 6,
+                "components": [
+                  {
+                    "id": "component-offer-title",
+                    "type": "text"
+                  },
+                  {
+                    "id": "component-offer-price",
+                    "type": "pricingCard"
+                  },
+                  {
+                    "id": "component-offer-cta",
+                    "type": "button"
+                  },
+                  {
+                    "id": "component-offer-iphone-toast",
+                    "type": "iphoneToast",
+                    "settings": {
+                      "items": [
+                        {
+                          "trigger": "stepEnter",
+                          "title": "Seu plano esta pronto",
+                          "description": "Confira os detalhes da oferta abaixo."
+                        }
+                      ],
+                      "soundEnabled": false,
+                      "useTheme": false
+                    }
+                  }
+                ]
+              }
+            ],
+            "warnings": []
+          },
+          {
+            "operationId": "scenario-6-presets-after",
+            "globalPresets": {
+              "theme": {
+                "primaryColor": "#1D3557",
+                "accentColor": "#E9C46A",
+                "fontFamily": "Inter"
+              },
+              "header": {
+                "showProgress": true
+              },
+              "navigation": {
+                "showBackButton": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "scenarioId": 7,
+      "attempt": 1,
+      "contractVersion": "1.0.0",
+      "evaluationDate": "2026-07-10",
+      "executionMode": "dry-run",
+      "model": "gpt-5.6-sol",
+      "provider": "openai",
+      "seed": null,
+      "toolCalls": [
+        {
+          "operationId": "scenario-7-list-funnels",
+          "tool": "list_funnels",
+          "arguments": {},
+          "result": {
+            "funnels": [
+              {
+                "id": "funnel-nutrition-assessment",
+                "slug": "avaliacao-nutricional",
+                "name": "Avaliacao nutricional"
+              }
+            ]
+          }
+        },
+        {
+          "operationId": "scenario-7-blueprint-summary-before",
+          "tool": "get_quiz_blueprint",
+          "arguments": {
+            "funnelId": "funnel-nutrition-assessment",
+            "detail": "summary"
+          },
+          "result": {
+            "funnelId": "funnel-nutrition-assessment",
+            "version": 17,
+            "captureStepId": "step-capture",
+            "steps": [
+              {
+                "id": "step-intro",
+                "kind": "intro"
+              },
+              {
+                "id": "step-goal",
+                "kind": "question"
+              },
+              {
+                "id": "step-capture",
+                "kind": "capture"
+              },
+              {
+                "id": "step-result",
+                "kind": "result"
+              }
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "operationId": "scenario-7-presets-before",
+          "tool": "get_funnel_global_presets",
+          "arguments": {
+            "funnelId": "funnel-nutrition-assessment"
+          },
+          "result": {
+            "funnelId": "funnel-nutrition-assessment",
+            "version": 17,
+            "globalPresets": {
+              "theme": {
+                "header": {
+                  "showProgress": true,
+                  "showBackButton": true
+                }
+              },
+              "settings": {
+                "gamification": {
+                  "enabled": false,
+                  "score": {
+                    "enabled": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "operationId": "scenario-7-hide-capture-progress",
+          "tool": "update_quiz_step",
+          "arguments": {
+            "funnelId": "funnel-nutrition-assessment",
+            "stepId": "step-capture",
+            "version": 17,
+            "headerOverride": {
+              "showProgress": false
+            },
+            "overrideReason": "A captura deve ocultar apenas a barra de progresso, preservando o header global e os demais comportamentos da etapa."
+          },
+          "result": {
+            "stepId": "step-capture",
+            "version": 18,
+            "headerOverride": {
+              "showProgress": false
+            }
+          }
+        },
+        {
+          "operationId": "scenario-7-presets-after",
+          "tool": "get_funnel_global_presets",
+          "arguments": {
+            "funnelId": "funnel-nutrition-assessment"
+          },
+          "result": {
+            "funnelId": "funnel-nutrition-assessment",
+            "version": 18,
+            "globalPresets": {
+              "theme": {
+                "header": {
+                  "showProgress": true,
+                  "showBackButton": true
+                }
+              },
+              "settings": {
+                "gamification": {
+                  "enabled": false,
+                  "score": {
+                    "enabled": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "operationId": "scenario-7-blueprint-full-after",
+          "tool": "get_quiz_blueprint",
+          "arguments": {
+            "funnelId": "funnel-nutrition-assessment",
+            "detail": "full"
+          },
+          "result": {
+            "funnelId": "funnel-nutrition-assessment",
+            "version": 18,
+            "steps": [
+              {
+                "id": "step-intro",
+                "kind": "intro",
+                "components": [
+                  {
+                    "id": "component-intro-title",
+                    "type": "heading"
+                  }
+                ]
+              },
+              {
+                "id": "step-goal",
+                "kind": "question",
+                "components": [
+                  {
+                    "id": "component-goal-options",
+                    "type": "singleChoice"
+                  }
+                ]
+              },
+              {
+                "id": "step-capture",
+                "kind": "capture",
+                "headerOverride": {
+                  "showProgress": false
+                },
+                "components": [
+                  {
+                    "id": "component-capture-form",
+                    "type": "form"
+                  }
+                ]
+              },
+              {
+                "id": "step-result",
+                "kind": "result",
+                "components": [
+                  {
+                    "id": "component-result-title",
+                    "type": "heading"
+                  }
+                ]
+              }
+            ],
+            "warnings": []
+          }
+        }
+      ],
+      "writes": [
+        {
+          "operationId": "scenario-7-hide-capture-progress",
+          "tool": "update_quiz_step",
+          "payload": {
+            "funnelId": "funnel-nutrition-assessment",
+            "stepId": "step-capture",
+            "version": 17,
+            "headerOverride": {
+              "showProgress": false
+            }
+          }
+        }
+      ],
+      "evidence": {
+        "before": {
+          "snapshots": [
+            {
+              "operationId": "scenario-7-blueprint-summary-before",
+              "captureStepId": "step-capture",
+              "steps": [
+                {
+                  "id": "step-intro",
+                  "kind": "intro"
+                },
+                {
+                  "id": "step-goal",
+                  "kind": "question"
+                },
+                {
+                  "id": "step-capture",
+                  "kind": "capture"
+                },
+                {
+                  "id": "step-result",
+                  "kind": "result"
+                }
+              ]
+            },
+            {
+              "operationId": "scenario-7-presets-before",
+              "globalPresets": {
+                "theme": {
+                  "header": {
+                    "showProgress": true,
+                    "showBackButton": true
+                  }
+                },
+                "settings": {
+                  "gamification": {
+                    "enabled": false,
+                    "score": {
+                      "enabled": false
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "after": {
+          "snapshots": [
+            {
+              "operationId": "scenario-7-presets-after",
+              "globalPresets": {
+                "theme": {
+                  "header": {
+                    "showProgress": true,
+                    "showBackButton": true
+                  }
+                },
+                "settings": {
+                  "gamification": {
+                    "enabled": false,
+                    "score": {
+                      "enabled": false
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "operationId": "scenario-7-blueprint-full-after",
+              "steps": [
+                {
+                  "id": "step-intro",
+                  "kind": "intro",
+                  "components": [
+                    {
+                      "id": "component-intro-title",
+                      "type": "heading"
+                    }
+                  ]
+                },
+                {
+                  "id": "step-goal",
+                  "kind": "question",
+                  "components": [
+                    {
+                      "id": "component-goal-options",
+                      "type": "singleChoice"
+                    }
+                  ]
+                },
+                {
+                  "id": "step-capture",
+                  "kind": "capture",
+                  "headerOverride": {
+                    "showProgress": false
+                  },
+                  "components": [
+                    {
+                      "id": "component-capture-form",
+                      "type": "form"
+                    }
+                  ]
+                },
+                {
+                  "id": "step-result",
+                  "kind": "result",
+                  "components": [
+                    {
+                      "id": "component-result-title",
+                      "type": "heading"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "finalState": {
+        "status": "completed",
+        "funnelId": "funnel-nutrition-assessment",
+        "captureStepId": "step-capture",
+        "version": 18,
+        "captureHeaderOverride": {
+          "showProgress": false
+        },
+        "globalHeaderUnchanged": true,
+        "componentWrites": 0,
+        "warnings": []
+      }
+    },
+    {
+      "scenarioId": 8,
+      "attempt": 1,
+      "contractVersion": "1.0.0",
+      "evaluationDate": "2026-07-10",
+      "executionMode": "dry-run",
+      "model": "gpt-5.6-sol",
+      "provider": "openai",
+      "seed": null,
+      "toolCalls": [
+        {
+          "operationId": "scenario-8-context",
+          "tool": "get_quiz_authoring_context",
+          "arguments": {
+            "operation": "create",
+            "goal": "pesquisa breve de preferencias de experiencia de marca",
+            "audience": "pessoas interessadas em uma marca premium",
+            "gamificationMode": "off",
+            "themeMode": "preset"
+          },
+          "result": {
+            "contractVersion": "2026-07-10",
+            "operation": "create",
+            "themeMode": "preset",
+            "policy": {
+              "themeFirst": true,
+              "gamificationMode": "off",
+              "scoreEnabled": false,
+              "componentUseTheme": true,
+              "stepOverrides": "omit"
+            },
+            "workflow": [
+              "create_blank_funnel",
+              "update_funnel_global_presets",
+              "append_quiz_steps"
+            ],
+            "recommendedComponents": [
+              "text",
+              "options",
+              "form",
+              "button"
+            ],
+            "nextTool": "create_blank_funnel"
+          }
+        },
+        {
+          "operationId": "scenario-8-create-funnel",
+          "tool": "create_blank_funnel",
+          "arguments": {
+            "title": "Pesquisa de Preferencias Premium"
+          },
+          "result": {
+            "id": "80000000-0000-4000-8000-000000000001",
+            "title": "Pesquisa de Preferencias Premium",
+            "slug": "pesquisa-de-preferencias-premium",
+            "status": "draft",
+            "version": 1,
+            "stepCount": 0
+          }
+        },
+        {
+          "operationId": "scenario-8-apply-premium-presets",
+          "tool": "update_funnel_global_presets",
+          "arguments": {
+            "funnel": "80000000-0000-4000-8000-000000000001",
+            "version": 1,
+            "replaceTheme": false,
+            "replaceSettings": false,
+            "gamificationMode": "off",
+            "theme": {
+              "colors": {
+                "primary": "#18352d",
+                "primaryText": "#ffffff",
+                "background": "#f5f3ee",
+                "text": "#17231e",
+                "border": "#c8c7bb"
+              },
+              "typography": {
+                "fontFamily": "Inter, system-ui, sans-serif",
+                "headingFont": "Inter, system-ui, sans-serif"
+              },
+              "spacing": {
+                "xs": "8px",
+                "sm": "12px",
+                "md": "16px"
+              },
+              "layout": {
+                "borderRadius": "12px",
+                "shadowLevel": 2,
+                "containerMaxWidth": "448px",
+                "contentMaxWidth": "448px",
+                "pagePaddingX": "16px",
+                "contentGap": "22px"
+              },
+              "animations": {
+                "enabled": true,
+                "duration": "200ms",
+                "easing": "ease-in-out",
+                "stepTransition": {
+                  "enabled": false,
+                  "preset": "none",
+                  "durationMs": 220,
+                  "easing": "cubic-bezier(.4,0,.2,1)"
+                }
+              },
+              "header": {
+                "enabled": true,
+                "showProgress": true,
+                "showBackButton": true,
+                "contentType": "text",
+                "content": "EXPERIENCIA PRIVADA"
+              },
+              "background": {
+                "enabled": false
+              },
+              "form": {
+                "fieldHeight": "52px",
+                "fieldBorderRadius": "12px",
+                "fieldSpacing": "14px",
+                "labelSpacing": "8px"
+              }
+            },
+            "settings": {
+              "navigation": {
+                "resumeProgressEnabled": true
+              }
+            }
+          },
+          "result": {
+            "funnelId": "80000000-0000-4000-8000-000000000001",
+            "version": 2,
+            "globalPresets": {
+              "theme": {
+                "colors": {
+                  "primary": "#18352d",
+                  "primaryText": "#ffffff",
+                  "background": "#f5f3ee",
+                  "text": "#17231e",
+                  "border": "#c8c7bb"
+                },
+                "typography": {
+                  "fontFamily": "Inter, system-ui, sans-serif",
+                  "headingFont": "Inter, system-ui, sans-serif"
+                }
+              },
+              "settings": {
+                "gamification": {
+                  "enabled": false,
+                  "score": {
+                    "enabled": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "operationId": "scenario-8-text-schema",
+          "tool": "get_component_schema",
+          "arguments": {
+            "componentType": "text"
+          },
+          "result": {
+            "type": "text",
+            "allowedStepKinds": [
+              "intro",
+              "question",
+              "capture",
+              "content",
+              "result"
+            ],
+            "requiredInputSettings": [
+              "content"
+            ],
+            "themeBehavior": "inherits",
+            "requiresExplicitIntent": false
+          }
+        },
+        {
+          "operationId": "scenario-8-options-schema",
+          "tool": "get_component_schema",
+          "arguments": {
+            "componentType": "options"
+          },
+          "result": {
+            "type": "options",
+            "allowedStepKinds": [
+              "question"
+            ],
+            "requiredInputSettings": [
+              "items"
+            ],
+            "themeBehavior": "partial",
+            "requiresExplicitIntent": false
+          }
+        },
+        {
+          "operationId": "scenario-8-button-schema",
+          "tool": "get_component_schema",
+          "arguments": {
+            "componentType": "button"
+          },
+          "result": {
+            "type": "button",
+            "allowedStepKinds": [
+              "intro",
+              "question",
+              "capture",
+              "content",
+              "result"
+            ],
+            "requiredInputSettings": [
+              "text"
+            ],
+            "themeBehavior": "inherits",
+            "requiresExplicitIntent": false
+          }
+        },
+        {
+          "operationId": "scenario-8-append-steps",
+          "tool": "append_quiz_steps",
+          "arguments": {
+            "funnel": "80000000-0000-4000-8000-000000000001",
+            "version": 2,
+            "gamificationMode": "off",
+            "steps": [
+              {
+                "title": "Abertura",
+                "kind": "intro",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "<p>Uma breve experiencia de descoberta</p><h1>O que define valor para voce?</h1><p>Responda uma pergunta para compartilhar sua preferencia.</p>",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "button",
+                    "settings": {
+                      "text": "Comecar",
+                      "actionType": "nextStep",
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "Preferencia de experiencia",
+                "kind": "question",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "<h2>Em uma experiencia premium, o que mais importa para voce?</h2>",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "options",
+                    "settings": {
+                      "items": [
+                        {
+                          "label": "Qualidade e atencao aos detalhes",
+                          "value": "qualidade"
+                        },
+                        {
+                          "label": "Atendimento atencioso",
+                          "value": "atendimento"
+                        },
+                        {
+                          "label": "Experiencia personalizada",
+                          "value": "personalizacao"
+                        }
+                      ],
+                      "autoAdvance": true,
+                      "multiSelect": false,
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "Encerramento",
+                "kind": "result",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "<h2>Obrigado por compartilhar sua preferencia.</h2><p>Esta resposta ajuda a orientar uma experiencia mais relevante.</p>",
+                      "useTheme": true
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "result": {
+            "funnelId": "80000000-0000-4000-8000-000000000001",
+            "version": 3,
+            "appendedCount": 3,
+            "stepCount": 3,
+            "steps": [
+              {
+                "id": "scenario-8-step-intro",
+                "kind": "intro"
+              },
+              {
+                "id": "scenario-8-step-question",
+                "kind": "question"
+              },
+              {
+                "id": "scenario-8-step-result",
+                "kind": "result"
+              }
+            ]
+          }
+        },
+        {
+          "operationId": "scenario-8-summary-checkpoint",
+          "tool": "get_quiz_blueprint",
+          "arguments": {
+            "funnel": "80000000-0000-4000-8000-000000000001",
+            "detail": "summary"
+          },
+          "result": {
+            "version": 3,
+            "stepCount": 3,
+            "steps": [
+              {
+                "id": "scenario-8-step-intro",
+                "kind": "intro",
+                "componentTypes": [
+                  "text",
+                  "button"
+                ]
+              },
+              {
+                "id": "scenario-8-step-question",
+                "kind": "question",
+                "componentTypes": [
+                  "text",
+                  "options"
+                ]
+              },
+              {
+                "id": "scenario-8-step-result",
+                "kind": "result",
+                "componentTypes": [
+                  "text"
+                ]
+              }
+            ],
+            "warnings": []
+          }
+        },
+        {
+          "operationId": "scenario-8-final-blueprint",
+          "tool": "get_quiz_blueprint",
+          "arguments": {
+            "funnel": "80000000-0000-4000-8000-000000000001",
+            "detail": "full"
+          },
+          "result": {
+            "version": 3,
+            "stepCount": 3,
+            "globalPresets": {
+              "theme": {
+                "colors": {
+                  "primary": "#18352d",
+                  "primaryText": "#ffffff",
+                  "background": "#f5f3ee",
+                  "text": "#17231e",
+                  "border": "#c8c7bb"
+                },
+                "typography": {
+                  "fontFamily": "Inter, system-ui, sans-serif",
+                  "headingFont": "Inter, system-ui, sans-serif"
+                }
+              },
+              "settings": {
+                "gamification": {
+                  "enabled": false,
+                  "score": {
+                    "enabled": false
+                  },
+                  "backgroundMusic": {
+                    "enabled": false
+                  },
+                  "feedback": {
+                    "vibrateOnInteraction": false,
+                    "clickFeedback": false,
+                    "soundOnInteraction": false
+                  },
+                  "interactionEffects": {
+                    "enabled": false
+                  }
+                }
+              }
+            },
+            "steps": [
+              {
+                "id": "scenario-8-step-intro",
+                "kind": "intro",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "button",
+                    "settings": {
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "scenario-8-step-question",
+                "kind": "question",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "options",
+                    "settings": {
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "scenario-8-step-result",
+                "kind": "result",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "useTheme": true
+                    }
+                  }
+                ]
+              }
+            ],
+            "warnings": []
+          }
+        }
+      ],
+      "writes": [
+        {
+          "operationId": "scenario-8-create-funnel",
+          "tool": "create_blank_funnel",
+          "payload": {
+            "title": "Pesquisa de Preferencias Premium"
+          }
+        },
+        {
+          "operationId": "scenario-8-apply-premium-presets",
+          "tool": "update_funnel_global_presets",
+          "payload": {
+            "version": 1,
+            "replaceTheme": false,
+            "replaceSettings": false,
+            "theme": {
+              "colors": {
+                "primary": "#18352d",
+                "primaryText": "#ffffff",
+                "background": "#f5f3ee",
+                "text": "#17231e",
+                "border": "#c8c7bb"
+              },
+              "typography": {
+                "fontFamily": "Inter, system-ui, sans-serif",
+                "headingFont": "Inter, system-ui, sans-serif"
+              },
+              "spacing": {
+                "xs": "8px",
+                "sm": "12px",
+                "md": "16px"
+              },
+              "layout": {
+                "borderRadius": "12px",
+                "shadowLevel": 2,
+                "containerMaxWidth": "448px",
+                "contentMaxWidth": "448px",
+                "pagePaddingX": "16px",
+                "contentGap": "22px"
+              },
+              "animations": {
+                "enabled": true,
+                "duration": "200ms",
+                "easing": "ease-in-out",
+                "stepTransition": {
+                  "enabled": false,
+                  "preset": "none",
+                  "durationMs": 220,
+                  "easing": "cubic-bezier(.4,0,.2,1)"
+                }
+              },
+              "header": {
+                "enabled": true,
+                "showProgress": true,
+                "showBackButton": true,
+                "contentType": "text",
+                "content": "EXPERIENCIA PRIVADA"
+              },
+              "background": {
+                "enabled": false
+              },
+              "form": {
+                "fieldHeight": "52px",
+                "fieldBorderRadius": "12px",
+                "fieldSpacing": "14px",
+                "labelSpacing": "8px"
+              }
+            },
+            "settings": {
+              "navigation": {
+                "resumeProgressEnabled": true
+              }
+            }
+          }
+        },
+        {
+          "operationId": "scenario-8-append-steps",
+          "tool": "append_quiz_steps",
+          "payload": {
+            "version": 2,
+            "steps": [
+              {
+                "title": "Abertura",
+                "kind": "intro",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "<p>Uma breve experiencia de descoberta</p><h1>O que define valor para voce?</h1><p>Responda uma pergunta para compartilhar sua preferencia.</p>",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "button",
+                    "settings": {
+                      "text": "Comecar",
+                      "actionType": "nextStep",
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "Preferencia de experiencia",
+                "kind": "question",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "<h2>Em uma experiencia premium, o que mais importa para voce?</h2>",
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "options",
+                    "settings": {
+                      "items": [
+                        {
+                          "label": "Qualidade e atencao aos detalhes",
+                          "value": "qualidade"
+                        },
+                        {
+                          "label": "Atendimento atencioso",
+                          "value": "atendimento"
+                        },
+                        {
+                          "label": "Experiencia personalizada",
+                          "value": "personalizacao"
+                        }
+                      ],
+                      "autoAdvance": true,
+                      "multiSelect": false,
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "title": "Encerramento",
+                "kind": "result",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "content": "<h2>Obrigado por compartilhar sua preferencia.</h2><p>Esta resposta ajuda a orientar uma experiencia mais relevante.</p>",
+                      "useTheme": true
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "finalState": {
+        "status": "completed",
+        "simulation": true,
+        "funnelId": "80000000-0000-4000-8000-000000000001",
+        "version": 3,
+        "theme": "premium-global-preset",
+        "gamification": {
+          "enabled": false,
+          "scoreEnabled": false,
+          "backgroundMusicEnabled": false,
+          "interactionEffectsEnabled": false
+        },
+        "stepCount": 3,
+        "localOverrides": [],
+        "warnings": []
+      },
+      "evidence": {
+        "decisionRecord": {
+          "factsProvided": [
+            "O pedido e criar um quiz visualmente consistente para uma marca premium."
+          ],
+          "reversibleAssumptions": [
+            "Sem oferta, URL, proposito de captura ou ativo de marca, o fluxo e uma pesquisa curta de preferencias sem coleta de dados pessoais.",
+            "O preset premium global resolve a identidade visual sem estilos locais."
+          ],
+          "excludedByScope": [
+            "gamificacao",
+            "score",
+            "audio",
+            "efeitos de interacao",
+            "oferta e CTA externo",
+            "overrides por etapa"
+          ]
+        },
+        "after": [
+          {
+            "operationId": "scenario-8-summary-checkpoint",
+            "version": 3,
+            "stepCount": 3,
+            "steps": [
+              {
+                "id": "scenario-8-step-intro",
+                "kind": "intro",
+                "componentTypes": [
+                  "text",
+                  "button"
+                ]
+              },
+              {
+                "id": "scenario-8-step-question",
+                "kind": "question",
+                "componentTypes": [
+                  "text",
+                  "options"
+                ]
+              },
+              {
+                "id": "scenario-8-step-result",
+                "kind": "result",
+                "componentTypes": [
+                  "text"
+                ]
+              }
+            ],
+            "warnings": []
+          },
+          {
+            "operationId": "scenario-8-final-blueprint",
+            "version": 3,
+            "globalPresets": {
+              "theme": {
+                "colors": {
+                  "primary": "#18352d",
+                  "primaryText": "#ffffff",
+                  "background": "#f5f3ee",
+                  "text": "#17231e",
+                  "border": "#c8c7bb"
+                },
+                "typography": {
+                  "fontFamily": "Inter, system-ui, sans-serif",
+                  "headingFont": "Inter, system-ui, sans-serif"
+                }
+              },
+              "settings": {
+                "gamification": {
+                  "enabled": false,
+                  "score": {
+                    "enabled": false
+                  },
+                  "backgroundMusic": {
+                    "enabled": false
+                  },
+                  "feedback": {
+                    "vibrateOnInteraction": false,
+                    "clickFeedback": false,
+                    "soundOnInteraction": false
+                  },
+                  "interactionEffects": {
+                    "enabled": false
+                  }
+                }
+              }
+            },
+            "steps": [
+              {
+                "id": "scenario-8-step-intro",
+                "kind": "intro",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "button",
+                    "settings": {
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "scenario-8-step-question",
+                "kind": "question",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "useTheme": true
+                    }
+                  },
+                  {
+                    "type": "options",
+                    "settings": {
+                      "useTheme": true
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "scenario-8-step-result",
+                "kind": "result",
+                "components": [
+                  {
+                    "type": "text",
+                    "settings": {
+                      "useTheme": true
+                    }
+                  }
+                ]
+              }
+            ],
+            "warnings": []
+          }
+        ]
+      }
+    },
+    {
+      "scenarioId": 9,
+      "attempt": 1,
+      "contractVersion": "1.0.0",
+      "evaluationDate": "2026-07-10",
+      "executionMode": "dry-run",
+      "model": "gpt-5.6-sol",
+      "provider": "openai",
+      "seed": null,
+      "toolCalls": [
+        {
+          "operationId": "scenario-9-list-funnels-1",
+          "tool": "list_funnels",
+          "arguments": {},
+          "result": {
+            "executed": false,
+            "reason": "Dry-run isolado: MCP real não foi chamado; nenhum funil foi identificado."
+          }
+        }
+      ],
+      "writes": [],
+      "finalState": {
+        "status": "awaiting_clarification",
+        "targetFunnel": null,
+        "price": null,
+        "checkoutUrl": null,
+        "offerCreated": false
+      },
+      "evidence": {
+        "clarification": {
+          "missingFields": [
+            "funil",
+            "preço",
+            "checkout"
+          ],
+          "text": "Preciso que informe o funil-alvo, o preço real da oferta e a URL de checkout para adicionar a oferta com CTA."
+        }
+      }
+    },
+    {
+      "scenarioId": 10,
+      "attempt": 1,
+      "executionMode": "dry-run",
+      "model": "gpt-5.6-sol",
+      "provider": "openai",
+      "seed": null,
+      "toolCalls": [
+        {
+          "operationId": "s10-list-funnels",
+          "tool": "list_funnels",
+          "arguments": {},
+          "result": {
+            "funnels": [
+              {
+                "id": "funnel-portfolio-01",
+                "slug": "diagnostico-de-perfil",
+                "name": "Diagnostico de Perfil"
+              }
+            ]
+          }
+        },
+        {
+          "operationId": "s10-read-blueprint-summary-before",
+          "tool": "get_quiz_blueprint",
+          "arguments": {
+            "funnelId": "funnel-portfolio-01",
+            "detail": "summary"
+          },
+          "result": {
+            "funnelId": "funnel-portfolio-01",
+            "version": 41,
+            "finalStepId": "step-recommendation",
+            "steps": [
+              {
+                "id": "step-welcome",
+                "kind": "intro",
+                "componentIds": [
+                  "component-welcome-title"
+                ]
+              },
+              {
+                "id": "step-goal",
+                "kind": "question",
+                "componentIds": [
+                  "component-goal-question"
+                ]
+              },
+              {
+                "id": "step-recommendation",
+                "kind": "result",
+                "componentIds": [
+                  "component-recommendation-title",
+                  "component-recommendation-copy",
+                  "component-recommendation-button"
+                ]
+              }
+            ],
+            "gamification": {
+              "enabled": false
+            },
+            "score": {
+              "enabled": false
+            },
+            "warnings": []
+          }
+        },
+        {
+          "operationId": "s10-read-global-presets-before",
+          "tool": "get_funnel_global_presets",
+          "arguments": {
+            "funnelId": "funnel-portfolio-01"
+          },
+          "result": {
+            "funnelId": "funnel-portfolio-01",
+            "version": 41,
+            "globalPresets": {
+              "theme": {
+                "primaryColor": "#1F3A5F",
+                "fontFamily": "Inter"
+              },
+              "header": {
+                "showProgress": true
+              },
+              "navigation": {
+                "showBackButton": true
+              }
+            },
+            "gamification": {
+              "enabled": false
+            },
+            "score": {
+              "enabled": false
+            }
+          }
+        },
+        {
+          "operationId": "s10-read-final-step-full-before",
+          "tool": "get_quiz_blueprint",
+          "arguments": {
+            "funnelId": "funnel-portfolio-01",
+            "detail": "full"
+          },
+          "result": {
+            "funnelId": "funnel-portfolio-01",
+            "version": 41,
+            "finalStepId": "step-recommendation",
+            "steps": [
+              {
+                "id": "step-welcome",
+                "kind": "intro",
+                "componentIds": [
+                  "component-welcome-title"
+                ]
+              },
+              {
+                "id": "step-goal",
+                "kind": "question",
+                "componentIds": [
+                  "component-goal-question"
+                ]
+              },
+              {
+                "id": "step-recommendation",
+                "kind": "result",
+                "componentIds": [
+                  "component-recommendation-title",
+                  "component-recommendation-copy",
+                  "component-recommendation-button"
+                ]
+              }
+            ],
+            "components": [
+              {
+                "id": "component-recommendation-copy",
+                "stepId": "step-recommendation",
+                "type": "text",
+                "settings": {
+                  "text": "Com base nas suas respostas, voce recebeu uma recomendacao personalizada."
+                }
+              }
+            ],
+            "gamification": {
+              "enabled": false
+            },
+            "score": {
+              "enabled": false
+            },
+            "warnings": []
+          }
+        },
+        {
+          "operationId": "s10-update-final-copy",
+          "tool": "update_component_settings",
+          "arguments": {
+            "funnelId": "funnel-portfolio-01",
+            "stepId": "step-recommendation",
+            "componentId": "component-recommendation-copy",
+            "version": 41,
+            "settings": {
+              "text": "Com base nas suas respostas, veja sua recomendacao personalizada e escolha seu proximo passo."
+            }
+          },
+          "result": {
+            "componentId": "component-recommendation-copy",
+            "stepId": "step-recommendation",
+            "version": 42
+          }
+        },
+        {
+          "operationId": "s10-read-global-presets-after",
+          "tool": "get_funnel_global_presets",
+          "arguments": {
+            "funnelId": "funnel-portfolio-01"
+          },
+          "result": {
+            "funnelId": "funnel-portfolio-01",
+            "version": 42,
+            "globalPresets": {
+              "theme": {
+                "primaryColor": "#1F3A5F",
+                "fontFamily": "Inter"
+              },
+              "header": {
+                "showProgress": true
+              },
+              "navigation": {
+                "showBackButton": true
+              }
+            },
+            "gamification": {
+              "enabled": false
+            },
+            "score": {
+              "enabled": false
+            }
+          }
+        },
+        {
+          "operationId": "s10-validate-final-full",
+          "tool": "get_quiz_blueprint",
+          "arguments": {
+            "funnelId": "funnel-portfolio-01",
+            "detail": "full"
+          },
+          "result": {
+            "funnelId": "funnel-portfolio-01",
+            "version": 42,
+            "finalStepId": "step-recommendation",
+            "steps": [
+              {
+                "id": "step-welcome",
+                "kind": "intro",
+                "componentIds": [
+                  "component-welcome-title"
+                ]
+              },
+              {
+                "id": "step-goal",
+                "kind": "question",
+                "componentIds": [
+                  "component-goal-question"
+                ]
+              },
+              {
+                "id": "step-recommendation",
+                "kind": "result",
+                "componentIds": [
+                  "component-recommendation-title",
+                  "component-recommendation-copy",
+                  "component-recommendation-button"
+                ]
+              }
+            ],
+            "components": [
+              {
+                "id": "component-recommendation-copy",
+                "stepId": "step-recommendation",
+                "type": "text",
+                "settings": {
+                  "text": "Com base nas suas respostas, veja sua recomendacao personalizada e escolha seu proximo passo."
+                }
+              }
+            ],
+            "gamification": {
+              "enabled": false
+            },
+            "score": {
+              "enabled": false
+            },
+            "warnings": []
+          }
+        }
+      ],
+      "writes": [
+        {
+          "operationId": "s10-update-final-copy",
+          "tool": "update_component_settings",
+          "payload": {
+            "funnelId": "funnel-portfolio-01",
+            "stepId": "step-recommendation",
+            "componentId": "component-recommendation-copy",
+            "version": 41,
+            "settings": {
+              "text": "Com base nas suas respostas, veja sua recomendacao personalizada e escolha seu proximo passo."
+            }
+          }
+        }
+      ],
+      "finalState": {
+        "status": "completed",
+        "funnelId": "funnel-portfolio-01",
+        "finalStepId": "step-recommendation",
+        "updatedComponentIds": [
+          "component-recommendation-copy"
+        ],
+        "globalThemeChanged": false,
+        "stepStructureChanged": false,
+        "gamification": {
+          "enabled": false
+        },
+        "score": {
+          "enabled": false
+        },
+        "warnings": []
+      },
+      "evidence": {
+        "before": [
+          {
+            "operationId": "s10-read-blueprint-summary-before",
+            "finalStepId": "step-recommendation",
+            "steps": [
+              {
+                "id": "step-welcome",
+                "kind": "intro",
+                "componentIds": [
+                  "component-welcome-title"
+                ]
+              },
+              {
+                "id": "step-goal",
+                "kind": "question",
+                "componentIds": [
+                  "component-goal-question"
+                ]
+              },
+              {
+                "id": "step-recommendation",
+                "kind": "result",
+                "componentIds": [
+                  "component-recommendation-title",
+                  "component-recommendation-copy",
+                  "component-recommendation-button"
+                ]
+              }
+            ],
+            "gamification": {
+              "enabled": false
+            },
+            "score": {
+              "enabled": false
+            }
+          },
+          {
+            "operationId": "s10-read-global-presets-before",
+            "globalPresets": {
+              "theme": {
+                "primaryColor": "#1F3A5F",
+                "fontFamily": "Inter"
+              },
+              "header": {
+                "showProgress": true
+              },
+              "navigation": {
+                "showBackButton": true
+              }
+            },
+            "gamification": {
+              "enabled": false
+            },
+            "score": {
+              "enabled": false
+            }
+          }
+        ],
+        "after": [
+          {
+            "operationId": "s10-read-global-presets-after",
+            "globalPresets": {
+              "theme": {
+                "primaryColor": "#1F3A5F",
+                "fontFamily": "Inter"
+              },
+              "header": {
+                "showProgress": true
+              },
+              "navigation": {
+                "showBackButton": true
+              }
+            },
+            "gamification": {
+              "enabled": false
+            },
+            "score": {
+              "enabled": false
+            }
+          },
+          {
+            "operationId": "s10-validate-final-full",
+            "steps": [
+              {
+                "id": "step-welcome",
+                "kind": "intro",
+                "componentIds": [
+                  "component-welcome-title"
+                ]
+              },
+              {
+                "id": "step-goal",
+                "kind": "question",
+                "componentIds": [
+                  "component-goal-question"
+                ]
+              },
+              {
+                "id": "step-recommendation",
+                "kind": "result",
+                "componentIds": [
+                  "component-recommendation-title",
+                  "component-recommendation-copy",
+                  "component-recommendation-button"
+                ]
+              }
+            ],
+            "components": [
+              {
+                "id": "component-recommendation-copy",
+                "stepId": "step-recommendation",
+                "type": "text",
+                "settings": {
+                  "text": "Com base nas suas respostas, veja sua recomendacao personalizada e escolha seu proximo passo."
+                }
+              }
+            ],
+            "gamification": {
+              "enabled": false
+            },
+            "score": {
+              "enabled": false
+            },
+            "warnings": []
+          }
+        ]
+      }
+    }
+  ],
+  "attemptsByScenario": {
+    "1": 1,
+    "2": 1,
+    "3": 1,
+    "4": 1,
+    "5": 1,
+    "6": 1,
+    "7": 1,
+    "8": 1,
+    "9": 1,
+    "10": 1
+  },
+  "discardedAttempts": []
+}

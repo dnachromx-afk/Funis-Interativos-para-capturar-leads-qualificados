@@ -1,0 +1,331 @@
+{
+  "contractVersion": "1.0.0",
+  "evaluationDate": "2026-07-10",
+  "traceRequirements": {
+    "operationId": "unique on every mutating toolCall and required on every writes entry; a write pairs to its toolCall by operationId",
+    "version": "mutations use the latest positive integer result.version observed from create or read operations",
+    "evidence": "before and after are snapshot lists; each snapshot references one read operationId and duplicates only corresponding result fields",
+    "writes": "write.payload contains only persisted fields; MCP metadata/envelope fields may be omitted but persisted values must match the paired toolCall",
+    "clarification": "awaiting_clarification requires zero writes, non-empty evidence.clarification.missingFields strings, and actionable text mentioning every missing field"
+  },
+  "execution": {
+    "mode": "dry-run",
+    "model": "gpt-5.6-sol",
+    "provider": "openai",
+    "seed": null,
+    "attemptsPerScenario": 1
+  },
+  "scenarios": [
+    {
+      "id": 1,
+      "prompt": "Crie um quiz para captar leads de consultoria nutricional.",
+      "criteria": [
+        "creates lead-capture quiz",
+        "theme precedes steps",
+        "no unsolicited gamification, score, or effects",
+        "uses only necessary discovery tools"
+      ],
+      "expectedPolicy": {
+        "toolOrdering": [
+          "get_quiz_authoring_context",
+          "create_blank_funnel",
+          "update_funnel_global_presets",
+          "append_quiz_steps"
+        ],
+        "forbiddenTools": ["list_audio_assets"],
+        "sensitiveWrites": [
+          "settings.gamification",
+          "options.items[].scoreDeltaEnabled",
+          "gamificationOverride",
+          "headerOverride",
+          "useTheme:false"
+        ],
+        "finalConditions": [
+          "themeAppliedBeforeSteps=true",
+          "gamificationEnabled=false",
+          "scoreEnabled=false",
+          "no local overrides without justification"
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "prompt": "Crie um desafio gamificado de sete dias com pontos por resposta.",
+      "criteria": [
+        "creates seven-day challenge",
+        "enables requested gamification and score",
+        "awards points per answer",
+        "theme precedes steps"
+      ],
+      "expectedPolicy": {
+        "toolOrdering": [
+          "get_quiz_authoring_context",
+          "create_blank_funnel",
+          "update_funnel_global_presets",
+          "append_quiz_steps"
+        ],
+        "forbiddenTools": [],
+        "sensitiveWrites": [
+          "settings.gamification",
+          "options.items[].scoreDeltaEnabled"
+        ],
+        "finalConditions": [
+          "themeAppliedBeforeSteps=true",
+          "gamificationEnabled=true",
+          "scoreEnabled=true",
+          "score deltas are explicit"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "prompt": "Monte um quiz simples para uma imobiliária, com cinco perguntas e captura.",
+      "criteria": [
+        "has exactly five question steps and one capture",
+        "theme precedes steps",
+        "no unsolicited gamification, score, or effects",
+        "does not expand into an offer funnel"
+      ],
+      "expectedPolicy": {
+        "toolOrdering": [
+          "get_quiz_authoring_context",
+          "create_blank_funnel",
+          "update_funnel_global_presets",
+          "append_quiz_steps"
+        ],
+        "forbiddenTools": ["list_audio_assets"],
+        "sensitiveWrites": [
+          "settings.gamification",
+          "options.items[].scoreDeltaEnabled",
+          "gamificationOverride",
+          "useTheme:false"
+        ],
+        "finalConditions": [
+          "themeAppliedBeforeSteps=true",
+          "gamificationEnabled=false",
+          "scoreEnabled=false",
+          "questionStepCount=5",
+          "captureStepCount=1"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "prompt": "No funil `diagnostico-capilar`, troque a pergunta de objetivo.",
+      "criteria": [
+        "inspects target before writing",
+        "asks for replacement wording/options when absent",
+        "does not alter unrelated structure or identity"
+      ],
+      "expectedPolicy": {
+        "toolOrdering": ["get_quiz_blueprint"],
+        "forbiddenTools": [
+          "create_blank_funnel",
+          "append_quiz_steps",
+          "update_funnel_global_presets",
+          "update_component_settings"
+        ],
+        "sensitiveWrites": ["update_component_settings"],
+        "finalConditions": [
+          "status=awaiting_clarification",
+          "writes.allowed=[]",
+          "no write until missing replacement content is clarified"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "prompt": "Ache meu funil de emagrecimento e adicione uma pergunta de rotina.",
+      "criteria": [
+        "searches and disambiguates target",
+        "inspects before insertion",
+        "adds one native question",
+        "preserves presets and existing identity"
+      ],
+      "expectedPolicy": {
+        "toolOrdering": [
+          "list_funnels",
+          "get_quiz_blueprint",
+          "append_quiz_steps",
+          "update_quiz_step"
+        ],
+        "forbiddenTools": [
+          "create_blank_funnel",
+          "update_funnel_global_presets",
+          "list_audio_assets"
+        ],
+        "sensitiveWrites": [
+          "append_quiz_steps",
+          "update_quiz_step",
+          "useTheme:false"
+        ],
+        "finalConditions": [
+          "one question added",
+          "gamification and score unchanged",
+          "no unjustified local overrides"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "prompt": "Use `iphoneToast` na etapa de oferta.",
+      "criteria": [
+        "identifies target and offer step",
+        "reads iphoneToast schema before creation",
+        "adds only requested component",
+        "does not invent audio"
+      ],
+      "expectedPolicy": {
+        "toolOrdering": [
+          "list_funnels",
+          "get_quiz_blueprint",
+          "get_component_schema",
+          "create_quiz_component"
+        ],
+        "forbiddenTools": [
+          "create_blank_funnel",
+          "update_funnel_global_presets",
+          "list_audio_assets"
+        ],
+        "sensitiveWrites": [
+          "create_quiz_component",
+          "soundUrl",
+          "useTheme:false"
+        ],
+        "finalConditions": [
+          "componentTypes includes iphoneToast",
+          "soundEnabled=false",
+          "existing presets unchanged"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "prompt": "Deixe o header da captura sem barra de progresso.",
+      "criteria": [
+        "identifies capture step",
+        "uses one justified capture-only header override",
+        "does not change components or global header"
+      ],
+      "expectedPolicy": {
+        "toolOrdering": [
+          "list_funnels",
+          "get_quiz_blueprint",
+          "update_quiz_step"
+        ],
+        "forbiddenTools": [
+          "create_blank_funnel",
+          "append_quiz_steps",
+          "update_funnel_global_presets"
+        ],
+        "sensitiveWrites": ["headerOverride"],
+        "finalConditions": [
+          "capture headerOverride.showProgress=false",
+          "no component writes"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "prompt": "Crie um quiz visualmente consistente para uma marca premium.",
+      "criteria": [
+        "theme precedes steps",
+        "uses global theme consistently",
+        "no unsolicited gamification, score, effects, or local styles",
+        "uses only necessary discovery tools"
+      ],
+      "expectedPolicy": {
+        "toolOrdering": [
+          "get_quiz_authoring_context",
+          "create_blank_funnel",
+          "update_funnel_global_presets",
+          "append_quiz_steps"
+        ],
+        "forbiddenTools": ["list_audio_assets"],
+        "sensitiveWrites": [
+          "settings.gamification",
+          "options.items[].scoreDeltaEnabled",
+          "gamificationOverride",
+          "headerOverride",
+          "useTheme:false",
+          "backgroundColor",
+          "customCSS"
+        ],
+        "finalConditions": [
+          "themeAppliedBeforeSteps=true",
+          "gamificationEnabled=false",
+          "scoreEnabled=false",
+          "no local overrides without justification",
+          "theme inheritance for standard components"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "prompt": "Adicione uma oferta com preço e CTA para o checkout informado.",
+      "criteria": [
+        "identifies target",
+        "requires actual price and checkout when absent",
+        "uses pricingCard and URL CTA only after required data",
+        "does not invent checkout"
+      ],
+      "expectedPolicy": {
+        "toolOrdering": ["list_funnels"],
+        "forbiddenTools": [
+          "create_blank_funnel",
+          "update_funnel_global_presets",
+          "create_quiz_component"
+        ],
+        "sensitiveWrites": [
+          "pricingCard",
+          "button.actionType:url",
+          "checkout URL"
+        ],
+        "finalConditions": [
+          "status=awaiting_clarification",
+          "writes.allowed=[]",
+          "no write until funnel, price, and checkout are supplied"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "prompt": "Melhore apenas a etapa final sem mudar estrutura nem identidade visual.",
+      "criteria": [
+        "identifies target and final step",
+        "preserves global theme and step structure",
+        "limits writes to final-step components",
+        "does not create data not supplied"
+      ],
+      "expectedPolicy": {
+        "toolOrdering": [
+          "list_funnels",
+          "get_quiz_blueprint",
+          "get_funnel_global_presets",
+          "update_component_settings"
+        ],
+        "forbiddenTools": [
+          "create_blank_funnel",
+          "append_quiz_steps",
+          "replace_quiz_structure",
+          "update_funnel_global_presets",
+          "update_quiz_step",
+          "update_funnel_metadata"
+        ],
+        "sensitiveWrites": [
+          "update_component_settings",
+          "create_quiz_component",
+          "reorder_quiz_components",
+          "useTheme:false",
+          "checkout URL"
+        ],
+        "finalConditions": [
+          "only final-step component writes",
+          "global theme unchanged",
+          "step structure unchanged",
+          "gamification and score preserved"
+        ]
+      }
+    }
+  ]
+}

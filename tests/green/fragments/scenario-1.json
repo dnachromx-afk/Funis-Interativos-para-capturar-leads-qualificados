@@ -1,0 +1,607 @@
+{
+  "contractVersion": "1.0.0",
+  "evaluationDate": "2026-07-10",
+  "executionMode": "dry-run",
+  "model": "gpt-5.6-sol",
+  "provider": "openai",
+  "seed": null,
+  "scenarioId": 1,
+  "attempt": 1,
+  "toolCalls": [
+    {
+      "operationId": "context-1",
+      "tool": "get_quiz_authoring_context",
+      "arguments": {},
+      "result": {
+        "simulated": true,
+        "knownTarget": null,
+        "supportedStepKinds": ["intro", "question", "capture", "result"],
+        "supportedComponentTypes": ["text", "button", "options", "form"]
+      }
+    },
+    {
+      "operationId": "create-funnel-1",
+      "tool": "create_blank_funnel",
+      "arguments": {
+        "name": "Quiz de interesse em consultoria nutricional",
+        "slug": "interesse-consultoria-nutricional"
+      },
+      "result": {
+        "simulated": true,
+        "funnelId": "dryrun-funnel-1",
+        "version": 1
+      }
+    },
+    {
+      "operationId": "apply-presets-1",
+      "tool": "update_funnel_global_presets",
+      "arguments": {
+        "funnelId": "dryrun-funnel-1",
+        "version": 1,
+        "replaceTheme": false,
+        "replaceSettings": false,
+        "theme": {
+          "colors": {
+            "primary": "#344054",
+            "primaryText": "#ffffff",
+            "background": "#f8f9fb",
+            "text": "#182230",
+            "border": "#d0d5dd"
+          },
+          "layout": {
+            "containerMaxWidth": "448px",
+            "contentMaxWidth": "448px",
+            "pagePaddingX": "16px"
+          },
+          "header": {
+            "enabled": true,
+            "showProgress": true,
+            "showBackButton": true,
+            "contentType": "text",
+            "content": "CONSULTA GUIADA",
+            "backgroundColor": "#344054",
+            "textColor": "#ffffff",
+            "progressColor": "#667085"
+          },
+          "form": {
+            "fieldHeight": "52px",
+            "fieldBorderRadius": "10px",
+            "fieldBorderColor": "#d0d5dd",
+            "fieldFocusBorderColor": "#344054",
+            "fieldBackgroundColor": "#ffffff",
+            "fieldTextColor": "#182230",
+            "labelColor": "#182230"
+          }
+        }
+      },
+      "result": {
+        "simulated": true,
+        "funnelId": "dryrun-funnel-1",
+        "version": 2
+      }
+    },
+    {
+      "operationId": "schema-text-1",
+      "tool": "get_component_schema",
+      "arguments": {
+        "componentType": "text"
+      },
+      "result": {
+        "simulated": true,
+        "componentType": "text",
+        "requiredSettings": ["content"],
+        "themeBehavior": "inherits"
+      }
+    },
+    {
+      "operationId": "schema-button-1",
+      "tool": "get_component_schema",
+      "arguments": {
+        "componentType": "button"
+      },
+      "result": {
+        "simulated": true,
+        "componentType": "button",
+        "requiredSettings": ["text", "actionType"],
+        "themeBehavior": "inherits"
+      }
+    },
+    {
+      "operationId": "schema-options-1",
+      "tool": "get_component_schema",
+      "arguments": {
+        "componentType": "options"
+      },
+      "result": {
+        "simulated": true,
+        "componentType": "options",
+        "requiredSettings": ["items", "autoAdvance", "multiSelect"],
+        "themeBehavior": "partial"
+      }
+    },
+    {
+      "operationId": "schema-form-1",
+      "tool": "get_component_schema",
+      "arguments": {
+        "componentType": "form"
+      },
+      "result": {
+        "simulated": true,
+        "componentType": "form",
+        "requiredSettings": ["fields"],
+        "themeBehavior": "inherits"
+      }
+    },
+    {
+      "operationId": "append-steps-1",
+      "tool": "append_quiz_steps",
+      "arguments": {
+        "funnelId": "dryrun-funnel-1",
+        "version": 2,
+        "steps": [
+          {
+            "kind": "intro",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "content": "Encontre um ponto de partida para organizar sua alimentacao.",
+                  "useTheme": true
+                }
+              },
+              {
+                "type": "button",
+                "settings": {
+                  "text": "Comecar",
+                  "actionType": "nextStep",
+                  "useTheme": true
+                }
+              }
+            ]
+          },
+          {
+            "kind": "question",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "content": "Qual aspecto da sua alimentacao voce gostaria de organizar primeiro?",
+                  "useTheme": true
+                }
+              },
+              {
+                "type": "options",
+                "settings": {
+                  "items": [
+                    { "label": "Planejamento das refeicoes", "value": "planejamento" },
+                    { "label": "Rotina alimentar", "value": "rotina" },
+                    { "label": "Relacao com a comida", "value": "relacao" },
+                    { "label": "Outro objetivo", "value": "outro" }
+                  ],
+                  "autoAdvance": true,
+                  "multiSelect": false,
+                  "useTheme": true
+                }
+              }
+            ]
+          },
+          {
+            "kind": "question",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "content": "Qual formato de acompanhamento combina melhor com sua rotina?",
+                  "useTheme": true
+                }
+              },
+              {
+                "type": "options",
+                "settings": {
+                  "items": [
+                    { "label": "Atendimento individual", "value": "individual" },
+                    { "label": "Orientacao para comecar", "value": "orientacao" },
+                    { "label": "Quero entender as possibilidades", "value": "possibilidades" }
+                  ],
+                  "autoAdvance": true,
+                  "multiSelect": false,
+                  "useTheme": true
+                }
+              }
+            ]
+          },
+          {
+            "kind": "capture",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "content": "Deixe seus dados para receber um retorno sobre a consultoria. Usaremos seu e-mail somente para esse contato.",
+                  "useTheme": true
+                }
+              },
+              {
+                "type": "form",
+                "settings": {
+                  "fields": [
+                    {
+                      "type": "text",
+                      "name": "firstName",
+                      "label": "Seu nome",
+                      "required": true
+                    },
+                    {
+                      "type": "email",
+                      "name": "email",
+                      "label": "Seu e-mail",
+                      "required": true
+                    }
+                  ],
+                  "useTheme": true
+                }
+              },
+              {
+                "type": "button",
+                "settings": {
+                  "text": "Enviar meus dados",
+                  "actionType": "nextStep",
+                  "useTheme": true
+                }
+              }
+            ]
+          },
+          {
+            "kind": "result",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "content": "Recebemos seus dados. A equipe entrara em contato para explicar os proximos passos da consultoria.",
+                  "useTheme": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "result": {
+        "simulated": true,
+        "funnelId": "dryrun-funnel-1",
+        "version": 3,
+        "createdStepIds": [
+          "dryrun-step-intro-1",
+          "dryrun-step-question-1",
+          "dryrun-step-question-2",
+          "dryrun-step-capture-1",
+          "dryrun-step-result-1"
+        ]
+      }
+    },
+    {
+      "operationId": "summary-after-append-1",
+      "tool": "get_quiz_blueprint",
+      "arguments": {
+        "funnelId": "dryrun-funnel-1",
+        "detail": "summary"
+      },
+      "result": {
+        "simulated": true,
+        "funnelId": "dryrun-funnel-1",
+        "version": 3,
+        "steps": [
+          { "id": "dryrun-step-intro-1", "kind": "intro", "componentTypes": ["text", "button"] },
+          { "id": "dryrun-step-question-1", "kind": "question", "componentTypes": ["text", "options"] },
+          { "id": "dryrun-step-question-2", "kind": "question", "componentTypes": ["text", "options"] },
+          { "id": "dryrun-step-capture-1", "kind": "capture", "componentTypes": ["text", "form", "button"] },
+          { "id": "dryrun-step-result-1", "kind": "result", "componentTypes": ["text"] }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "operationId": "full-final-1",
+      "tool": "get_quiz_blueprint",
+      "arguments": {
+        "funnelId": "dryrun-funnel-1",
+        "detail": "full"
+      },
+      "result": {
+        "simulated": true,
+        "funnelId": "dryrun-funnel-1",
+        "version": 3,
+        "steps": [
+          { "id": "dryrun-step-intro-1", "kind": "intro", "componentTypes": ["text", "button"] },
+          { "id": "dryrun-step-question-1", "kind": "question", "componentTypes": ["text", "options"] },
+          { "id": "dryrun-step-question-2", "kind": "question", "componentTypes": ["text", "options"] },
+          { "id": "dryrun-step-capture-1", "kind": "capture", "componentTypes": ["text", "form", "button"] },
+          { "id": "dryrun-step-result-1", "kind": "result", "componentTypes": ["text"] }
+        ],
+        "globalPresets": {
+          "settings": {
+            "gamification": {
+              "enabled": false,
+              "score": {
+                "enabled": false
+              },
+              "backgroundMusic": {
+                "enabled": false
+              },
+              "feedback": {
+                "soundOnInteraction": false
+              },
+              "interactionEffects": {
+                "enabled": false
+              }
+            }
+          }
+        },
+        "warnings": []
+      }
+    }
+  ],
+  "writes": [
+    {
+      "operationId": "create-funnel-1",
+      "tool": "create_blank_funnel",
+      "payload": {
+        "name": "Quiz de interesse em consultoria nutricional",
+        "slug": "interesse-consultoria-nutricional"
+      }
+    },
+    {
+      "operationId": "apply-presets-1",
+      "tool": "update_funnel_global_presets",
+      "payload": {
+        "funnelId": "dryrun-funnel-1",
+        "version": 1,
+        "replaceTheme": false,
+        "replaceSettings": false,
+        "theme": {
+          "colors": {
+            "primary": "#344054",
+            "primaryText": "#ffffff",
+            "background": "#f8f9fb",
+            "text": "#182230",
+            "border": "#d0d5dd"
+          },
+          "layout": {
+            "containerMaxWidth": "448px",
+            "contentMaxWidth": "448px",
+            "pagePaddingX": "16px"
+          },
+          "header": {
+            "enabled": true,
+            "showProgress": true,
+            "showBackButton": true,
+            "contentType": "text",
+            "content": "CONSULTA GUIADA",
+            "backgroundColor": "#344054",
+            "textColor": "#ffffff",
+            "progressColor": "#667085"
+          },
+          "form": {
+            "fieldHeight": "52px",
+            "fieldBorderRadius": "10px",
+            "fieldBorderColor": "#d0d5dd",
+            "fieldFocusBorderColor": "#344054",
+            "fieldBackgroundColor": "#ffffff",
+            "fieldTextColor": "#182230",
+            "labelColor": "#182230"
+          }
+        }
+      }
+    },
+    {
+      "operationId": "append-steps-1",
+      "tool": "append_quiz_steps",
+      "payload": {
+        "funnelId": "dryrun-funnel-1",
+        "version": 2,
+        "steps": [
+          {
+            "kind": "intro",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "content": "Encontre um ponto de partida para organizar sua alimentacao.",
+                  "useTheme": true
+                }
+              },
+              {
+                "type": "button",
+                "settings": {
+                  "text": "Comecar",
+                  "actionType": "nextStep",
+                  "useTheme": true
+                }
+              }
+            ]
+          },
+          {
+            "kind": "question",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "content": "Qual aspecto da sua alimentacao voce gostaria de organizar primeiro?",
+                  "useTheme": true
+                }
+              },
+              {
+                "type": "options",
+                "settings": {
+                  "items": [
+                    { "label": "Planejamento das refeicoes", "value": "planejamento" },
+                    { "label": "Rotina alimentar", "value": "rotina" },
+                    { "label": "Relacao com a comida", "value": "relacao" },
+                    { "label": "Outro objetivo", "value": "outro" }
+                  ],
+                  "autoAdvance": true,
+                  "multiSelect": false,
+                  "useTheme": true
+                }
+              }
+            ]
+          },
+          {
+            "kind": "question",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "content": "Qual formato de acompanhamento combina melhor com sua rotina?",
+                  "useTheme": true
+                }
+              },
+              {
+                "type": "options",
+                "settings": {
+                  "items": [
+                    { "label": "Atendimento individual", "value": "individual" },
+                    { "label": "Orientacao para comecar", "value": "orientacao" },
+                    { "label": "Quero entender as possibilidades", "value": "possibilidades" }
+                  ],
+                  "autoAdvance": true,
+                  "multiSelect": false,
+                  "useTheme": true
+                }
+              }
+            ]
+          },
+          {
+            "kind": "capture",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "content": "Deixe seus dados para receber um retorno sobre a consultoria. Usaremos seu e-mail somente para esse contato.",
+                  "useTheme": true
+                }
+              },
+              {
+                "type": "form",
+                "settings": {
+                  "fields": [
+                    {
+                      "type": "text",
+                      "name": "firstName",
+                      "label": "Seu nome",
+                      "required": true
+                    },
+                    {
+                      "type": "email",
+                      "name": "email",
+                      "label": "Seu e-mail",
+                      "required": true
+                    }
+                  ],
+                  "useTheme": true
+                }
+              },
+              {
+                "type": "button",
+                "settings": {
+                  "text": "Enviar meus dados",
+                  "actionType": "nextStep",
+                  "useTheme": true
+                }
+              }
+            ]
+          },
+          {
+            "kind": "result",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "content": "Recebemos seus dados. A equipe entrara em contato para explicar os proximos passos da consultoria.",
+                  "useTheme": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "finalState": {
+    "status": "created",
+    "funnelId": "dryrun-funnel-1",
+    "version": 3,
+    "themeAppliedBeforeSteps": true,
+    "gamificationEnabled": false,
+    "scoreEnabled": false,
+    "localOverrides": [],
+    "capture": {
+      "stepId": "dryrun-step-capture-1",
+      "fields": ["firstName", "email"],
+      "purpose": "retorno sobre a consultoria nutricional"
+    },
+    "warnings": []
+  },
+  "evidence": {
+    "assumptions": [
+      "O quiz qualifica interesse em consultoria nutricional, sem diagnostico clinico ou oferta comercial.",
+      "A captura pede somente nome e e-mail para retorno da equipe; nao ha consentimento de marketing separado porque ele nao foi solicitado.",
+      "A identidade visual usa um tema sobrio e acessivel por nao haver marca ou ativos fornecidos."
+    ],
+    "before": [
+      {
+        "operationId": "context-1",
+        "knownTarget": null,
+        "supportedStepKinds": ["intro", "question", "capture", "result"],
+        "supportedComponentTypes": ["text", "button", "options", "form"]
+      }
+    ],
+    "checkpoints": [
+      {
+        "operationId": "summary-after-append-1",
+        "funnelId": "dryrun-funnel-1",
+        "version": 3,
+        "steps": [
+          { "id": "dryrun-step-intro-1", "kind": "intro", "componentTypes": ["text", "button"] },
+          { "id": "dryrun-step-question-1", "kind": "question", "componentTypes": ["text", "options"] },
+          { "id": "dryrun-step-question-2", "kind": "question", "componentTypes": ["text", "options"] },
+          { "id": "dryrun-step-capture-1", "kind": "capture", "componentTypes": ["text", "form", "button"] },
+          { "id": "dryrun-step-result-1", "kind": "result", "componentTypes": ["text"] }
+        ],
+        "warnings": []
+      }
+    ],
+    "after": [
+      {
+        "operationId": "full-final-1",
+        "funnelId": "dryrun-funnel-1",
+        "version": 3,
+        "steps": [
+          { "id": "dryrun-step-intro-1", "kind": "intro", "componentTypes": ["text", "button"] },
+          { "id": "dryrun-step-question-1", "kind": "question", "componentTypes": ["text", "options"] },
+          { "id": "dryrun-step-question-2", "kind": "question", "componentTypes": ["text", "options"] },
+          { "id": "dryrun-step-capture-1", "kind": "capture", "componentTypes": ["text", "form", "button"] },
+          { "id": "dryrun-step-result-1", "kind": "result", "componentTypes": ["text"] }
+        ],
+        "globalPresets": {
+          "settings": {
+            "gamification": {
+              "enabled": false,
+              "score": {
+                "enabled": false
+              },
+              "backgroundMusic": {
+                "enabled": false
+              },
+              "feedback": {
+                "soundOnInteraction": false
+              },
+              "interactionEffects": {
+                "enabled": false
+              }
+            }
+          }
+        },
+        "warnings": []
+      }
+    ]
+  }
+}

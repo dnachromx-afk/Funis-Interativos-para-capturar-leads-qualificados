@@ -1,0 +1,555 @@
+{
+  "contractVersion": "1.0.0",
+  "evaluationDate": "2026-07-10",
+  "executionMode": "dry-run",
+  "model": "gpt-5.6-sol",
+  "provider": "openai",
+  "seed": null,
+  "scenarioId": 2,
+  "attempt": 1,
+  "toolCalls": [
+    {
+      "operationId": "read-authoring-context-001",
+      "tool": "get_quiz_authoring_context",
+      "arguments": {},
+      "result": {
+        "dryRun": true,
+        "supportedStepKinds": ["question"],
+        "defaults": {
+          "gamification": {
+            "enabled": false,
+            "score": {
+              "enabled": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "operationId": "write-create-funnel-002",
+      "tool": "create_blank_funnel",
+      "arguments": {
+        "name": "Desafio de 7 Dias",
+        "slug": "desafio-de-7-dias"
+      },
+      "result": {
+        "dryRun": true,
+        "funnelId": "dryrun-s2-desafio-7-dias",
+        "slug": "desafio-de-7-dias",
+        "version": 1
+      }
+    },
+    {
+      "operationId": "write-global-presets-003",
+      "tool": "update_funnel_global_presets",
+      "arguments": {
+        "funnelId": "dryrun-s2-desafio-7-dias",
+        "version": 1,
+        "replaceTheme": false,
+        "replaceSettings": false,
+        "theme": {
+          "colors": {
+            "primary": "#5b2cbf",
+            "primaryText": "#ffffff",
+            "background": "#fbfaff",
+            "text": "#211c31",
+            "border": "#d8cff0"
+          },
+          "typography": {
+            "fontFamily": "Inter, system-ui, sans-serif",
+            "headingFont": "Inter, system-ui, sans-serif"
+          },
+          "layout": {
+            "containerMaxWidth": "448px",
+            "contentMaxWidth": "448px",
+            "pagePaddingX": "16px"
+          },
+          "header": {
+            "enabled": true,
+            "showProgress": true,
+            "contentType": "text",
+            "content": "DESAFIO DE 7 DIAS"
+          }
+        },
+        "settings": {
+          "gamification": {
+            "enabled": true,
+            "persistSession": true,
+            "score": {
+              "enabled": true,
+              "scoreKey": "challengePoints",
+              "label": "Pontos do desafio",
+              "prefix": "",
+              "suffix": " pts",
+              "decimals": 0,
+              "initialValue": 0,
+              "position": "aboveHeader",
+              "variant": "default",
+              "progressMax": 140,
+              "progressLabel": "Pontos acumulados"
+            },
+            "backgroundMusic": {
+              "enabled": false,
+              "audioUrl": ""
+            },
+            "feedback": {
+              "vibrateOnInteraction": false,
+              "clickFeedback": false,
+              "soundOnInteraction": false,
+              "soundUrl": ""
+            },
+            "interactionEffects": {
+              "enabled": false,
+              "rules": []
+            }
+          }
+        },
+        "gamificationMode": "explicit",
+        "explicitIntentReason": "O pedido solicita um desafio gamificado com pontos por resposta."
+      },
+      "result": {
+        "dryRun": true,
+        "funnelId": "dryrun-s2-desafio-7-dias",
+        "version": 2
+      }
+    },
+    {
+      "operationId": "write-seven-day-steps-004",
+      "tool": "append_quiz_steps",
+      "arguments": {
+        "funnelId": "dryrun-s2-desafio-7-dias",
+        "version": 2,
+        "steps": [
+          {
+            "kind": "question",
+            "title": "Dia 1: Escolha seu foco para hoje",
+            "settings": {
+              "answerMode": "single",
+              "options": {
+                "items": [
+                  { "label": "Comecar uma tarefa importante", "scoreDeltaEnabled": true, "scoreDelta": 10 },
+                  { "label": "Concluir uma pendencia", "scoreDeltaEnabled": true, "scoreDelta": 10 }
+                ]
+              }
+            }
+          },
+          {
+            "kind": "question",
+            "title": "Dia 2: Defina uma acao concreta",
+            "settings": {
+              "answerMode": "single",
+              "options": {
+                "items": [
+                  { "label": "Reservar 15 minutos", "scoreDeltaEnabled": true, "scoreDelta": 10 },
+                  { "label": "Bloquear um horario no calendario", "scoreDeltaEnabled": true, "scoreDelta": 10 }
+                ]
+              }
+            }
+          },
+          {
+            "kind": "question",
+            "title": "Dia 3: Escolha como vai manter o ritmo",
+            "settings": {
+              "answerMode": "single",
+              "options": {
+                "items": [
+                  { "label": "Usar um lembrete", "scoreDeltaEnabled": true, "scoreDelta": 10 },
+                  { "label": "Preparar o proximo passo", "scoreDeltaEnabled": true, "scoreDelta": 10 }
+                ]
+              }
+            }
+          },
+          {
+            "kind": "question",
+            "title": "Dia 4: Registre seu progresso",
+            "settings": {
+              "answerMode": "single",
+              "options": {
+                "items": [
+                  { "label": "Anotar o que avancei", "scoreDeltaEnabled": true, "scoreDelta": 10 },
+                  { "label": "Compartilhar meu aprendizado", "scoreDeltaEnabled": true, "scoreDelta": 10 }
+                ]
+              }
+            }
+          },
+          {
+            "kind": "question",
+            "title": "Dia 5: Remova um obstaculo",
+            "settings": {
+              "answerMode": "single",
+              "options": {
+                "items": [
+                  { "label": "Simplificar a proxima tarefa", "scoreDeltaEnabled": true, "scoreDelta": 10 },
+                  { "label": "Pedir apoio quando necessario", "scoreDeltaEnabled": true, "scoreDelta": 10 }
+                ]
+              }
+            }
+          },
+          {
+            "kind": "question",
+            "title": "Dia 6: Reforce seu compromisso",
+            "settings": {
+              "answerMode": "single",
+              "options": {
+                "items": [
+                  { "label": "Revisar minha meta", "scoreDeltaEnabled": true, "scoreDelta": 10 },
+                  { "label": "Celebrar uma pequena conquista", "scoreDeltaEnabled": true, "scoreDelta": 10 }
+                ]
+              }
+            }
+          },
+          {
+            "kind": "question",
+            "title": "Dia 7: Escolha seu proximo passo",
+            "settings": {
+              "answerMode": "single",
+              "options": {
+                "items": [
+                  { "label": "Manter a rotina na proxima semana", "scoreDeltaEnabled": true, "scoreDelta": 10 },
+                  { "label": "Definir uma nova meta", "scoreDeltaEnabled": true, "scoreDelta": 10 }
+                ]
+              }
+            }
+          }
+        ],
+        "gamificationMode": "explicit",
+        "explicitIntentReason": "O pedido solicita um desafio gamificado com pontos por resposta."
+      },
+      "result": {
+        "dryRun": true,
+        "funnelId": "dryrun-s2-desafio-7-dias",
+        "createdStepIds": [
+          "dryrun-s2-day-1",
+          "dryrun-s2-day-2",
+          "dryrun-s2-day-3",
+          "dryrun-s2-day-4",
+          "dryrun-s2-day-5",
+          "dryrun-s2-day-6",
+          "dryrun-s2-day-7"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "operationId": "read-summary-005",
+      "tool": "get_quiz_blueprint",
+      "arguments": {
+        "funnelId": "dryrun-s2-desafio-7-dias",
+        "detail": "summary"
+      },
+      "result": {
+        "dryRun": true,
+        "funnelId": "dryrun-s2-desafio-7-dias",
+        "version": 3,
+        "steps": [
+          { "id": "dryrun-s2-day-1", "kind": "question", "title": "Dia 1: Escolha seu foco para hoje" },
+          { "id": "dryrun-s2-day-2", "kind": "question", "title": "Dia 2: Defina uma acao concreta" },
+          { "id": "dryrun-s2-day-3", "kind": "question", "title": "Dia 3: Escolha como vai manter o ritmo" },
+          { "id": "dryrun-s2-day-4", "kind": "question", "title": "Dia 4: Registre seu progresso" },
+          { "id": "dryrun-s2-day-5", "kind": "question", "title": "Dia 5: Remova um obstaculo" },
+          { "id": "dryrun-s2-day-6", "kind": "question", "title": "Dia 6: Reforce seu compromisso" },
+          { "id": "dryrun-s2-day-7", "kind": "question", "title": "Dia 7: Escolha seu proximo passo" }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "operationId": "read-full-006",
+      "tool": "get_quiz_blueprint",
+      "arguments": {
+        "funnelId": "dryrun-s2-desafio-7-dias",
+        "detail": "full"
+      },
+      "result": {
+        "dryRun": true,
+        "funnelId": "dryrun-s2-desafio-7-dias",
+        "version": 3,
+        "globalPresets": {
+          "settings": {
+            "gamification": {
+              "enabled": true,
+              "score": {
+                "enabled": true,
+                "scoreKey": "challengePoints",
+                "initialValue": 0,
+                "progressMax": 140
+              },
+              "backgroundMusic": {
+                "enabled": false,
+                "audioUrl": ""
+              },
+              "feedback": {
+                "soundOnInteraction": false,
+                "soundUrl": ""
+              },
+              "interactionEffects": {
+                "enabled": false,
+                "rules": []
+              }
+            }
+          }
+        },
+        "steps": [
+          { "id": "dryrun-s2-day-1", "kind": "question", "scoreDeltas": [10, 10] },
+          { "id": "dryrun-s2-day-2", "kind": "question", "scoreDeltas": [10, 10] },
+          { "id": "dryrun-s2-day-3", "kind": "question", "scoreDeltas": [10, 10] },
+          { "id": "dryrun-s2-day-4", "kind": "question", "scoreDeltas": [10, 10] },
+          { "id": "dryrun-s2-day-5", "kind": "question", "scoreDeltas": [10, 10] },
+          { "id": "dryrun-s2-day-6", "kind": "question", "scoreDeltas": [10, 10] },
+          { "id": "dryrun-s2-day-7", "kind": "question", "scoreDeltas": [10, 10] }
+        ],
+        "warnings": []
+      }
+    }
+  ],
+  "writes": [
+    {
+      "operationId": "write-create-funnel-002",
+      "tool": "create_blank_funnel",
+      "payload": {
+        "name": "Desafio de 7 Dias",
+        "slug": "desafio-de-7-dias"
+      }
+    },
+    {
+      "operationId": "write-global-presets-003",
+      "tool": "update_funnel_global_presets",
+      "payload": {
+        "funnelId": "dryrun-s2-desafio-7-dias",
+        "version": 1,
+        "replaceTheme": false,
+        "replaceSettings": false,
+        "theme": {
+          "colors": {
+            "primary": "#5b2cbf",
+            "primaryText": "#ffffff",
+            "background": "#fbfaff",
+            "text": "#211c31",
+            "border": "#d8cff0"
+          },
+          "typography": {
+            "fontFamily": "Inter, system-ui, sans-serif",
+            "headingFont": "Inter, system-ui, sans-serif"
+          },
+          "layout": {
+            "containerMaxWidth": "448px",
+            "contentMaxWidth": "448px",
+            "pagePaddingX": "16px"
+          },
+          "header": {
+            "enabled": true,
+            "showProgress": true,
+            "contentType": "text",
+            "content": "DESAFIO DE 7 DIAS"
+          }
+        },
+        "settings": {
+          "gamification": {
+            "enabled": true,
+            "persistSession": true,
+            "score": {
+              "enabled": true,
+              "scoreKey": "challengePoints",
+              "label": "Pontos do desafio",
+              "prefix": "",
+              "suffix": " pts",
+              "decimals": 0,
+              "initialValue": 0,
+              "position": "aboveHeader",
+              "variant": "default",
+              "progressMax": 140,
+              "progressLabel": "Pontos acumulados"
+            },
+            "backgroundMusic": {
+              "enabled": false,
+              "audioUrl": ""
+            },
+            "feedback": {
+              "vibrateOnInteraction": false,
+              "clickFeedback": false,
+              "soundOnInteraction": false,
+              "soundUrl": ""
+            },
+            "interactionEffects": {
+              "enabled": false,
+              "rules": []
+            }
+          }
+        }
+      }
+    },
+    {
+      "operationId": "write-seven-day-steps-004",
+      "tool": "append_quiz_steps",
+      "payload": {
+        "funnelId": "dryrun-s2-desafio-7-dias",
+        "version": 2,
+        "steps": [
+          {
+            "kind": "question",
+            "title": "Dia 1: Escolha seu foco para hoje",
+            "settings": {
+              "answerMode": "single",
+              "options": {
+                "items": [
+                  { "label": "Comecar uma tarefa importante", "scoreDeltaEnabled": true, "scoreDelta": 10 },
+                  { "label": "Concluir uma pendencia", "scoreDeltaEnabled": true, "scoreDelta": 10 }
+                ]
+              }
+            }
+          },
+          {
+            "kind": "question",
+            "title": "Dia 2: Defina uma acao concreta",
+            "settings": {
+              "answerMode": "single",
+              "options": {
+                "items": [
+                  { "label": "Reservar 15 minutos", "scoreDeltaEnabled": true, "scoreDelta": 10 },
+                  { "label": "Bloquear um horario no calendario", "scoreDeltaEnabled": true, "scoreDelta": 10 }
+                ]
+              }
+            }
+          },
+          {
+            "kind": "question",
+            "title": "Dia 3: Escolha como vai manter o ritmo",
+            "settings": {
+              "answerMode": "single",
+              "options": {
+                "items": [
+                  { "label": "Usar um lembrete", "scoreDeltaEnabled": true, "scoreDelta": 10 },
+                  { "label": "Preparar o proximo passo", "scoreDeltaEnabled": true, "scoreDelta": 10 }
+                ]
+              }
+            }
+          },
+          {
+            "kind": "question",
+            "title": "Dia 4: Registre seu progresso",
+            "settings": {
+              "answerMode": "single",
+              "options": {
+                "items": [
+                  { "label": "Anotar o que avancei", "scoreDeltaEnabled": true, "scoreDelta": 10 },
+                  { "label": "Compartilhar meu aprendizado", "scoreDeltaEnabled": true, "scoreDelta": 10 }
+                ]
+              }
+            }
+          },
+          {
+            "kind": "question",
+            "title": "Dia 5: Remova um obstaculo",
+            "settings": {
+              "answerMode": "single",
+              "options": {
+                "items": [
+                  { "label": "Simplificar a proxima tarefa", "scoreDeltaEnabled": true, "scoreDelta": 10 },
+                  { "label": "Pedir apoio quando necessario", "scoreDeltaEnabled": true, "scoreDelta": 10 }
+                ]
+              }
+            }
+          },
+          {
+            "kind": "question",
+            "title": "Dia 6: Reforce seu compromisso",
+            "settings": {
+              "answerMode": "single",
+              "options": {
+                "items": [
+                  { "label": "Revisar minha meta", "scoreDeltaEnabled": true, "scoreDelta": 10 },
+                  { "label": "Celebrar uma pequena conquista", "scoreDeltaEnabled": true, "scoreDelta": 10 }
+                ]
+              }
+            }
+          },
+          {
+            "kind": "question",
+            "title": "Dia 7: Escolha seu proximo passo",
+            "settings": {
+              "answerMode": "single",
+              "options": {
+                "items": [
+                  { "label": "Manter a rotina na proxima semana", "scoreDeltaEnabled": true, "scoreDelta": 10 },
+                  { "label": "Definir uma nova meta", "scoreDeltaEnabled": true, "scoreDelta": 10 }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finalState": {
+    "status": "validated",
+    "funnelId": "dryrun-s2-desafio-7-dias",
+    "version": 3,
+    "themeAppliedBeforeSteps": true,
+    "gamificationEnabled": true,
+    "scoreEnabled": true,
+    "scoreAward": {
+      "trigger": "answer",
+      "points": 10,
+      "enabledOnAllOptions": true
+    },
+    "questionStepCount": 7,
+    "audioEnabled": false,
+    "interactionEffectsEnabled": false,
+    "warnings": []
+  },
+  "evidence": {
+    "factsFromPrompt": [
+      "O pedido requer um desafio de sete dias.",
+      "O pedido requer gamificacao.",
+      "O pedido requer pontos por resposta."
+    ],
+    "assumptions": [
+      "O desafio sera uma sequencia de sete etapas, uma para cada dia.",
+      "Sem publico, marca, oferta, captura ou agendamento informados, o conteudo permanece generico e nao coleta dados.",
+      "Nao foram solicitados agendamento diario, audio ou efeitos; esses recursos nao foram configurados."
+    ],
+    "before": [],
+    "after": [
+      {
+        "operationId": "read-full-006",
+        "funnelId": "dryrun-s2-desafio-7-dias",
+        "version": 3,
+        "globalPresets": {
+          "settings": {
+            "gamification": {
+              "enabled": true,
+              "score": {
+                "enabled": true,
+                "scoreKey": "challengePoints",
+                "initialValue": 0,
+                "progressMax": 140
+              },
+              "backgroundMusic": {
+                "enabled": false,
+                "audioUrl": ""
+              },
+              "feedback": {
+                "soundOnInteraction": false,
+                "soundUrl": ""
+              },
+              "interactionEffects": {
+                "enabled": false,
+                "rules": []
+              }
+            }
+          }
+        },
+        "steps": [
+          { "id": "dryrun-s2-day-1", "kind": "question", "scoreDeltas": [10, 10] },
+          { "id": "dryrun-s2-day-2", "kind": "question", "scoreDeltas": [10, 10] },
+          { "id": "dryrun-s2-day-3", "kind": "question", "scoreDeltas": [10, 10] },
+          { "id": "dryrun-s2-day-4", "kind": "question", "scoreDeltas": [10, 10] },
+          { "id": "dryrun-s2-day-5", "kind": "question", "scoreDeltas": [10, 10] },
+          { "id": "dryrun-s2-day-6", "kind": "question", "scoreDeltas": [10, 10] },
+          { "id": "dryrun-s2-day-7", "kind": "question", "scoreDeltas": [10, 10] }
+        ],
+        "warnings": []
+      }
+    ]
+  }
+}

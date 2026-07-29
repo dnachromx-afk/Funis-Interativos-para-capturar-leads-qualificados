@@ -1,0 +1,13 @@
+{
+  "name": "funilix-quiz-skill",
+  "version": "0.2.0",
+  "private": true,
+  "contractVersion": "2026-07-10",
+  "type": "module",
+  "scripts": {
+    "test": "node scripts/validate-skill.mjs && node tests/task18-adversarial.mjs",
+    "package": "node scripts/package-skill.mjs",
+    "evaluate:traces": "node scripts/evaluate-agent-traces.mjs",
+    "verify:package": "node scripts/verify-package.mjs dist/funilix-quiz.skill dist/funilix-quiz.manifest.json"
+  }
+}

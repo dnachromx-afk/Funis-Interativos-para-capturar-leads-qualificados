@@ -1,0 +1,396 @@
+{
+  "scenarioId": 6,
+  "attempt": 1,
+  "executionMode": "dry-run",
+  "model": "gpt-5.6-sol",
+  "provider": "openai",
+  "seed": null,
+  "toolCalls": [
+    {
+      "operationId": "scenario-6-list-funnels",
+      "tool": "list_funnels",
+      "arguments": {},
+      "result": {
+        "funnels": [
+          {
+            "id": "funnel-protocolo-sono",
+            "slug": "protocolo-sono",
+            "name": "Protocolo Sono Restaurador"
+          }
+        ]
+      }
+    },
+    {
+      "operationId": "scenario-6-offer-summary-before",
+      "tool": "get_quiz_blueprint",
+      "arguments": {
+        "funnelId": "funnel-protocolo-sono",
+        "detail": "summary"
+      },
+      "result": {
+        "version": 42,
+        "funnel": {
+          "id": "funnel-protocolo-sono",
+          "slug": "protocolo-sono"
+        },
+        "offerStepId": "step-oferta",
+        "steps": [
+          {
+            "id": "step-intro",
+            "kind": "intro",
+            "position": 1
+          },
+          {
+            "id": "step-oferta",
+            "kind": "result",
+            "position": 6,
+            "components": [
+              {
+                "id": "component-offer-title",
+                "type": "text"
+              },
+              {
+                "id": "component-offer-price",
+                "type": "pricingCard"
+              },
+              {
+                "id": "component-offer-cta",
+                "type": "button"
+              }
+            ]
+          }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "operationId": "scenario-6-presets-before",
+      "tool": "get_funnel_global_presets",
+      "arguments": {
+        "funnelId": "funnel-protocolo-sono"
+      },
+      "result": {
+        "version": 42,
+        "globalPresets": {
+          "theme": {
+            "primaryColor": "#1D3557",
+            "accentColor": "#E9C46A",
+            "fontFamily": "Inter"
+          },
+          "header": {
+            "showProgress": true
+          },
+          "navigation": {
+            "showBackButton": true
+          }
+        }
+      }
+    },
+    {
+      "operationId": "scenario-6-iphone-toast-schema",
+      "tool": "get_component_schema",
+      "arguments": {
+        "type": "iphoneToast"
+      },
+      "result": {
+        "type": "iphoneToast",
+        "themeBehavior": "independent",
+        "settings": {
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "itemFields": [
+              "trigger",
+              "title",
+              "description"
+            ]
+          },
+          "soundEnabled": {
+            "type": "boolean",
+            "default": false
+          },
+          "useTheme": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    },
+    {
+      "operationId": "scenario-6-create-iphone-toast",
+      "tool": "create_quiz_component",
+      "arguments": {
+        "funnelId": "funnel-protocolo-sono",
+        "stepId": "step-oferta",
+        "version": 42,
+        "gamificationMode": "explicit",
+        "explicitIntentReason": "O usuario solicitou explicitamente um iphoneToast na etapa de oferta.",
+        "component": {
+          "type": "iphoneToast",
+          "settings": {
+            "items": [
+              {
+                "trigger": "stepEnter",
+                "title": "Seu plano esta pronto",
+                "description": "Confira os detalhes da oferta abaixo."
+              }
+            ],
+            "soundEnabled": false,
+            "useTheme": false
+          }
+        }
+      },
+      "result": {
+        "version": 43,
+        "component": {
+          "id": "component-offer-iphone-toast",
+          "type": "iphoneToast",
+          "stepId": "step-oferta"
+        }
+      }
+    },
+    {
+      "operationId": "scenario-6-offer-full-after",
+      "tool": "get_quiz_blueprint",
+      "arguments": {
+        "funnelId": "funnel-protocolo-sono",
+        "detail": "full"
+      },
+      "result": {
+        "version": 43,
+        "funnel": {
+          "id": "funnel-protocolo-sono",
+          "slug": "protocolo-sono"
+        },
+        "offerStepId": "step-oferta",
+        "steps": [
+          {
+            "id": "step-intro",
+            "kind": "intro",
+            "position": 1
+          },
+          {
+            "id": "step-oferta",
+            "kind": "result",
+            "position": 6,
+            "components": [
+              {
+                "id": "component-offer-title",
+                "type": "text"
+              },
+              {
+                "id": "component-offer-price",
+                "type": "pricingCard"
+              },
+              {
+                "id": "component-offer-cta",
+                "type": "button"
+              },
+              {
+                "id": "component-offer-iphone-toast",
+                "type": "iphoneToast",
+                "settings": {
+                  "items": [
+                    {
+                      "trigger": "stepEnter",
+                      "title": "Seu plano esta pronto",
+                      "description": "Confira os detalhes da oferta abaixo."
+                    }
+                  ],
+                  "soundEnabled": false,
+                  "useTheme": false
+                }
+              }
+            ]
+          }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "operationId": "scenario-6-presets-after",
+      "tool": "get_funnel_global_presets",
+      "arguments": {
+        "funnelId": "funnel-protocolo-sono"
+      },
+      "result": {
+        "version": 43,
+        "globalPresets": {
+          "theme": {
+            "primaryColor": "#1D3557",
+            "accentColor": "#E9C46A",
+            "fontFamily": "Inter"
+          },
+          "header": {
+            "showProgress": true
+          },
+          "navigation": {
+            "showBackButton": true
+          }
+        }
+      }
+    }
+  ],
+  "writes": [
+    {
+      "operationId": "scenario-6-create-iphone-toast",
+      "tool": "create_quiz_component",
+      "payload": {
+        "funnelId": "funnel-protocolo-sono",
+        "stepId": "step-oferta",
+        "version": 42,
+        "component": {
+          "type": "iphoneToast",
+          "settings": {
+            "items": [
+              {
+                "trigger": "stepEnter",
+                "title": "Seu plano esta pronto",
+                "description": "Confira os detalhes da oferta abaixo."
+              }
+            ],
+            "soundEnabled": false,
+            "useTheme": false
+          }
+        }
+      }
+    }
+  ],
+  "finalState": {
+    "funnelId": "funnel-protocolo-sono",
+    "offerStepId": "step-oferta",
+    "componentTypes": [
+      "text",
+      "pricingCard",
+      "button",
+      "iphoneToast"
+    ],
+    "soundEnabled": false,
+    "gamificationEnabled": false,
+    "scoreEnabled": false,
+    "warnings": []
+  },
+  "evidence": {
+    "before": [
+      {
+        "operationId": "scenario-6-offer-summary-before",
+        "funnel": {
+          "id": "funnel-protocolo-sono",
+          "slug": "protocolo-sono"
+        },
+        "offerStepId": "step-oferta",
+        "steps": [
+          {
+            "id": "step-intro",
+            "kind": "intro",
+            "position": 1
+          },
+          {
+            "id": "step-oferta",
+            "kind": "result",
+            "position": 6,
+            "components": [
+              {
+                "id": "component-offer-title",
+                "type": "text"
+              },
+              {
+                "id": "component-offer-price",
+                "type": "pricingCard"
+              },
+              {
+                "id": "component-offer-cta",
+                "type": "button"
+              }
+            ]
+          }
+        ],
+        "warnings": []
+      },
+      {
+        "operationId": "scenario-6-presets-before",
+        "globalPresets": {
+          "theme": {
+            "primaryColor": "#1D3557",
+            "accentColor": "#E9C46A",
+            "fontFamily": "Inter"
+          },
+          "header": {
+            "showProgress": true
+          },
+          "navigation": {
+            "showBackButton": true
+          }
+        }
+      }
+    ],
+    "after": [
+      {
+        "operationId": "scenario-6-offer-full-after",
+        "funnel": {
+          "id": "funnel-protocolo-sono",
+          "slug": "protocolo-sono"
+        },
+        "offerStepId": "step-oferta",
+        "steps": [
+          {
+            "id": "step-intro",
+            "kind": "intro",
+            "position": 1
+          },
+          {
+            "id": "step-oferta",
+            "kind": "result",
+            "position": 6,
+            "components": [
+              {
+                "id": "component-offer-title",
+                "type": "text"
+              },
+              {
+                "id": "component-offer-price",
+                "type": "pricingCard"
+              },
+              {
+                "id": "component-offer-cta",
+                "type": "button"
+              },
+              {
+                "id": "component-offer-iphone-toast",
+                "type": "iphoneToast",
+                "settings": {
+                  "items": [
+                    {
+                      "trigger": "stepEnter",
+                      "title": "Seu plano esta pronto",
+                      "description": "Confira os detalhes da oferta abaixo."
+                    }
+                  ],
+                  "soundEnabled": false,
+                  "useTheme": false
+                }
+              }
+            ]
+          }
+        ],
+        "warnings": []
+      },
+      {
+        "operationId": "scenario-6-presets-after",
+        "globalPresets": {
+          "theme": {
+            "primaryColor": "#1D3557",
+            "accentColor": "#E9C46A",
+            "fontFamily": "Inter"
+          },
+          "header": {
+            "showProgress": true
+          },
+          "navigation": {
+            "showBackButton": true
+          }
+        }
+      }
+    ]
+  }
+}

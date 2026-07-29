@@ -1,0 +1,766 @@
+{
+  "scenarioId": 8,
+  "attempt": 1,
+  "contractVersion": "1.0.0",
+  "evaluationDate": "2026-07-10",
+  "executionMode": "dry-run",
+  "model": "gpt-5.6-sol",
+  "provider": "openai",
+  "seed": null,
+  "toolCalls": [
+    {
+      "operationId": "scenario-8-context",
+      "tool": "get_quiz_authoring_context",
+      "arguments": {
+        "operation": "create",
+        "goal": "pesquisa breve de preferencias de experiencia de marca",
+        "audience": "pessoas interessadas em uma marca premium",
+        "gamificationMode": "off",
+        "themeMode": "preset"
+      },
+      "result": {
+        "contractVersion": "2026-07-10",
+        "operation": "create",
+        "themeMode": "preset",
+        "policy": {
+          "themeFirst": true,
+          "gamificationMode": "off",
+          "scoreEnabled": false,
+          "componentUseTheme": true,
+          "stepOverrides": "omit"
+        },
+        "workflow": [
+          "create_blank_funnel",
+          "update_funnel_global_presets",
+          "append_quiz_steps"
+        ],
+        "recommendedComponents": [
+          "text",
+          "options",
+          "form",
+          "button"
+        ],
+        "nextTool": "create_blank_funnel"
+      }
+    },
+    {
+      "operationId": "scenario-8-create-funnel",
+      "tool": "create_blank_funnel",
+      "arguments": {
+        "title": "Pesquisa de Preferencias Premium"
+      },
+      "result": {
+        "id": "80000000-0000-4000-8000-000000000001",
+        "title": "Pesquisa de Preferencias Premium",
+        "slug": "pesquisa-de-preferencias-premium",
+        "status": "draft",
+        "version": 1,
+        "stepCount": 0
+      }
+    },
+    {
+      "operationId": "scenario-8-apply-premium-presets",
+      "tool": "update_funnel_global_presets",
+      "arguments": {
+        "funnel": "80000000-0000-4000-8000-000000000001",
+        "version": 1,
+        "replaceTheme": false,
+        "replaceSettings": false,
+        "gamificationMode": "off",
+        "theme": {
+          "colors": {
+            "primary": "#18352d",
+            "primaryText": "#ffffff",
+            "background": "#f5f3ee",
+            "text": "#17231e",
+            "border": "#c8c7bb"
+          },
+          "typography": {
+            "fontFamily": "Inter, system-ui, sans-serif",
+            "headingFont": "Inter, system-ui, sans-serif"
+          },
+          "spacing": {
+            "xs": "8px",
+            "sm": "12px",
+            "md": "16px"
+          },
+          "layout": {
+            "borderRadius": "12px",
+            "shadowLevel": 2,
+            "containerMaxWidth": "448px",
+            "contentMaxWidth": "448px",
+            "pagePaddingX": "16px",
+            "contentGap": "22px"
+          },
+          "animations": {
+            "enabled": true,
+            "duration": "200ms",
+            "easing": "ease-in-out",
+            "stepTransition": {
+              "enabled": false,
+              "preset": "none",
+              "durationMs": 220,
+              "easing": "cubic-bezier(.4,0,.2,1)"
+            }
+          },
+          "header": {
+            "enabled": true,
+            "showProgress": true,
+            "showBackButton": true,
+            "contentType": "text",
+            "content": "EXPERIENCIA PRIVADA"
+          },
+          "background": {
+            "enabled": false
+          },
+          "form": {
+            "fieldHeight": "52px",
+            "fieldBorderRadius": "12px",
+            "fieldSpacing": "14px",
+            "labelSpacing": "8px"
+          }
+        },
+        "settings": {
+          "navigation": {
+            "resumeProgressEnabled": true
+          }
+        }
+      },
+      "result": {
+        "funnelId": "80000000-0000-4000-8000-000000000001",
+        "version": 2,
+        "globalPresets": {
+          "theme": {
+            "colors": {
+              "primary": "#18352d",
+              "primaryText": "#ffffff",
+              "background": "#f5f3ee",
+              "text": "#17231e",
+              "border": "#c8c7bb"
+            },
+            "typography": {
+              "fontFamily": "Inter, system-ui, sans-serif",
+              "headingFont": "Inter, system-ui, sans-serif"
+            }
+          },
+          "settings": {
+            "gamification": {
+              "enabled": false,
+              "score": {
+                "enabled": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "operationId": "scenario-8-text-schema",
+      "tool": "get_component_schema",
+      "arguments": {
+        "componentType": "text"
+      },
+      "result": {
+        "type": "text",
+        "allowedStepKinds": [
+          "intro",
+          "question",
+          "capture",
+          "content",
+          "result"
+        ],
+        "requiredInputSettings": [
+          "content"
+        ],
+        "themeBehavior": "inherits",
+        "requiresExplicitIntent": false
+      }
+    },
+    {
+      "operationId": "scenario-8-options-schema",
+      "tool": "get_component_schema",
+      "arguments": {
+        "componentType": "options"
+      },
+      "result": {
+        "type": "options",
+        "allowedStepKinds": [
+          "question"
+        ],
+        "requiredInputSettings": [
+          "items"
+        ],
+        "themeBehavior": "partial",
+        "requiresExplicitIntent": false
+      }
+    },
+    {
+      "operationId": "scenario-8-button-schema",
+      "tool": "get_component_schema",
+      "arguments": {
+        "componentType": "button"
+      },
+      "result": {
+        "type": "button",
+        "allowedStepKinds": [
+          "intro",
+          "question",
+          "capture",
+          "content",
+          "result"
+        ],
+        "requiredInputSettings": [
+          "text"
+        ],
+        "themeBehavior": "inherits",
+        "requiresExplicitIntent": false
+      }
+    },
+    {
+      "operationId": "scenario-8-append-steps",
+      "tool": "append_quiz_steps",
+      "arguments": {
+        "funnel": "80000000-0000-4000-8000-000000000001",
+        "version": 2,
+        "gamificationMode": "off",
+        "steps": [
+          {
+            "title": "Abertura",
+            "kind": "intro",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "content": "<p>Uma breve experiencia de descoberta</p><h1>O que define valor para voce?</h1><p>Responda uma pergunta para compartilhar sua preferencia.</p>",
+                  "useTheme": true
+                }
+              },
+              {
+                "type": "button",
+                "settings": {
+                  "text": "Comecar",
+                  "actionType": "nextStep",
+                  "useTheme": true
+                }
+              }
+            ]
+          },
+          {
+            "title": "Preferencia de experiencia",
+            "kind": "question",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "content": "<h2>Em uma experiencia premium, o que mais importa para voce?</h2>",
+                  "useTheme": true
+                }
+              },
+              {
+                "type": "options",
+                "settings": {
+                  "items": [
+                    {
+                      "label": "Qualidade e atencao aos detalhes",
+                      "value": "qualidade"
+                    },
+                    {
+                      "label": "Atendimento atencioso",
+                      "value": "atendimento"
+                    },
+                    {
+                      "label": "Experiencia personalizada",
+                      "value": "personalizacao"
+                    }
+                  ],
+                  "autoAdvance": true,
+                  "multiSelect": false,
+                  "useTheme": true
+                }
+              }
+            ]
+          },
+          {
+            "title": "Encerramento",
+            "kind": "result",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "content": "<h2>Obrigado por compartilhar sua preferencia.</h2><p>Esta resposta ajuda a orientar uma experiencia mais relevante.</p>",
+                  "useTheme": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "result": {
+        "funnelId": "80000000-0000-4000-8000-000000000001",
+        "version": 3,
+        "appendedCount": 3,
+        "stepCount": 3,
+        "steps": [
+          {
+            "id": "scenario-8-step-intro",
+            "kind": "intro"
+          },
+          {
+            "id": "scenario-8-step-question",
+            "kind": "question"
+          },
+          {
+            "id": "scenario-8-step-result",
+            "kind": "result"
+          }
+        ]
+      }
+    },
+    {
+      "operationId": "scenario-8-summary-checkpoint",
+      "tool": "get_quiz_blueprint",
+      "arguments": {
+        "funnel": "80000000-0000-4000-8000-000000000001",
+        "detail": "summary"
+      },
+      "result": {
+        "version": 3,
+        "stepCount": 3,
+        "steps": [
+          {
+            "id": "scenario-8-step-intro",
+            "kind": "intro",
+            "componentTypes": [
+              "text",
+              "button"
+            ]
+          },
+          {
+            "id": "scenario-8-step-question",
+            "kind": "question",
+            "componentTypes": [
+              "text",
+              "options"
+            ]
+          },
+          {
+            "id": "scenario-8-step-result",
+            "kind": "result",
+            "componentTypes": [
+              "text"
+            ]
+          }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "operationId": "scenario-8-final-blueprint",
+      "tool": "get_quiz_blueprint",
+      "arguments": {
+        "funnel": "80000000-0000-4000-8000-000000000001",
+        "detail": "full"
+      },
+      "result": {
+        "version": 3,
+        "stepCount": 3,
+        "globalPresets": {
+          "theme": {
+            "colors": {
+              "primary": "#18352d",
+              "primaryText": "#ffffff",
+              "background": "#f5f3ee",
+              "text": "#17231e",
+              "border": "#c8c7bb"
+            },
+            "typography": {
+              "fontFamily": "Inter, system-ui, sans-serif",
+              "headingFont": "Inter, system-ui, sans-serif"
+            }
+          },
+          "settings": {
+            "gamification": {
+              "enabled": false,
+              "score": {
+                "enabled": false
+              },
+              "backgroundMusic": {
+                "enabled": false
+              },
+              "feedback": {
+                "vibrateOnInteraction": false,
+                "clickFeedback": false,
+                "soundOnInteraction": false
+              },
+              "interactionEffects": {
+                "enabled": false
+              }
+            }
+          }
+        },
+        "steps": [
+          {
+            "id": "scenario-8-step-intro",
+            "kind": "intro",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "useTheme": true
+                }
+              },
+              {
+                "type": "button",
+                "settings": {
+                  "useTheme": true
+                }
+              }
+            ]
+          },
+          {
+            "id": "scenario-8-step-question",
+            "kind": "question",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "useTheme": true
+                }
+              },
+              {
+                "type": "options",
+                "settings": {
+                  "useTheme": true
+                }
+              }
+            ]
+          },
+          {
+            "id": "scenario-8-step-result",
+            "kind": "result",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "useTheme": true
+                }
+              }
+            ]
+          }
+        ],
+        "warnings": []
+      }
+    }
+  ],
+  "writes": [
+    {
+      "operationId": "scenario-8-create-funnel",
+      "tool": "create_blank_funnel",
+      "payload": {
+        "title": "Pesquisa de Preferencias Premium"
+      }
+    },
+    {
+      "operationId": "scenario-8-apply-premium-presets",
+      "tool": "update_funnel_global_presets",
+      "payload": {
+        "version": 1,
+        "replaceTheme": false,
+        "replaceSettings": false,
+        "theme": {
+          "colors": {
+            "primary": "#18352d",
+            "primaryText": "#ffffff",
+            "background": "#f5f3ee",
+            "text": "#17231e",
+            "border": "#c8c7bb"
+          },
+          "typography": {
+            "fontFamily": "Inter, system-ui, sans-serif",
+            "headingFont": "Inter, system-ui, sans-serif"
+          },
+          "spacing": {
+            "xs": "8px",
+            "sm": "12px",
+            "md": "16px"
+          },
+          "layout": {
+            "borderRadius": "12px",
+            "shadowLevel": 2,
+            "containerMaxWidth": "448px",
+            "contentMaxWidth": "448px",
+            "pagePaddingX": "16px",
+            "contentGap": "22px"
+          },
+          "animations": {
+            "enabled": true,
+            "duration": "200ms",
+            "easing": "ease-in-out",
+            "stepTransition": {
+              "enabled": false,
+              "preset": "none",
+              "durationMs": 220,
+              "easing": "cubic-bezier(.4,0,.2,1)"
+            }
+          },
+          "header": {
+            "enabled": true,
+            "showProgress": true,
+            "showBackButton": true,
+            "contentType": "text",
+            "content": "EXPERIENCIA PRIVADA"
+          },
+          "background": {
+            "enabled": false
+          },
+          "form": {
+            "fieldHeight": "52px",
+            "fieldBorderRadius": "12px",
+            "fieldSpacing": "14px",
+            "labelSpacing": "8px"
+          }
+        },
+        "settings": {
+          "navigation": {
+            "resumeProgressEnabled": true
+          }
+        }
+      }
+    },
+    {
+      "operationId": "scenario-8-append-steps",
+      "tool": "append_quiz_steps",
+      "payload": {
+        "version": 2,
+        "steps": [
+          {
+            "title": "Abertura",
+            "kind": "intro",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "content": "<p>Uma breve experiencia de descoberta</p><h1>O que define valor para voce?</h1><p>Responda uma pergunta para compartilhar sua preferencia.</p>",
+                  "useTheme": true
+                }
+              },
+              {
+                "type": "button",
+                "settings": {
+                  "text": "Comecar",
+                  "actionType": "nextStep",
+                  "useTheme": true
+                }
+              }
+            ]
+          },
+          {
+            "title": "Preferencia de experiencia",
+            "kind": "question",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "content": "<h2>Em uma experiencia premium, o que mais importa para voce?</h2>",
+                  "useTheme": true
+                }
+              },
+              {
+                "type": "options",
+                "settings": {
+                  "items": [
+                    {
+                      "label": "Qualidade e atencao aos detalhes",
+                      "value": "qualidade"
+                    },
+                    {
+                      "label": "Atendimento atencioso",
+                      "value": "atendimento"
+                    },
+                    {
+                      "label": "Experiencia personalizada",
+                      "value": "personalizacao"
+                    }
+                  ],
+                  "autoAdvance": true,
+                  "multiSelect": false,
+                  "useTheme": true
+                }
+              }
+            ]
+          },
+          {
+            "title": "Encerramento",
+            "kind": "result",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "content": "<h2>Obrigado por compartilhar sua preferencia.</h2><p>Esta resposta ajuda a orientar uma experiencia mais relevante.</p>",
+                  "useTheme": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "finalState": {
+    "status": "completed",
+    "simulation": true,
+    "funnelId": "80000000-0000-4000-8000-000000000001",
+    "version": 3,
+    "theme": "premium-global-preset",
+    "gamification": {
+      "enabled": false,
+      "scoreEnabled": false,
+      "backgroundMusicEnabled": false,
+      "interactionEffectsEnabled": false
+    },
+    "stepCount": 3,
+    "localOverrides": [],
+    "warnings": []
+  },
+  "evidence": {
+    "decisionRecord": {
+      "factsProvided": [
+        "O pedido e criar um quiz visualmente consistente para uma marca premium."
+      ],
+      "reversibleAssumptions": [
+        "Sem oferta, URL, proposito de captura ou ativo de marca, o fluxo e uma pesquisa curta de preferencias sem coleta de dados pessoais.",
+        "O preset premium global resolve a identidade visual sem estilos locais."
+      ],
+      "excludedByScope": [
+        "gamificacao",
+        "score",
+        "audio",
+        "efeitos de interacao",
+        "oferta e CTA externo",
+        "overrides por etapa"
+      ]
+    },
+    "after": [
+      {
+        "operationId": "scenario-8-summary-checkpoint",
+        "version": 3,
+        "stepCount": 3,
+        "steps": [
+          {
+            "id": "scenario-8-step-intro",
+            "kind": "intro",
+            "componentTypes": [
+              "text",
+              "button"
+            ]
+          },
+          {
+            "id": "scenario-8-step-question",
+            "kind": "question",
+            "componentTypes": [
+              "text",
+              "options"
+            ]
+          },
+          {
+            "id": "scenario-8-step-result",
+            "kind": "result",
+            "componentTypes": [
+              "text"
+            ]
+          }
+        ],
+        "warnings": []
+      },
+      {
+        "operationId": "scenario-8-final-blueprint",
+        "version": 3,
+        "globalPresets": {
+          "theme": {
+            "colors": {
+              "primary": "#18352d",
+              "primaryText": "#ffffff",
+              "background": "#f5f3ee",
+              "text": "#17231e",
+              "border": "#c8c7bb"
+            },
+            "typography": {
+              "fontFamily": "Inter, system-ui, sans-serif",
+              "headingFont": "Inter, system-ui, sans-serif"
+            }
+          },
+          "settings": {
+            "gamification": {
+              "enabled": false,
+              "score": {
+                "enabled": false
+              },
+              "backgroundMusic": {
+                "enabled": false
+              },
+              "feedback": {
+                "vibrateOnInteraction": false,
+                "clickFeedback": false,
+                "soundOnInteraction": false
+              },
+              "interactionEffects": {
+                "enabled": false
+              }
+            }
+          }
+        },
+        "steps": [
+          {
+            "id": "scenario-8-step-intro",
+            "kind": "intro",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "useTheme": true
+                }
+              },
+              {
+                "type": "button",
+                "settings": {
+                  "useTheme": true
+                }
+              }
+            ]
+          },
+          {
+            "id": "scenario-8-step-question",
+            "kind": "question",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "useTheme": true
+                }
+              },
+              {
+                "type": "options",
+                "settings": {
+                  "useTheme": true
+                }
+              }
+            ]
+          },
+          {
+            "id": "scenario-8-step-result",
+            "kind": "result",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "useTheme": true
+                }
+              }
+            ]
+          }
+        ],
+        "warnings": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "skillVersion": "0.2.0",
+  "contractVersion": "2026-07-10",
+  "zip": {
+    "path": "dist/funilix-quiz.skill",
+    "sha256": "0d529ef1ef170b4ecad9ca84d6ad1d0187375ac098177d068e2e8437deb9cc64",
+    "size": 86589
+  },
+  "entries": [
+    {
+      "path": "funilix-quiz-skill/CHANGELOG.md",
+      "sha256": "191c7da311880acb727498772ac0dbf6afbb6063e4dcb62c658625a6b54e72f2",
+      "size": 1115
+    },
+    {
+      "path": "funilix-quiz-skill/README.md",
+      "sha256": "369375b81c00c5e207746f46d3a3aedc8a61aebfdb10c8f58288a88f56224452",
+      "size": 2524
+    },
+    {
+      "path": "funilix-quiz-skill/SKILL.md",
+      "sha256": "a9f72cd960a51185929fce73f6f915e23ba541d2dd78e3220f8be71ae2884d56",
+      "size": 6847
+    },
+    {
+      "path": "funilix-quiz-skill/references/blueprints.md",
+      "sha256": "abad9f7f71270c78f0c01ae59cdbf3308022d451763c633a711769b0fc10cadc",
+      "size": 3239
+    },
+    {
+      "path": "funilix-quiz-skill/references/brief-and-strategy.md",
+      "sha256": "43adbd96483d804a4844035897a5a0631044f706c8ef1c777dd4b149b2f771d5",
+      "size": 3614
+    },
+    {
+      "path": "funilix-quiz-skill/references/component-recipes/diagnosis-and-feedback.md",
+      "sha256": "2f0e23e066b01b220922e8fbf3d84a43da08672e3e69251f524b3c0e6c4bcf0e",
+      "size": 2869
+    },
+    {
+      "path": "funilix-quiz-skill/references/component-recipes/input-and-capture.md",
+      "sha256": "9e64fb56d31a0ac5b57d471bc61b098ee6d5668176297c7f5f97282f0a4958d5",
+      "size": 3182
+    },
+    {
+      "path": "funilix-quiz-skill/references/component-recipes/media-and-custom-layouts.md",
+      "sha256": "522b668e4172c4ccf1e2f74808d2c38158f82cbad8f7e9337e257948387a6d4b",
+      "size": 5104
+    },
+    {
+      "path": "funilix-quiz-skill/references/component-recipes/proof-and-conversion.md",
+      "sha256": "51f7046b42ec7d03abb1c56ee24328695f1f0b273906f4126627c4e57330d311",
+      "size": 2145
+    },
+    {
+      "path": "funilix-quiz-skill/references/component-selection.md",
+      "sha256": "c607b45dc95912b3997351b9620c5794c44ff61900c54d83dfa1d9db4313097f",
+      "size": 7983
+    },
+    {
+      "path": "funilix-quiz-skill/references/contracts-and-validation.md",
+      "sha256": "3003f2e9dad0da924a920ab698498e3b3a901b7ada4d3635ce8d0b3297848741",
+      "size": 4392
+    },
+    {
+      "path": "funilix-quiz-skill/references/copy-accessibility-and-ethics.md",
+      "sha256": "620709209c88b876d1595759f0a4448e8b6f32e8740cb5392300e8a4669f9fbb",
+      "size": 3089
+    },
+    {
+      "path": "funilix-quiz-skill/references/editing-and-recovery.md",
+      "sha256": "91ea199372db48a37cf0b7f1d65dcafd2dbc6950b7fec08c0e0a446099e77ef0",
+      "size": 2725
+    },
+    {
+      "path": "funilix-quiz-skill/references/gamification.md",
+      "sha256": "e5d748fdc6ff9ef5421c0875bc5289fa0eb55714ffd6b8f7e39a883ab4888639",
+      "size": 8337
+    },
+    {
+      "path": "funilix-quiz-skill/references/header-and-step-architecture.md",
+      "sha256": "4bcf534ec184ebc7ae30cdc7bde2e8005e6fe7cdde8d1b7e30d33564eaf18d86",
+      "size": 3096
+    },
+    {
+      "path": "funilix-quiz-skill/references/theme-system.md",
+      "sha256": "880fb1b4a1fba403942dbc64b7f4135806f272d78a7d95ebe2a98a552e90e601",
+      "size": 20102
+    },
+    {
+      "path": "funilix-quiz-skill/references/workflow.md",
+      "sha256": "6153a3b769c027bd9820ecf4ba2ec93974328c2eb24bd4498125157872d0cab5",
+      "size": 3146
+    }
+  ]
+}

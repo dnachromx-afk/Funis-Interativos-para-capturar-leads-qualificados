@@ -1,0 +1,348 @@
+{
+  "scenarioId": 3,
+  "attempt": 1,
+  "contractVersion": "1.0.0",
+  "evaluationDate": "2026-07-10",
+  "executionMode": "dry-run",
+  "model": "gpt-5.6-sol",
+  "provider": "openai",
+  "seed": null,
+  "metadata": {
+    "simulated": true,
+    "prompt": "Monte um quiz simples para uma imobiliaria, com cinco perguntas e captura.",
+    "assumptions": [
+      "O quiz qualifica o interesse imobiliario para retorno humano, sem oferta, preco ou URL externa.",
+      "A captura pede somente nome e e-mail, informando a finalidade de contato."
+    ],
+    "gamificationRequested": false
+  },
+  "toolCalls": [
+    {
+      "operationId": "ctx-3",
+      "tool": "get_quiz_authoring_context",
+      "arguments": {},
+      "result": {
+        "simulated": true,
+        "supportedStepKinds": ["question", "capture"],
+        "defaultSettings": {
+          "gamification": { "enabled": false, "score": { "enabled": false } }
+        },
+        "mutationsRequireVersion": true
+      }
+    },
+    {
+      "operationId": "schema-text-3",
+      "tool": "get_component_schema",
+      "arguments": { "type": "text" },
+      "result": {
+        "simulated": true,
+        "type": "text",
+        "requiredSettings": ["content"],
+        "supportsUseTheme": true
+      }
+    },
+    {
+      "operationId": "schema-options-3",
+      "tool": "get_component_schema",
+      "arguments": { "type": "options" },
+      "result": {
+        "simulated": true,
+        "type": "options",
+        "requiredSettings": ["items", "autoAdvance", "multiSelect"],
+        "supportsUseTheme": true
+      }
+    },
+    {
+      "operationId": "schema-form-3",
+      "tool": "get_component_schema",
+      "arguments": { "type": "form" },
+      "result": {
+        "simulated": true,
+        "type": "form",
+        "requiredSettings": ["fields"],
+        "supportsUseTheme": true
+      }
+    },
+    {
+      "operationId": "schema-button-3",
+      "tool": "get_component_schema",
+      "arguments": { "type": "button" },
+      "result": {
+        "simulated": true,
+        "type": "button",
+        "requiredSettings": ["text", "actionType"],
+        "allowedActionTypes": ["nextStep", "submit"],
+        "supportsUseTheme": true
+      }
+    },
+    {
+      "operationId": "create-3",
+      "tool": "create_blank_funnel",
+      "arguments": {
+        "name": "Consulta de imovel",
+        "slug": "consulta-imovel"
+      },
+      "result": {
+        "simulated": true,
+        "id": "funnel-consulta-imovel",
+        "name": "Consulta de imovel",
+        "slug": "consulta-imovel",
+        "version": 1
+      }
+    },
+    {
+      "operationId": "presets-3",
+      "tool": "update_funnel_global_presets",
+      "arguments": {
+        "funnelId": "funnel-consulta-imovel",
+        "version": 1,
+        "replaceTheme": false,
+        "replaceSettings": false,
+        "theme": {
+          "colors": {
+            "primary": "#344054",
+            "primaryText": "#ffffff",
+            "background": "#f8f9fb",
+            "text": "#182230",
+            "border": "#d0d5dd"
+          },
+          "typography": {
+            "fontFamily": "Inter, system-ui, sans-serif",
+            "headingFont": "Inter, system-ui, sans-serif"
+          },
+          "spacing": { "xs": "8px", "sm": "12px", "md": "16px" },
+          "layout": {
+            "borderRadius": "10px",
+            "containerMaxWidth": "448px",
+            "contentMaxWidth": "448px",
+            "pagePaddingX": "16px",
+            "contentGap": "22px"
+          },
+          "animations": {
+            "enabled": true,
+            "duration": "200ms",
+            "easing": "ease-in-out",
+            "stepTransition": { "enabled": false, "preset": "none", "durationMs": 220, "easing": "cubic-bezier(.4,0,.2,1)" }
+          },
+          "header": {
+            "enabled": true,
+            "showProgress": true,
+            "showBackButton": true,
+            "contentType": "text",
+            "content": "CONSULTA GUIADA",
+            "backgroundColor": "#344054",
+            "textColor": "#ffffff",
+            "progressColor": "#667085",
+            "backButtonColor": "#ffffff"
+          },
+          "background": { "enabled": false },
+          "form": {
+            "fieldHeight": "52px",
+            "fieldBorderRadius": "10px",
+            "fieldBorderColor": "#d0d5dd",
+            "fieldFocusBorderColor": "#344054",
+            "fieldBackgroundColor": "#ffffff",
+            "fieldTextColor": "#182230",
+            "labelColor": "#182230"
+          }
+        }
+      },
+      "result": {
+        "simulated": true,
+        "funnelId": "funnel-consulta-imovel",
+        "version": 2,
+        "warnings": []
+      }
+    },
+    {
+      "operationId": "append-questions-3",
+      "tool": "append_quiz_steps",
+      "arguments": {
+        "funnelId": "funnel-consulta-imovel",
+        "version": 2,
+        "steps": [
+          {
+            "kind": "question",
+            "title": "Qual tipo de imovel voce procura?",
+            "components": [
+              { "type": "text", "settings": { "content": "Qual tipo de imovel voce procura?", "useTheme": true } },
+              { "type": "options", "settings": { "items": [{ "label": "Apartamento", "value": "apartamento" }, { "label": "Casa", "value": "casa" }, { "label": "Terreno", "value": "terreno" }, { "label": "Ainda estou pesquisando", "value": "pesquisando" }], "autoAdvance": true, "multiSelect": false, "useTheme": true } }
+            ]
+          },
+          {
+            "kind": "question",
+            "title": "Em qual regiao voce quer morar ou investir?",
+            "components": [
+              { "type": "text", "settings": { "content": "Em qual regiao voce quer morar ou investir?", "useTheme": true } },
+              { "type": "options", "settings": { "items": [{ "label": "Centro", "value": "centro" }, { "label": "Bairros proximos", "value": "bairros-proximos" }, { "label": "Regiao metropolitana", "value": "metropolitana" }, { "label": "Ainda nao defini", "value": "indefinida" }], "autoAdvance": true, "multiSelect": false, "useTheme": true } }
+            ]
+          },
+          {
+            "kind": "question",
+            "title": "Qual e sua finalidade principal hoje?",
+            "components": [
+              { "type": "text", "settings": { "content": "Qual e sua finalidade principal?", "useTheme": true } },
+              { "type": "options", "settings": { "items": [{ "label": "Morar", "value": "morar" }, { "label": "Investir", "value": "investir" }, { "label": "Mudar de imovel", "value": "mudar" }, { "label": "Vender um imovel", "value": "vender" }], "autoAdvance": true, "multiSelect": false, "useTheme": true } }
+            ]
+          }
+        ]
+      },
+      "result": {
+        "simulated": true,
+        "funnelId": "funnel-consulta-imovel",
+        "createdStepIds": ["step-imovel-1", "step-imovel-2", "step-imovel-3"],
+        "version": 3,
+        "warnings": []
+      }
+    },
+    {
+      "operationId": "checkpoint-questions-3",
+      "tool": "get_quiz_blueprint",
+      "arguments": { "funnelId": "funnel-consulta-imovel", "detail": "summary" },
+      "result": {
+        "simulated": true,
+        "funnelId": "funnel-consulta-imovel",
+        "version": 3,
+        "steps": [
+          { "id": "step-imovel-1", "kind": "question", "position": 1 },
+          { "id": "step-imovel-2", "kind": "question", "position": 2 },
+          { "id": "step-imovel-3", "kind": "question", "position": 3 }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "operationId": "append-final-3",
+      "tool": "append_quiz_steps",
+      "arguments": {
+        "funnelId": "funnel-consulta-imovel",
+        "version": 3,
+        "steps": [
+          {
+            "kind": "question",
+            "title": "Qual faixa de investimento faz sentido para voce?",
+            "components": [
+              { "type": "text", "settings": { "content": "Qual faixa de investimento faz sentido para voce?", "useTheme": true } },
+              { "type": "options", "settings": { "items": [{ "label": "Ate R$ 300 mil", "value": "ate-300" }, { "label": "De R$ 300 mil a R$ 600 mil", "value": "300-600" }, { "label": "Acima de R$ 600 mil", "value": "acima-600" }, { "label": "Prefiro conversar antes", "value": "conversar" }], "autoAdvance": true, "multiSelect": false, "useTheme": true } }
+            ]
+          },
+          {
+            "kind": "question",
+            "title": "Quando pretende tomar essa decisao?",
+            "components": [
+              { "type": "text", "settings": { "content": "Quando pretende tomar essa decisao?", "useTheme": true } },
+              { "type": "options", "settings": { "items": [{ "label": "Nos proximos 30 dias", "value": "30-dias" }, { "label": "Em ate 3 meses", "value": "3-meses" }, { "label": "Em ate 6 meses", "value": "6-meses" }, { "label": "Ainda estou planejando", "value": "planejando" }], "autoAdvance": true, "multiSelect": false, "useTheme": true } }
+            ]
+          },
+          {
+            "kind": "capture",
+            "title": "Receba opcoes alinhadas ao seu momento",
+            "components": [
+              { "type": "text", "settings": { "content": "Deixe seus dados para que nossa equipe envie opcoes compativeis com suas respostas.", "useTheme": true } },
+              { "type": "form", "settings": { "fields": [{ "type": "text", "name": "name", "label": "Seu nome", "required": true }, { "type": "email", "name": "email", "label": "Seu e-mail", "required": true }], "useTheme": true } },
+              { "type": "button", "settings": { "text": "Quero receber opcoes", "actionType": "submit", "useTheme": true } }
+            ]
+          }
+        ]
+      },
+      "result": {
+        "simulated": true,
+        "funnelId": "funnel-consulta-imovel",
+        "createdStepIds": ["step-imovel-4", "step-imovel-5", "step-capture"],
+        "version": 4,
+        "warnings": []
+      }
+    },
+    {
+      "operationId": "validate-final-3",
+      "tool": "get_quiz_blueprint",
+      "arguments": { "funnelId": "funnel-consulta-imovel", "detail": "full" },
+      "result": {
+        "simulated": true,
+        "funnelId": "funnel-consulta-imovel",
+        "version": 4,
+        "steps": [
+          { "id": "step-imovel-1", "kind": "question", "position": 1 },
+          { "id": "step-imovel-2", "kind": "question", "position": 2 },
+          { "id": "step-imovel-3", "kind": "question", "position": 3 },
+          { "id": "step-imovel-4", "kind": "question", "position": 4 },
+          { "id": "step-imovel-5", "kind": "question", "position": 5 },
+          { "id": "step-capture", "kind": "capture", "position": 6 }
+        ],
+        "gamification": { "enabled": false, "score": { "enabled": false } },
+        "warnings": []
+      }
+    }
+  ],
+  "writes": [
+    {
+      "operationId": "create-3",
+      "tool": "create_blank_funnel",
+      "payload": { "name": "Consulta de imovel", "slug": "consulta-imovel" }
+    },
+    {
+      "operationId": "presets-3",
+      "tool": "update_funnel_global_presets",
+      "payload": {
+        "version": 1,
+        "replaceTheme": false,
+        "replaceSettings": false,
+        "theme": {
+          "colors": { "primary": "#344054", "primaryText": "#ffffff", "background": "#f8f9fb", "text": "#182230", "border": "#d0d5dd" },
+          "typography": { "fontFamily": "Inter, system-ui, sans-serif", "headingFont": "Inter, system-ui, sans-serif" },
+          "spacing": { "xs": "8px", "sm": "12px", "md": "16px" },
+          "layout": { "borderRadius": "10px", "containerMaxWidth": "448px", "contentMaxWidth": "448px", "pagePaddingX": "16px", "contentGap": "22px" },
+          "animations": { "enabled": true, "duration": "200ms", "easing": "ease-in-out", "stepTransition": { "enabled": false, "preset": "none", "durationMs": 220, "easing": "cubic-bezier(.4,0,.2,1)" } },
+          "header": { "enabled": true, "showProgress": true, "showBackButton": true, "contentType": "text", "content": "CONSULTA GUIADA", "backgroundColor": "#344054", "textColor": "#ffffff", "progressColor": "#667085", "backButtonColor": "#ffffff" },
+          "background": { "enabled": false },
+          "form": { "fieldHeight": "52px", "fieldBorderRadius": "10px", "fieldBorderColor": "#d0d5dd", "fieldFocusBorderColor": "#344054", "fieldBackgroundColor": "#ffffff", "fieldTextColor": "#182230", "labelColor": "#182230" }
+        }
+      }
+    },
+    {
+      "operationId": "append-questions-3",
+      "tool": "append_quiz_steps",
+      "payload": {
+        "version": 2,
+        "steps": [
+          { "kind": "question", "title": "Qual tipo de imovel voce procura?", "components": [{ "type": "text", "settings": { "content": "Qual tipo de imovel voce procura?", "useTheme": true } }, { "type": "options", "settings": { "items": [{ "label": "Apartamento", "value": "apartamento" }, { "label": "Casa", "value": "casa" }, { "label": "Terreno", "value": "terreno" }, { "label": "Ainda estou pesquisando", "value": "pesquisando" }], "autoAdvance": true, "multiSelect": false, "useTheme": true } }] },
+          { "kind": "question", "title": "Em qual regiao voce quer morar ou investir?", "components": [{ "type": "text", "settings": { "content": "Em qual regiao voce quer morar ou investir?", "useTheme": true } }, { "type": "options", "settings": { "items": [{ "label": "Centro", "value": "centro" }, { "label": "Bairros proximos", "value": "bairros-proximos" }, { "label": "Regiao metropolitana", "value": "metropolitana" }, { "label": "Ainda nao defini", "value": "indefinida" }], "autoAdvance": true, "multiSelect": false, "useTheme": true } }] },
+          { "kind": "question", "title": "Qual e sua finalidade principal hoje?", "components": [{ "type": "text", "settings": { "content": "Qual e sua finalidade principal?", "useTheme": true } }, { "type": "options", "settings": { "items": [{ "label": "Morar", "value": "morar" }, { "label": "Investir", "value": "investir" }, { "label": "Mudar de imovel", "value": "mudar" }, { "label": "Vender um imovel", "value": "vender" }], "autoAdvance": true, "multiSelect": false, "useTheme": true } }] }
+        ]
+      }
+    },
+    {
+      "operationId": "append-final-3",
+      "tool": "append_quiz_steps",
+      "payload": {
+        "version": 3,
+        "steps": [
+          { "kind": "question", "title": "Qual faixa de investimento faz sentido para voce?", "components": [{ "type": "text", "settings": { "content": "Qual faixa de investimento faz sentido para voce?", "useTheme": true } }, { "type": "options", "settings": { "items": [{ "label": "Ate R$ 300 mil", "value": "ate-300" }, { "label": "De R$ 300 mil a R$ 600 mil", "value": "300-600" }, { "label": "Acima de R$ 600 mil", "value": "acima-600" }, { "label": "Prefiro conversar antes", "value": "conversar" }], "autoAdvance": true, "multiSelect": false, "useTheme": true } }] },
+          { "kind": "question", "title": "Quando pretende tomar essa decisao?", "components": [{ "type": "text", "settings": { "content": "Quando pretende tomar essa decisao?", "useTheme": true } }, { "type": "options", "settings": { "items": [{ "label": "Nos proximos 30 dias", "value": "30-dias" }, { "label": "Em ate 3 meses", "value": "3-meses" }, { "label": "Em ate 6 meses", "value": "6-meses" }, { "label": "Ainda estou planejando", "value": "planejando" }], "autoAdvance": true, "multiSelect": false, "useTheme": true } }] },
+          { "kind": "capture", "title": "Receba opcoes alinhadas ao seu momento", "components": [{ "type": "text", "settings": { "content": "Deixe seus dados para que nossa equipe envie opcoes compativeis com suas respostas.", "useTheme": true } }, { "type": "form", "settings": { "fields": [{ "type": "text", "name": "name", "label": "Seu nome", "required": true }, { "type": "email", "name": "email", "label": "Seu e-mail", "required": true }], "useTheme": true } }, { "type": "button", "settings": { "text": "Quero receber opcoes", "actionType": "submit", "useTheme": true } }] }
+        ]
+      }
+    }
+  ],
+  "finalState": {
+    "status": "completed",
+    "funnelId": "funnel-consulta-imovel",
+    "slug": "consulta-imovel",
+    "themeAppliedBeforeSteps": true,
+    "gamificationEnabled": false,
+    "scoreEnabled": false,
+    "questionStepCount": 5,
+    "captureStepCount": 1,
+    "offerStepCount": 0,
+    "warnings": []
+  },
+  "evidence": {
+    "before": [],
+    "checkpoints": [
+      { "operationId": "checkpoint-questions-3", "version": 3, "steps": [{ "id": "step-imovel-1", "kind": "question", "position": 1 }, { "id": "step-imovel-2", "kind": "question", "position": 2 }, { "id": "step-imovel-3", "kind": "question", "position": 3 }], "warnings": [] }
+    ],
+    "after": [
+      { "operationId": "validate-final-3", "version": 4, "steps": [{ "id": "step-imovel-1", "kind": "question", "position": 1 }, { "id": "step-imovel-2", "kind": "question", "position": 2 }, { "id": "step-imovel-3", "kind": "question", "position": 3 }, { "id": "step-imovel-4", "kind": "question", "position": 4 }, { "id": "step-imovel-5", "kind": "question", "position": 5 }, { "id": "step-capture", "kind": "capture", "position": 6 }], "gamification": { "enabled": false, "score": { "enabled": false } }, "warnings": [] }
+    ]
+  }
+}

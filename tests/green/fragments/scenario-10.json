@@ -1,0 +1,415 @@
+{
+  "scenarioId": 10,
+  "attempt": 1,
+  "executionMode": "dry-run",
+  "model": "gpt-5.6-sol",
+  "provider": "openai",
+  "seed": null,
+  "toolCalls": [
+    {
+      "operationId": "s10-list-funnels",
+      "tool": "list_funnels",
+      "arguments": {},
+      "result": {
+        "funnels": [
+          {
+            "id": "funnel-portfolio-01",
+            "slug": "diagnostico-de-perfil",
+            "name": "Diagnostico de Perfil"
+          }
+        ]
+      }
+    },
+    {
+      "operationId": "s10-read-blueprint-summary-before",
+      "tool": "get_quiz_blueprint",
+      "arguments": {
+        "funnelId": "funnel-portfolio-01",
+        "detail": "summary"
+      },
+      "result": {
+        "funnelId": "funnel-portfolio-01",
+        "version": 41,
+        "finalStepId": "step-recommendation",
+        "steps": [
+          {
+            "id": "step-welcome",
+            "kind": "intro",
+            "componentIds": [
+              "component-welcome-title"
+            ]
+          },
+          {
+            "id": "step-goal",
+            "kind": "question",
+            "componentIds": [
+              "component-goal-question"
+            ]
+          },
+          {
+            "id": "step-recommendation",
+            "kind": "result",
+            "componentIds": [
+              "component-recommendation-title",
+              "component-recommendation-copy",
+              "component-recommendation-button"
+            ]
+          }
+        ],
+        "gamification": {
+          "enabled": false
+        },
+        "score": {
+          "enabled": false
+        },
+        "warnings": []
+      }
+    },
+    {
+      "operationId": "s10-read-global-presets-before",
+      "tool": "get_funnel_global_presets",
+      "arguments": {
+        "funnelId": "funnel-portfolio-01"
+      },
+      "result": {
+        "funnelId": "funnel-portfolio-01",
+        "version": 41,
+        "globalPresets": {
+          "theme": {
+            "primaryColor": "#1F3A5F",
+            "fontFamily": "Inter"
+          },
+          "header": {
+            "showProgress": true
+          },
+          "navigation": {
+            "showBackButton": true
+          }
+        },
+        "gamification": {
+          "enabled": false
+        },
+        "score": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "operationId": "s10-read-final-step-full-before",
+      "tool": "get_quiz_blueprint",
+      "arguments": {
+        "funnelId": "funnel-portfolio-01",
+        "detail": "full"
+      },
+      "result": {
+        "funnelId": "funnel-portfolio-01",
+        "version": 41,
+        "finalStepId": "step-recommendation",
+        "steps": [
+          {
+            "id": "step-welcome",
+            "kind": "intro",
+            "componentIds": [
+              "component-welcome-title"
+            ]
+          },
+          {
+            "id": "step-goal",
+            "kind": "question",
+            "componentIds": [
+              "component-goal-question"
+            ]
+          },
+          {
+            "id": "step-recommendation",
+            "kind": "result",
+            "componentIds": [
+              "component-recommendation-title",
+              "component-recommendation-copy",
+              "component-recommendation-button"
+            ]
+          }
+        ],
+        "components": [
+          {
+            "id": "component-recommendation-copy",
+            "stepId": "step-recommendation",
+            "type": "text",
+            "settings": {
+              "text": "Com base nas suas respostas, voce recebeu uma recomendacao personalizada."
+            }
+          }
+        ],
+        "gamification": {
+          "enabled": false
+        },
+        "score": {
+          "enabled": false
+        },
+        "warnings": []
+      }
+    },
+    {
+      "operationId": "s10-update-final-copy",
+      "tool": "update_component_settings",
+      "arguments": {
+        "funnelId": "funnel-portfolio-01",
+        "stepId": "step-recommendation",
+        "componentId": "component-recommendation-copy",
+        "version": 41,
+        "settings": {
+          "text": "Com base nas suas respostas, veja sua recomendacao personalizada e escolha seu proximo passo."
+        }
+      },
+      "result": {
+        "componentId": "component-recommendation-copy",
+        "stepId": "step-recommendation",
+        "version": 42
+      }
+    },
+    {
+      "operationId": "s10-read-global-presets-after",
+      "tool": "get_funnel_global_presets",
+      "arguments": {
+        "funnelId": "funnel-portfolio-01"
+      },
+      "result": {
+        "funnelId": "funnel-portfolio-01",
+        "version": 42,
+        "globalPresets": {
+          "theme": {
+            "primaryColor": "#1F3A5F",
+            "fontFamily": "Inter"
+          },
+          "header": {
+            "showProgress": true
+          },
+          "navigation": {
+            "showBackButton": true
+          }
+        },
+        "gamification": {
+          "enabled": false
+        },
+        "score": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "operationId": "s10-validate-final-full",
+      "tool": "get_quiz_blueprint",
+      "arguments": {
+        "funnelId": "funnel-portfolio-01",
+        "detail": "full"
+      },
+      "result": {
+        "funnelId": "funnel-portfolio-01",
+        "version": 42,
+        "finalStepId": "step-recommendation",
+        "steps": [
+          {
+            "id": "step-welcome",
+            "kind": "intro",
+            "componentIds": [
+              "component-welcome-title"
+            ]
+          },
+          {
+            "id": "step-goal",
+            "kind": "question",
+            "componentIds": [
+              "component-goal-question"
+            ]
+          },
+          {
+            "id": "step-recommendation",
+            "kind": "result",
+            "componentIds": [
+              "component-recommendation-title",
+              "component-recommendation-copy",
+              "component-recommendation-button"
+            ]
+          }
+        ],
+        "components": [
+          {
+            "id": "component-recommendation-copy",
+            "stepId": "step-recommendation",
+            "type": "text",
+            "settings": {
+              "text": "Com base nas suas respostas, veja sua recomendacao personalizada e escolha seu proximo passo."
+            }
+          }
+        ],
+        "gamification": {
+          "enabled": false
+        },
+        "score": {
+          "enabled": false
+        },
+        "warnings": []
+      }
+    }
+  ],
+  "writes": [
+    {
+      "operationId": "s10-update-final-copy",
+      "tool": "update_component_settings",
+      "payload": {
+        "funnelId": "funnel-portfolio-01",
+        "stepId": "step-recommendation",
+        "componentId": "component-recommendation-copy",
+        "version": 41,
+        "settings": {
+          "text": "Com base nas suas respostas, veja sua recomendacao personalizada e escolha seu proximo passo."
+        }
+      }
+    }
+  ],
+  "finalState": {
+    "status": "completed",
+    "funnelId": "funnel-portfolio-01",
+    "finalStepId": "step-recommendation",
+    "updatedComponentIds": [
+      "component-recommendation-copy"
+    ],
+    "globalThemeChanged": false,
+    "stepStructureChanged": false,
+    "gamification": {
+      "enabled": false
+    },
+    "score": {
+      "enabled": false
+    },
+    "warnings": []
+  },
+  "evidence": {
+    "before": [
+      {
+        "operationId": "s10-read-blueprint-summary-before",
+        "finalStepId": "step-recommendation",
+        "steps": [
+          {
+            "id": "step-welcome",
+            "kind": "intro",
+            "componentIds": [
+              "component-welcome-title"
+            ]
+          },
+          {
+            "id": "step-goal",
+            "kind": "question",
+            "componentIds": [
+              "component-goal-question"
+            ]
+          },
+          {
+            "id": "step-recommendation",
+            "kind": "result",
+            "componentIds": [
+              "component-recommendation-title",
+              "component-recommendation-copy",
+              "component-recommendation-button"
+            ]
+          }
+        ],
+        "gamification": {
+          "enabled": false
+        },
+        "score": {
+          "enabled": false
+        }
+      },
+      {
+        "operationId": "s10-read-global-presets-before",
+        "globalPresets": {
+          "theme": {
+            "primaryColor": "#1F3A5F",
+            "fontFamily": "Inter"
+          },
+          "header": {
+            "showProgress": true
+          },
+          "navigation": {
+            "showBackButton": true
+          }
+        },
+        "gamification": {
+          "enabled": false
+        },
+        "score": {
+          "enabled": false
+        }
+      }
+    ],
+    "after": [
+      {
+        "operationId": "s10-read-global-presets-after",
+        "globalPresets": {
+          "theme": {
+            "primaryColor": "#1F3A5F",
+            "fontFamily": "Inter"
+          },
+          "header": {
+            "showProgress": true
+          },
+          "navigation": {
+            "showBackButton": true
+          }
+        },
+        "gamification": {
+          "enabled": false
+        },
+        "score": {
+          "enabled": false
+        }
+      },
+      {
+        "operationId": "s10-validate-final-full",
+        "steps": [
+          {
+            "id": "step-welcome",
+            "kind": "intro",
+            "componentIds": [
+              "component-welcome-title"
+            ]
+          },
+          {
+            "id": "step-goal",
+            "kind": "question",
+            "componentIds": [
+              "component-goal-question"
+            ]
+          },
+          {
+            "id": "step-recommendation",
+            "kind": "result",
+            "componentIds": [
+              "component-recommendation-title",
+              "component-recommendation-copy",
+              "component-recommendation-button"
+            ]
+          }
+        ],
+        "components": [
+          {
+            "id": "component-recommendation-copy",
+            "stepId": "step-recommendation",
+            "type": "text",
+            "settings": {
+              "text": "Com base nas suas respostas, veja sua recomendacao personalizada e escolha seu proximo passo."
+            }
+          }
+        ],
+        "gamification": {
+          "enabled": false
+        },
+        "score": {
+          "enabled": false
+        },
+        "warnings": []
+      }
+    ]
+  }
+}

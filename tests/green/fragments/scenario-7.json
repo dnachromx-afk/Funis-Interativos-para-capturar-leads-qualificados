@@ -1,0 +1,334 @@
+{
+  "scenarioId": 7,
+  "attempt": 1,
+  "contractVersion": "1.0.0",
+  "evaluationDate": "2026-07-10",
+  "executionMode": "dry-run",
+  "model": "gpt-5.6-sol",
+  "provider": "openai",
+  "seed": null,
+  "toolCalls": [
+    {
+      "operationId": "scenario-7-list-funnels",
+      "tool": "list_funnels",
+      "arguments": {},
+      "result": {
+        "funnels": [
+          {
+            "id": "funnel-nutrition-assessment",
+            "slug": "avaliacao-nutricional",
+            "name": "Avaliacao nutricional"
+          }
+        ]
+      }
+    },
+    {
+      "operationId": "scenario-7-blueprint-summary-before",
+      "tool": "get_quiz_blueprint",
+      "arguments": {
+        "funnelId": "funnel-nutrition-assessment",
+        "detail": "summary"
+      },
+      "result": {
+        "funnelId": "funnel-nutrition-assessment",
+        "version": 17,
+        "captureStepId": "step-capture",
+        "steps": [
+          {
+            "id": "step-intro",
+            "kind": "intro"
+          },
+          {
+            "id": "step-goal",
+            "kind": "question"
+          },
+          {
+            "id": "step-capture",
+            "kind": "capture"
+          },
+          {
+            "id": "step-result",
+            "kind": "result"
+          }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "operationId": "scenario-7-presets-before",
+      "tool": "get_funnel_global_presets",
+      "arguments": {
+        "funnelId": "funnel-nutrition-assessment"
+      },
+      "result": {
+        "funnelId": "funnel-nutrition-assessment",
+        "version": 17,
+        "globalPresets": {
+          "theme": {
+            "header": {
+              "showProgress": true,
+              "showBackButton": true
+            }
+          },
+          "settings": {
+            "gamification": {
+              "enabled": false,
+              "score": {
+                "enabled": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "operationId": "scenario-7-hide-capture-progress",
+      "tool": "update_quiz_step",
+      "arguments": {
+        "funnelId": "funnel-nutrition-assessment",
+        "stepId": "step-capture",
+        "version": 17,
+        "headerOverride": {
+          "showProgress": false
+        },
+        "overrideReason": "A captura deve ocultar apenas a barra de progresso, preservando o header global e os demais comportamentos da etapa."
+      },
+      "result": {
+        "stepId": "step-capture",
+        "version": 18,
+        "headerOverride": {
+          "showProgress": false
+        }
+      }
+    },
+    {
+      "operationId": "scenario-7-presets-after",
+      "tool": "get_funnel_global_presets",
+      "arguments": {
+        "funnelId": "funnel-nutrition-assessment"
+      },
+      "result": {
+        "funnelId": "funnel-nutrition-assessment",
+        "version": 18,
+        "globalPresets": {
+          "theme": {
+            "header": {
+              "showProgress": true,
+              "showBackButton": true
+            }
+          },
+          "settings": {
+            "gamification": {
+              "enabled": false,
+              "score": {
+                "enabled": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "operationId": "scenario-7-blueprint-full-after",
+      "tool": "get_quiz_blueprint",
+      "arguments": {
+        "funnelId": "funnel-nutrition-assessment",
+        "detail": "full"
+      },
+      "result": {
+        "funnelId": "funnel-nutrition-assessment",
+        "version": 18,
+        "steps": [
+          {
+            "id": "step-intro",
+            "kind": "intro",
+            "components": [
+              {
+                "id": "component-intro-title",
+                "type": "heading"
+              }
+            ]
+          },
+          {
+            "id": "step-goal",
+            "kind": "question",
+            "components": [
+              {
+                "id": "component-goal-options",
+                "type": "singleChoice"
+              }
+            ]
+          },
+          {
+            "id": "step-capture",
+            "kind": "capture",
+            "headerOverride": {
+              "showProgress": false
+            },
+            "components": [
+              {
+                "id": "component-capture-form",
+                "type": "form"
+              }
+            ]
+          },
+          {
+            "id": "step-result",
+            "kind": "result",
+            "components": [
+              {
+                "id": "component-result-title",
+                "type": "heading"
+              }
+            ]
+          }
+        ],
+        "warnings": []
+      }
+    }
+  ],
+  "writes": [
+    {
+      "operationId": "scenario-7-hide-capture-progress",
+      "tool": "update_quiz_step",
+      "payload": {
+        "funnelId": "funnel-nutrition-assessment",
+        "stepId": "step-capture",
+        "version": 17,
+        "headerOverride": {
+          "showProgress": false
+        }
+      }
+    }
+  ],
+  "evidence": {
+    "before": {
+      "snapshots": [
+        {
+          "operationId": "scenario-7-blueprint-summary-before",
+          "captureStepId": "step-capture",
+          "steps": [
+            {
+              "id": "step-intro",
+              "kind": "intro"
+            },
+            {
+              "id": "step-goal",
+              "kind": "question"
+            },
+            {
+              "id": "step-capture",
+              "kind": "capture"
+            },
+            {
+              "id": "step-result",
+              "kind": "result"
+            }
+          ]
+        },
+        {
+          "operationId": "scenario-7-presets-before",
+          "globalPresets": {
+            "theme": {
+              "header": {
+                "showProgress": true,
+                "showBackButton": true
+              }
+            },
+            "settings": {
+              "gamification": {
+                "enabled": false,
+                "score": {
+                  "enabled": false
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "after": {
+      "snapshots": [
+        {
+          "operationId": "scenario-7-presets-after",
+          "globalPresets": {
+            "theme": {
+              "header": {
+                "showProgress": true,
+                "showBackButton": true
+              }
+            },
+            "settings": {
+              "gamification": {
+                "enabled": false,
+                "score": {
+                  "enabled": false
+                }
+              }
+            }
+          }
+        },
+        {
+          "operationId": "scenario-7-blueprint-full-after",
+          "steps": [
+            {
+              "id": "step-intro",
+              "kind": "intro",
+              "components": [
+                {
+                  "id": "component-intro-title",
+                  "type": "heading"
+                }
+              ]
+            },
+            {
+              "id": "step-goal",
+              "kind": "question",
+              "components": [
+                {
+                  "id": "component-goal-options",
+                  "type": "singleChoice"
+                }
+              ]
+            },
+            {
+              "id": "step-capture",
+              "kind": "capture",
+              "headerOverride": {
+                "showProgress": false
+              },
+              "components": [
+                {
+                  "id": "component-capture-form",
+                  "type": "form"
+                }
+              ]
+            },
+            {
+              "id": "step-result",
+              "kind": "result",
+              "components": [
+                {
+                  "id": "component-result-title",
+                  "type": "heading"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "finalState": {
+    "status": "completed",
+    "funnelId": "funnel-nutrition-assessment",
+    "captureStepId": "step-capture",
+    "version": 18,
+    "captureHeaderOverride": {
+      "showProgress": false
+    },
+    "globalHeaderUnchanged": true,
+    "componentWrites": 0,
+    "warnings": []
+  }
+}

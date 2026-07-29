@@ -1,0 +1,595 @@
+{
+  "scenarioId": 5,
+  "attempt": 1,
+  "contractVersion": "1.0.0",
+  "evaluationDate": "2026-07-10",
+  "executionMode": "dry-run",
+  "model": "gpt-5.6-sol",
+  "provider": "openai",
+  "seed": null,
+  "toolCalls": [
+    {
+      "operationId": "s5-list-funnels-01",
+      "tool": "list_funnels",
+      "arguments": {
+        "query": "emagrecimento",
+        "limit": 10
+      },
+      "result": {
+        "total": 1,
+        "items": [
+          {
+            "id": "4d5b6a70-5ce3-4d7a-9a76-1834a0d00005",
+            "title": "Emagrecimento Sustentavel",
+            "slug": "emagrecimento-sustentavel"
+          }
+        ]
+      }
+    },
+    {
+      "operationId": "s5-blueprint-summary-02",
+      "tool": "get_quiz_blueprint",
+      "arguments": {
+        "funnel": "emagrecimento-sustentavel",
+        "detail": "summary"
+      },
+      "result": {
+        "funnelId": "4d5b6a70-5ce3-4d7a-9a76-1834a0d00005",
+        "title": "Emagrecimento Sustentavel",
+        "slug": "emagrecimento-sustentavel",
+        "version": 17,
+        "steps": [
+          {
+            "id": "b40a1000-0000-4000-8000-000000000001",
+            "kind": "intro",
+            "title": "Descubra um plano possivel para voce",
+            "position": 1
+          },
+          {
+            "id": "b40a1000-0000-4000-8000-000000000002",
+            "kind": "question",
+            "title": "Qual e o seu principal objetivo?",
+            "position": 2
+          },
+          {
+            "id": "b40a1000-0000-4000-8000-000000000003",
+            "kind": "capture",
+            "title": "Receba seu proximo passo",
+            "position": 3
+          },
+          {
+            "id": "b40a1000-0000-4000-8000-000000000004",
+            "kind": "result",
+            "title": "Sua recomendacao inicial",
+            "position": 4
+          }
+        ],
+        "gamification": {
+          "enabled": false
+        },
+        "score": {
+          "enabled": false
+        },
+        "warnings": []
+      }
+    },
+    {
+      "operationId": "s5-presets-before-03",
+      "tool": "get_funnel_global_presets",
+      "arguments": {
+        "funnel": "emagrecimento-sustentavel"
+      },
+      "result": {
+        "funnelId": "4d5b6a70-5ce3-4d7a-9a76-1834a0d00005",
+        "version": 17,
+        "globalPresets": {
+          "theme": {
+            "name": "Leve"
+          },
+          "settings": {
+            "gamification": {
+              "enabled": false,
+              "score": {
+                "enabled": false
+              }
+            }
+          }
+        },
+        "gamification": {
+          "enabled": false
+        },
+        "score": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "operationId": "s5-text-schema-03",
+      "tool": "get_component_schema",
+      "arguments": {
+        "componentType": "text"
+      },
+      "result": {
+        "type": "text",
+        "title": "Texto",
+        "description": "Bloco de texto rico usado para titulos, subtitulos, instrucoes e perguntas.",
+        "settingsSchema": {
+          "type": "object",
+          "required": [
+            "content"
+          ]
+        },
+        "allowedStepKinds": [
+          "intro",
+          "question",
+          "capture",
+          "content",
+          "result"
+        ],
+        "requiredInputSettings": [
+          "content"
+        ],
+        "defaultedSettings": [
+          "useTheme"
+        ],
+        "defaults": {
+          "useTheme": true
+        },
+        "missingDefaultValues": [],
+        "enums": {},
+        "exampleSettings": {
+          "content": "<h2>Pergunta principal</h2><p>Texto de apoio da etapa.</p>"
+        },
+        "themeBehavior": "inherits",
+        "recommendedFor": [
+          "perguntas e instrucoes"
+        ],
+        "avoidWhen": [
+          "for necessario coletar uma resposta estruturada"
+        ],
+        "requiresExplicitIntent": false
+      }
+    },
+    {
+      "operationId": "s5-options-schema-04",
+      "tool": "get_component_schema",
+      "arguments": {
+        "componentType": "options"
+      },
+      "result": {
+        "type": "options",
+        "title": "Opcoes",
+        "description": "Componente principal de perguntas do quiz com lista de respostas.",
+        "settingsSchema": {
+          "type": "object",
+          "required": [
+            "items"
+          ]
+        },
+        "allowedStepKinds": [
+          "question"
+        ],
+        "requiredInputSettings": [
+          "items"
+        ],
+        "defaultedSettings": [
+          "autoAdvance",
+          "multiSelect",
+          "useTheme"
+        ],
+        "defaults": {
+          "autoAdvance": true,
+          "multiSelect": false,
+          "useTheme": true
+        },
+        "missingDefaultValues": [],
+        "enums": {
+          "layout": [
+            "list",
+            "2-columns",
+            "3-columns",
+            "4-columns"
+          ]
+        },
+        "exampleSettings": {
+          "items": [
+            {
+              "label": "Quero emagrecer",
+              "value": "emagrecer"
+            }
+          ],
+          "autoAdvance": true,
+          "multiSelect": false
+        },
+        "themeBehavior": "partial",
+        "recommendedFor": [
+          "perguntas com escolhas"
+        ],
+        "avoidWhen": [
+          "a resposta deve ser livre"
+        ],
+        "requiresExplicitIntent": false
+      }
+    },
+    {
+      "operationId": "s5-append-routine-question-05",
+      "tool": "append_quiz_steps",
+      "arguments": {
+        "funnel": "emagrecimento-sustentavel",
+        "version": 17,
+        "steps": [
+          {
+            "title": "Como e sua rotina na maior parte dos dias?",
+            "kind": "question",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "content": "<h2>Como e sua rotina na maior parte dos dias?</h2>",
+                  "useTheme": true
+                }
+              },
+              {
+                "type": "options",
+                "settings": {
+                  "items": [
+                    {
+                      "label": "Tenho horarios bem previsiveis",
+                      "value": "previsivel"
+                    },
+                    {
+                      "label": "Minha rotina muda alguns dias",
+                      "value": "variavel"
+                    },
+                    {
+                      "label": "Tenho pouca previsibilidade nos horarios",
+                      "value": "imprevisivel"
+                    }
+                  ],
+                  "autoAdvance": true,
+                  "multiSelect": false,
+                  "useTheme": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "result": {
+        "funnelId": "4d5b6a70-5ce3-4d7a-9a76-1834a0d00005",
+        "title": "Emagrecimento Sustentavel",
+        "version": 18,
+        "appendedCount": 1,
+        "stepCount": 5,
+        "steps": [
+          {
+            "id": "b40a1000-0000-4000-8000-000000000005",
+            "kind": "question",
+            "title": "Como e sua rotina na maior parte dos dias?",
+            "position": 5
+          }
+        ]
+      }
+    },
+    {
+      "operationId": "s5-position-routine-question-06",
+      "tool": "update_quiz_step",
+      "arguments": {
+        "funnel": "emagrecimento-sustentavel",
+        "version": 18,
+        "stepId": "b40a1000-0000-4000-8000-000000000005",
+        "position": 3
+      },
+      "result": {
+        "funnelId": "4d5b6a70-5ce3-4d7a-9a76-1834a0d00005",
+        "title": "Emagrecimento Sustentavel",
+        "version": 19,
+        "stepCount": 5,
+        "step": {
+          "id": "b40a1000-0000-4000-8000-000000000005",
+          "kind": "question",
+          "title": "Como e sua rotina na maior parte dos dias?",
+          "position": 3
+        }
+      }
+    },
+    {
+      "operationId": "s5-presets-after-07",
+      "tool": "get_funnel_global_presets",
+      "arguments": {
+        "funnel": "emagrecimento-sustentavel"
+      },
+      "result": {
+        "funnelId": "4d5b6a70-5ce3-4d7a-9a76-1834a0d00005",
+        "version": 19,
+        "globalPresets": {
+          "theme": {
+            "name": "Leve"
+          },
+          "settings": {
+            "gamification": {
+              "enabled": false,
+              "score": {
+                "enabled": false
+              }
+            }
+          }
+        },
+        "gamification": {
+          "enabled": false
+        },
+        "score": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "operationId": "s5-blueprint-full-07",
+      "tool": "get_quiz_blueprint",
+      "arguments": {
+        "funnel": "emagrecimento-sustentavel",
+        "detail": "full"
+      },
+      "result": {
+        "funnelId": "4d5b6a70-5ce3-4d7a-9a76-1834a0d00005",
+        "title": "Emagrecimento Sustentavel",
+        "slug": "emagrecimento-sustentavel",
+        "version": 19,
+        "steps": [
+          {
+            "id": "b40a1000-0000-4000-8000-000000000001",
+            "kind": "intro",
+            "title": "Descubra um plano possivel para voce",
+            "position": 1
+          },
+          {
+            "id": "b40a1000-0000-4000-8000-000000000002",
+            "kind": "question",
+            "title": "Qual e o seu principal objetivo?",
+            "position": 2
+          },
+          {
+            "id": "b40a1000-0000-4000-8000-000000000005",
+            "kind": "question",
+            "title": "Como e sua rotina na maior parte dos dias?",
+            "position": 3
+          },
+          {
+            "id": "b40a1000-0000-4000-8000-000000000003",
+            "kind": "capture",
+            "title": "Receba seu proximo passo",
+            "position": 4
+          },
+          {
+            "id": "b40a1000-0000-4000-8000-000000000004",
+            "kind": "result",
+            "title": "Sua recomendacao inicial",
+            "position": 5
+          }
+        ],
+        "gamification": {
+          "enabled": false
+        },
+        "score": {
+          "enabled": false
+        },
+        "warnings": []
+      }
+    }
+  ],
+  "writes": [
+    {
+      "operationId": "s5-append-routine-question-05",
+      "tool": "append_quiz_steps",
+      "payload": {
+        "version": 17,
+        "steps": [
+          {
+            "title": "Como e sua rotina na maior parte dos dias?",
+            "kind": "question",
+            "components": [
+              {
+                "type": "text",
+                "settings": {
+                  "content": "<h2>Como e sua rotina na maior parte dos dias?</h2>",
+                  "useTheme": true
+                }
+              },
+              {
+                "type": "options",
+                "settings": {
+                  "items": [
+                    {
+                      "label": "Tenho horarios bem previsiveis",
+                      "value": "previsivel"
+                    },
+                    {
+                      "label": "Minha rotina muda alguns dias",
+                      "value": "variavel"
+                    },
+                    {
+                      "label": "Tenho pouca previsibilidade nos horarios",
+                      "value": "imprevisivel"
+                    }
+                  ],
+                  "autoAdvance": true,
+                  "multiSelect": false,
+                  "useTheme": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "operationId": "s5-position-routine-question-06",
+      "tool": "update_quiz_step",
+      "payload": {
+        "version": 18,
+        "stepId": "b40a1000-0000-4000-8000-000000000005",
+        "position": 3
+      }
+    }
+  ],
+  "finalState": {
+    "status": "completed",
+    "funnel": "emagrecimento-sustentavel",
+    "version": 19,
+    "questionStepCountBefore": 1,
+    "questionStepCountAfter": 2,
+    "addedStepId": "b40a1000-0000-4000-8000-000000000005",
+    "addedStepPosition": 3,
+    "globalPresetsMutated": false,
+    "gamificationEnabled": false,
+    "scoreEnabled": false,
+    "localOverridesAdded": false,
+    "warnings": [],
+    "assumptions": [
+      "Interpretei 'pergunta de rotina' como uma pergunta de escolha unica sobre previsibilidade de horarios."
+    ]
+  },
+  "evidence": {
+    "before": [
+      {
+        "operationId": "s5-presets-before-03",
+        "gamification": {
+          "enabled": false
+        },
+        "score": {
+          "enabled": false
+        },
+        "globalPresets": {
+          "theme": {
+            "name": "Leve"
+          },
+          "settings": {
+            "gamification": {
+              "enabled": false,
+              "score": {
+                "enabled": false
+              }
+            }
+          }
+        }
+      },
+      {
+        "operationId": "s5-blueprint-summary-02",
+        "steps": [
+          {
+            "id": "b40a1000-0000-4000-8000-000000000001",
+            "kind": "intro",
+            "title": "Descubra um plano possivel para voce",
+            "position": 1
+          },
+          {
+            "id": "b40a1000-0000-4000-8000-000000000002",
+            "kind": "question",
+            "title": "Qual e o seu principal objetivo?",
+            "position": 2
+          },
+          {
+            "id": "b40a1000-0000-4000-8000-000000000003",
+            "kind": "capture",
+            "title": "Receba seu proximo passo",
+            "position": 3
+          },
+          {
+            "id": "b40a1000-0000-4000-8000-000000000004",
+            "kind": "result",
+            "title": "Sua recomendacao inicial",
+            "position": 4
+          }
+        ],
+        "gamification": {
+          "enabled": false
+        },
+        "score": {
+          "enabled": false
+        }
+      }
+    ],
+    "after": [
+      {
+        "operationId": "s5-presets-after-07",
+        "gamification": {
+          "enabled": false
+        },
+        "score": {
+          "enabled": false
+        },
+        "globalPresets": {
+          "theme": {
+            "name": "Leve"
+          },
+          "settings": {
+            "gamification": {
+              "enabled": false,
+              "score": {
+                "enabled": false
+              }
+            }
+          }
+        }
+      },
+      {
+        "operationId": "s5-blueprint-full-07",
+        "steps": [
+          {
+            "id": "b40a1000-0000-4000-8000-000000000001",
+            "kind": "intro",
+            "title": "Descubra um plano possivel para voce",
+            "position": 1
+          },
+          {
+            "id": "b40a1000-0000-4000-8000-000000000002",
+            "kind": "question",
+            "title": "Qual e o seu principal objetivo?",
+            "position": 2
+          },
+          {
+            "id": "b40a1000-0000-4000-8000-000000000005",
+            "kind": "question",
+            "title": "Como e sua rotina na maior parte dos dias?",
+            "position": 3
+          },
+          {
+            "id": "b40a1000-0000-4000-8000-000000000003",
+            "kind": "capture",
+            "title": "Receba seu proximo passo",
+            "position": 4
+          },
+          {
+            "id": "b40a1000-0000-4000-8000-000000000004",
+            "kind": "result",
+            "title": "Sua recomendacao inicial",
+            "position": 5
+          }
+        ],
+        "gamification": {
+          "enabled": false
+        },
+        "score": {
+          "enabled": false
+        }
+      }
+    ],
+    "targetResolution": {
+      "operationId": "s5-list-funnels-01",
+      "query": "emagrecimento",
+      "matchedFunnelId": "4d5b6a70-5ce3-4d7a-9a76-1834a0d00005",
+      "matchedSlug": "emagrecimento-sustentavel",
+      "matchCount": 1
+    },
+    "preservation": {
+      "existingStepIdsRetained": [
+        "b40a1000-0000-4000-8000-000000000001",
+        "b40a1000-0000-4000-8000-000000000002",
+        "b40a1000-0000-4000-8000-000000000003",
+        "b40a1000-0000-4000-8000-000000000004"
+      ],
+      "globalPresetWriteOperations": [],
+      "localOverrideWriteOperations": []
+    }
+  }
+}
